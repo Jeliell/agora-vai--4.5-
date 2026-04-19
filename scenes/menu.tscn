@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cilwq0kr5vwma"]
+
+[ext_resource type="Script" uid="uid://bv8ujyre2eu6d" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://863u0po2iosj" path="res://Art Assets/UI/TitleScreen.png" id="2_con2f"]
+
+[node name="Menu" type="Node2D" unique_id=1980198305]
+script = ExtResource("1_vjb58")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=475539722]
+offset_left = 289.0
+offset_top = 14.0
+offset_right = 581.0
+offset_bottom = 163.0
+texture = ExtResource("2_con2f")
+
+[node name="AGORA VAI" type="Label" parent="." unique_id=1452930403]
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="BotaoJogar" type="Button" parent="." unique_id=420191135]
+offset_left = 401.0
+offset_top = 173.0
+offset_right = 482.0
+offset_bottom = 223.0
+text = "Iniciar"
+
+[node name="Botaosair" type="Button" parent="." unique_id=1270357649]
+offset_left = 401.0
+offset_top = 330.0
+offset_right = 486.0
+offset_bottom = 368.0
+text = "Sair"
+
+[node name="BotaoDificuldade" type="Button" parent="." unique_id=614957372]
+offset_left = 400.0
+offset_top = 257.0
+offset_right = 475.0
+offset_bottom = 286.0
+text = "Dificuldade"
+
+[connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="Botaosair" to="." method="_on_botaosair_pressed"]
+[connection signal="pressed" from="BotaoDificuldade" to="." method="_on_button_pressed"]
