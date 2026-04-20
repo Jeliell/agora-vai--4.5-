@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://2m8qo12ds64w"]
+
+[ext_resource type="Script" uid="uid://cwnl4vrifuenf" path="res://scripts/UI/fase_completa.gd" id="1_ujbbs"]
+
+[node name="FaseCompleta" type="Node2D" unique_id=1839215289]
+script = ExtResource("1_ujbbs")
+
+[node name="Fase Completa!" type="Label" parent="." unique_id=161140528]
+offset_left = 449.0
+offset_top = 75.0
+offset_right = 489.0
+offset_bottom = 98.0
+text = "Fase Concluida"
+
+[node name="BotaoProximaFase" type="Button" parent="." unique_id=560256078]
+offset_left = 414.0
+offset_top = 98.0
+offset_right = 610.0
+offset_bottom = 148.0
+text = "Proxima fase (Em breve)"
+
+[node name="BotaoReiniciar" type="Button" parent="." unique_id=1634100547]
+offset_left = 438.0
+offset_top = 165.0
+offset_right = 572.0
+offset_bottom = 206.0
+text = "Reiniciar Fase"
+
+[node name="BotaoMenu" type="Button" parent="." unique_id=575352224]
+offset_left = 438.0
+offset_top = 224.0
+offset_right = 562.0
+offset_bottom = 269.0
+text = "Menu Principal"
+
+[connection signal="pressed" from="BotaoProximaFase" to="." method="_on_botao_proxima_fase_pressed"]
+[connection signal="pressed" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
+[connection signal="pressed" from="BotaoMenu" to="." method="_on_botao_menu_pressed"]

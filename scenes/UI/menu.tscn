@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://cilwq0kr5vwma"]
 
-[ext_resource type="Script" uid="uid://bv8ujyre2eu6d" path="res://scripts/menu.gd" id="1_vjb58"]
-[ext_resource type="Texture2D" uid="uid://863u0po2iosj" path="res://Art Assets/UI/TitleScreen.png" id="2_con2f"]
+[ext_resource type="Script" uid="uid://bv8ujyre2eu6d" path="res://scripts/UI/menu.gd" id="1_2tfbb"]
+[ext_resource type="Texture2D" uid="uid://863u0po2iosj" path="res://Art Assets/UI/TitleScreen.png" id="2_2un8v"]
 
 [node name="Menu" type="Node2D" unique_id=1980198305]
-script = ExtResource("1_vjb58")
+script = ExtResource("1_2tfbb")
 
 [node name="Fundo" type="TextureRect" parent="." unique_id=475539722]
 offset_left = 289.0
 offset_top = 14.0
 offset_right = 581.0
 offset_bottom = 163.0
-texture = ExtResource("2_con2f")
+texture = ExtResource("2_2un8v")
 
 [node name="AGORA VAI" type="Label" parent="." unique_id=1452930403]
 offset_right = 40.0
@@ -33,12 +33,20 @@ offset_bottom = 368.0
 text = "Sair"
 
 [node name="BotaoDificuldade" type="Button" parent="." unique_id=614957372]
-offset_left = 400.0
-offset_top = 257.0
-offset_right = 475.0
-offset_bottom = 286.0
+offset_left = 389.0
+offset_top = 238.0
+offset_right = 485.0
+offset_bottom = 269.0
 text = "Dificuldade"
+
+[node name="BotaoSelecionarFase" type="Button" parent="." unique_id=2079500557]
+offset_left = 378.0
+offset_top = 280.0
+offset_right = 503.0
+offset_bottom = 316.0
+text = "Selecionar Fase"
 
 [connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
 [connection signal="pressed" from="Botaosair" to="." method="_on_botaosair_pressed"]
 [connection signal="pressed" from="BotaoDificuldade" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BotaoSelecionarFase" to="." method="_on_botao_selecionar_fase_pressed"]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cpdntw7amo2s3"]
+
+[ext_resource type="Script" uid="uid://cdn6a4ucj2gnv" path="res://scripts/UI/game_over.gd" id="1_njkqv"]
+
+[node name="GameOver" type="Node2D" unique_id=2085440499]
+script = ExtResource("1_njkqv")
+
+[node name="Game Over" type="Label" parent="." unique_id=1560186282]
+offset_left = 456.0
+offset_top = 160.0
+offset_right = 548.0
+offset_bottom = 200.0
+text = "Game Over"
+
+[node name="BotaoReiniciar" type="Button" parent="." unique_id=342732342]
+offset_left = 418.0
+offset_top = 282.0
+offset_right = 595.0
+offset_bottom = 321.0
+text = "Tentar Novamente?"
+
+[node name="BotaoMenu" type="Button" parent="." unique_id=585671043]
+offset_left = 443.0
+offset_top = 204.0
+offset_right = 570.0
+offset_bottom = 274.0
+text = "Volta ao Menu"
+
+[connection signal="pressed" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
+[connection signal="pressed" from="BotaoMenu" to="." method="_on_botao_menu_pressed"]

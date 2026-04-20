@@ -1,0 +1,195 @@
+[gd_scene format=4 uid="uid://tn0uonhgxrrd"]
+
+[ext_resource type="Script" uid="uid://bdsgaay4kbvwy" path="res://scripts/fases/fase1_nivel3.gd" id="1_pr6se"]
+[ext_resource type="Texture2D" uid="uid://dqmejl6wdb35u" path="res://Art Assets/Background/Sky.png" id="2_kokl5"]
+[ext_resource type="Texture2D" uid="uid://dfjv6jcq4g5ku" path="res://Art Assets/Tiles/Tiles (16x16).png" id="3_wakke"]
+[ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_tnx3o"]
+[ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="6_pr6se"]
+[ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_yta5n"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0juu"]
+texture = ExtResource("3_wakke")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_71j4m"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 129
+sources/0 = SubResource("TileSetAtlasSource_k0juu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
+size = Vector2(93, 43)
+
+[sub_resource type="FontFile" id="FontFile_4wyf3"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
+font = SubResource("FontFile_4wyf3")
+font_size = 50
+
+[node name="World" type="Node2D" unique_id=1454552130]
+script = ExtResource("1_pr6se")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1962162247]
+offset_right = 1169.0
+offset_bottom = 579.0
+color = Color(0.113725, 0.756863, 1, 1)
+
+[node name="Sky" type="TextureRect" parent="." unique_id=666042481]
+offset_left = -4.0
+offset_top = 324.0
+offset_right = 1170.0
+offset_bottom = 516.0
+texture = ExtResource("2_kokl5")
+stretch_mode = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1554162738]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAAABEAAAABAAEAAAAAABIAAAABAAIAAAABABEAAAABAAEAAAABABIAAAABAAIAAAACABEAAAABAAEAAAACABIAAAABAAIAAAADABEAAAABAAEAAAADABIAAAABAAIAAAAEABEAAAABAAEAAAAEABIAAAABAAIAAAAFABEAAAABAAEAAAAFABIAAAABAAIAAAAGABEAAAABAAEAAAAGABIAAAABAAIAAAAHABEAAAABAAEAAAAHABIAAAABAAIAAAAIABEAAAABAAEAAAAIABIAAAABAAIAAAAJABEAAAABAAEAAAAJABIAAAABAAIAAAAKABEAAAABAAEAAAAKABIAAAABAAIAAAALABEAAAABAAEAAAALABIAAAABAAIAAAAMABEAAAABAAEAAAAMABIAAAABAAIAAAANABEAAAABAAEAAAANABIAAAABAAIAAAAOABEAAAABAAEAAAAOABIAAAABAAIAAAAPABEAAAABAAEAAAAPABIAAAABAAIAAAAQABEAAAABAAEAAAAQABIAAAABAAIAAAARABEAAAABAAEAAAARABIAAAABAAIAAAASABEAAAABAAEAAAASABIAAAABAAIAAAATABEAAAABAAEAAAATABIAAAABAAIAAAAUABEAAAABAAEAAAAUABIAAAABAAIAAAAVABEAAAABAAEAAAAVABIAAAABAAIAAAAWABEAAAABAAEAAAAWABIAAAABAAIAAAAXABEAAAABAAEAAAAXABIAAAABAAIAAAAYABEAAAABAAEAAAAYABIAAAABAAIAAAAZABEAAAABAAEAAAAZABIAAAABAAIAAAAaABEAAAABAAEAAAAaABIAAAABAAIAAAAbABEAAAABAAEAAAAbABIAAAABAAIAAAAcABEAAAABAAEAAAAcABIAAAABAAIAAAAdABEAAAABAAEAAAAdABIAAAABAAIAAAAeABEAAAABAAEAAAAeABIAAAABAAIAAAAfABEAAAABAAEAAAAfABIAAAABAAIAAAAgABEAAAABAAEAAAAgABIAAAABAAIAAAAhABEAAAABAAEAAAAhABIAAAABAAIAAAAiABEAAAABAAEAAAAiABIAAAABAAIAAAAjABEAAAABAAEAAAAjABIAAAABAAIAAAAkABEAAAABAAEAAAAkABIAAAABAAIAAAAAAA8AAAABAAAAAAAAABAAAAABAAEAAAABAA8AAAABAAAAAAABABAAAAABAAEAAAACAA8AAAABAAAAAAACABAAAAABAAEAAAADAA8AAAABAAAAAAADABAAAAABAAEAAAAEAA8AAAABAAAAAAAEABAAAAABAAEAAAAFAA8AAAABAAAAAAAFABAAAAABAAEAAAAGAA8AAAABAAAAAAAGABAAAAABAAEAAAAHAA8AAAABAAAAAAAHABAAAAABAAEAAAAIAA8AAAABAAAAAAAIABAAAAABAAEAAAAJAA8AAAABAAAAAAAJABAAAAABAAEAAAAKAA8AAAABAAAAAAAKABAAAAABAAEAAAALAA8AAAABAAAAAAALABAAAAABAAEAAAAMAA8AAAABAAAAAAAMABAAAAABAAEAAAANAA8AAAABAAAAAAANABAAAAABAAEAAAAOAA8AAAABAAAAAAAOABAAAAABAAEAAAAPAA8AAAABAAAAAAAPABAAAAABAAEAAAAQAA8AAAABAAAAAAAQABAAAAABAAEAAAARAA8AAAABAAAAAAARABAAAAABAAEAAAASAA8AAAABAAAAAAASABAAAAABAAEAAAATAA8AAAABAAAAAAATABAAAAABAAEAAAAUAA8AAAABAAAAAAAUABAAAAABAAEAAAAVAA8AAAABAAAAAAAVABAAAAABAAEAAAAWAA8AAAABAAAAAAAWABAAAAABAAEAAAAXAA8AAAABAAAAAAAXABAAAAABAAEAAAAYAA8AAAABAAAAAAAYABAAAAABAAEAAAAZAA8AAAABAAAAAAAZABAAAAABAAEAAAAaAA8AAAABAAAAAAAaABAAAAABAAEAAAAbAA8AAAABAAAAAAAbABAAAAABAAEAAAAcAA8AAAABAAAAAAAcABAAAAABAAEAAAAdAA8AAAABAAAAAAAdABAAAAABAAEAAAAeAA8AAAABAAAAAAAeABAAAAABAAEAAAAfAA8AAAABAAAAAAAfABAAAAABAAEAAAAgAA8AAAABAAAAAAAgABAAAAABAAEAAAAhAA8AAAABAAAAAAAhABAAAAABAAEAAAAiAA8AAAABAAAAAAAiABAAAAABAAEAAAAjAA8AAAABAAAAAAAjABAAAAABAAEAAAAkAA8AAAABAAAAAAAkABAAAAABAAEAAAAHAAsAAAAAAAAAAAAIAAsAAAABAAAAAAAJAAsAAAACAAAAAAABAAgAAAAAAAAAAAACAAgAAAABAAAAAAADAAgAAAACAAAAAAAZAAQAAAAAAAAAAAAaAAQAAAABAAAAAAAbAAQAAAACAAAAAAAeAAgAAAAAAAAAAAAfAAgAAAABAAAAAAAgAAgAAAACAAAAAAAYAAsAAAAAAAAAAAAZAAsAAAABAAAAAAAaAAsAAAACAAAAAAAFAAQAAAAEAAIAAAAEAAQAAAAGAAEAAAAGAAQAAAAIAAEAAAA=")
+tile_set = SubResource("TileSet_71j4m")
+
+[node name="player" parent="." unique_id=73708419 instance=ExtResource("4_tnx3o")]
+position = Vector2(575, 466)
+scale = Vector2(2, 2)
+
+[node name="Resposta1" type="Area2D" parent="." unique_id=1701218742]
+position = Vector2(439, 158)
+script = ExtResource("6_yta5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta1" unique_id=1449365648]
+position = Vector2(-167, 173)
+shape = SubResource("RectangleShape2D_qfnet")
+
+[node name="Label" type="Label" parent="Resposta1" unique_id=960683871]
+offset_left = -212.0
+offset_top = 136.0
+offset_right = -124.0
+offset_bottom = 203.0
+label_settings = SubResource("LabelSettings_k0juu")
+horizontal_alignment = 1
+
+[node name="Resposta2" type="Area2D" parent="." unique_id=1792736178]
+script = ExtResource("6_yta5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta2" unique_id=162558206]
+position = Vector2(177, 107)
+shape = SubResource("RectangleShape2D_qfnet")
+
+[node name="Label" type="Label" parent="Resposta2" unique_id=1442704165]
+offset_left = 132.0
+offset_top = 62.0
+offset_right = 220.0
+offset_bottom = 129.0
+label_settings = SubResource("LabelSettings_k0juu")
+horizontal_alignment = 1
+
+[node name="Resposta3" type="Area2D" parent="." unique_id=926387014]
+script = ExtResource("6_yta5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta3" unique_id=276804104]
+position = Vector2(80, 235)
+shape = SubResource("RectangleShape2D_qfnet")
+
+[node name="Label" type="Label" parent="Resposta3" unique_id=578017817]
+offset_left = 37.0
+offset_top = 199.0
+offset_right = 125.0
+offset_bottom = 266.0
+label_settings = SubResource("LabelSettings_k0juu")
+horizontal_alignment = 1
+
+[node name="Resposta4" type="Area2D" parent="." unique_id=1871301116]
+script = ExtResource("6_yta5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta4" unique_id=1085067042]
+position = Vector2(1008, 234)
+shape = SubResource("RectangleShape2D_qfnet")
+
+[node name="Label" type="Label" parent="Resposta4" unique_id=1412954632]
+offset_left = 964.0
+offset_top = 197.0
+offset_right = 1052.0
+offset_bottom = 264.0
+label_settings = SubResource("LabelSettings_k0juu")
+horizontal_alignment = 1
+
+[node name="Resposta5" type="Area2D" parent="." unique_id=1170998445]
+script = ExtResource("6_yta5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta5" unique_id=945860277]
+position = Vector2(848, 107)
+shape = SubResource("RectangleShape2D_qfnet")
+
+[node name="Label" type="Label" parent="Resposta5" unique_id=1973291098]
+offset_left = 803.0
+offset_top = 74.0
+offset_right = 891.0
+offset_bottom = 141.0
+label_settings = SubResource("LabelSettings_k0juu")
+horizontal_alignment = 1
+
+[node name="Resposta6" type="Area2D" parent="." unique_id=1715154889]
+script = ExtResource("6_yta5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta6" unique_id=2099942043]
+position = Vector2(815, 332)
+shape = SubResource("RectangleShape2D_qfnet")
+
+[node name="Label" type="Label" parent="Resposta6" unique_id=2033743812]
+offset_left = 764.0
+offset_top = 298.0
+offset_right = 865.0
+offset_bottom = 365.0
+label_settings = SubResource("LabelSettings_k0juu")
+horizontal_alignment = 1
+
+[node name="HUD" parent="." unique_id=1430824241 instance=ExtResource("6_pr6se")]
