@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://biid5q2ia5ygp"]
 
-[ext_resource type="Texture2D" uid="uid://bxpow14vpuo16" path="res://Art Assets/Characters/Duck/Duck (16x16).png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://carcowv73006x" path="res://player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://da0o3r81bni0h" path="res://Art Assets/NovoDuck/duck-Sheet.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(15, 15)
+size = Vector2(18, 18)
 
 [node name="player" type="CharacterBody2D" unique_id=746185790]
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=278109722]
-position = Vector2(0.5, 1.5)
+position = Vector2(1, -14)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=646887598]
-position = Vector2(1, 1)
-texture = ExtResource("1_3vyb7")
-hframes = 2
+position = Vector2(2, -14)
+texture = ExtResource("2_onrkg")
+hframes = 24
+vframes = 5
