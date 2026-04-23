@@ -2,7 +2,7 @@ extends Label
 
 signal tempo_esgotado
 
-var valor = 10.0
+var valor = 30.0
 var tempo = 0.0
 
 func _ready():

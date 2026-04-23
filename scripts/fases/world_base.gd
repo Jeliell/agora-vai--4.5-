@@ -12,8 +12,15 @@ extends Node2D
 @export var fase_atual: int = 1
 @export var nivel_atual: int = 1
 
-# "adicao" ou "subtracao"
+# "adicao", "subtracao", "multiplicacao" ou "divisao"
 @export var operacao: String = "adicao"
+
+# Para multiplicação: fixa um dos fatores (ex: tabuada do 2)
+# -1 = ambos os fatores são aleatórios dentro de numero_min/numero_max
+@export var fator_fixo: int = -1
+
+# Para divisão: resultado máximo possível (quociente)
+@export var resultado_max: int = 10
 
 @onready var label_alvo: Label     = $HUD/LabelAlvo
 @onready var label_pontos: Label   = $HUD/LabelPontos
@@ -101,21 +108,42 @@ func _nova_pergunta() -> void:
 	var a := 0
 	var b := 0
 
-	if operacao == "subtracao":
-		# Garante que a >= b para o resultado nunca ser negativo
-		a = randi_range(numero_min, numero_max)
-		b = randi_range(numero_min, a)  # b nunca maior que a
-		resposta_correta = a - b
-		# Evita resultado zero — pouco didático
-		while resposta_correta == 0:
-			b = randi_range(numero_min, a - 1)
+	match operacao:
+		"subtracao":
+			a = randi_range(numero_min, numero_max)
+			b = randi_range(numero_min, a)
 			resposta_correta = a - b
-		label_alvo.text = str(a) + " - " + str(b) + " = ?"
-	else:
-		a = randi_range(numero_min, numero_max)
-		b = randi_range(numero_min, numero_max)
-		resposta_correta = a + b
-		label_alvo.text = str(a) + " + " + str(b) + " = ?"
+			while resposta_correta == 0:
+				b = randi_range(numero_min, a - 1)
+				resposta_correta = a - b
+			label_alvo.text = str(a) + " - " + str(b) + " = ?"
+
+		"multiplicacao":
+			if fator_fixo >= 1:
+				a = fator_fixo
+				b = randi_range(numero_min, numero_max)
+			else:
+				a = randi_range(numero_min, numero_max)
+				b = randi_range(numero_min, numero_max)
+			if a > b:
+				var tmp = a; a = b; b = tmp
+			resposta_correta = a * b
+			label_alvo.text = str(a) + " x " + str(b) + " = ?"
+
+		"divisao":
+			# Gera ao contrário: escolhe o quociente (resultado) e o divisor
+			# para garantir sempre divisão exata sem resto
+			var quociente := randi_range(1, resultado_max)
+			var divisor   := randi_range(numero_min, numero_max)
+			var dividendo := quociente * divisor   # sempre divisão exata
+			resposta_correta = quociente
+			label_alvo.text = str(dividendo) + " ÷ " + str(divisor) + " = ?"
+
+		_: # adicao
+			a = randi_range(numero_min, numero_max)
+			b = randi_range(numero_min, numero_max)
+			resposta_correta = a + b
+			label_alvo.text = str(a) + " + " + str(b) + " = ?"
 
 	var respostas := get_tree().get_nodes_in_group("resposta")
 	if respostas.is_empty():
@@ -158,7 +186,7 @@ func _valor_com_digito_comum(correto: int, usados: Array) -> int:
 		if candidato > 0 and candidato not in usados and _tem_digito_comum(candidato, correto):
 			return candidato
 
-	var base := (correto / 10) * 10
+	var base: int = (correto / 10) * 10
 	for d in range(10):
 		var candidato := base + d
 		if candidato > 0 and candidato != correto and candidato not in usados:
@@ -167,6 +195,22 @@ func _valor_com_digito_comum(correto: int, usados: Array) -> int:
 	return correto + 1
 
 func _valor_errado_simples(correto: int, usados: Array) -> int:
+	# Para multiplicação, erros também são produtos de tabuada
+	if operacao == "multiplicacao":
+		for _tentativa in 20:
+			var fa := randi_range(numero_min, numero_max)
+			var fb := randi_range(numero_min, numero_max)
+			var candidato := fa * fb
+			if candidato > 0 and candidato != correto and candidato not in usados:
+				return candidato
+
+	# Para divisão, erros também são quocientes válidos de tabuada
+	if operacao == "divisao":
+		for _tentativa in 20:
+			var candidato := randi_range(1, resultado_max)
+			if candidato != correto and candidato not in usados:
+				return candidato
+
 	for _tentativa in 20:
 		var sinal := 1 if randi() % 2 == 0 else -1
 		var offset := randi_range(variacao_errada_min, variacao_errada_max)

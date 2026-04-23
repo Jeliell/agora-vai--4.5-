@@ -15,7 +15,11 @@ func _on_botao_proxima_fase_pressed() -> void:
 		get_tree().change_scene_to_file(cena)
 
 func _on_botao_reiniciar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/fases/fase1/fase1_nivel1.tscn")
+	var cena: String = get_tree().get_meta(
+		"cena_reinicio",
+        "res://scenes/fases/fase1/fase1_nivel1.tscn"
+	)
+	get_tree().change_scene_to_file(cena)
 
 func _on_botao_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/menu.tscn")
