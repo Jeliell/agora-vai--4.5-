@@ -37,3 +37,10 @@ offset_top = 23.0
 offset_right = 596.0
 offset_bottom = 82.0
 script = ExtResource("1_c4vmg")
+
+[node name="BarraStamina" type="ProgressBar" parent="." unique_id=629754042]
+offset_left = 710.0
+offset_top = 82.0
+offset_right = 855.0
+offset_bottom = 109.0
+value = 100.0

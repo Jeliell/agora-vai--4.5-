@@ -4,8 +4,9 @@ func _ready() -> void:
 	fase_atual = 2
 	nivel_atual = 1
 	operacao = "subtracao"
+	usar_stamina = true
 	numero_min = 1
-	numero_max = 10        # ex: 9 - 3 = 6, resultado máx 9
+	numero_max = 10
 	variacao_errada_min = 1
 	variacao_errada_max = 3
 	respostas_com_digito_comum = 0

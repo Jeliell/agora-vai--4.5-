@@ -193,3 +193,9 @@ label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
 
 [node name="HUD" parent="." unique_id=1430824241 instance=ExtResource("6_8dmmo")]
+
+[node name="BarraStamina" parent="HUD" index="6" unique_id=629754042]
+offset_left = 1064.0
+offset_right = 1166.0
+
+[editable path="HUD"]

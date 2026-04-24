@@ -11,16 +11,12 @@ extends Node2D
 @export var respostas_com_digito_comum: int = 0
 @export var fase_atual: int = 1
 @export var nivel_atual: int = 1
-
-# "adicao", "subtracao", "multiplicacao" ou "divisao"
 @export var operacao: String = "adicao"
-
-# Para multiplicação: fixa um dos fatores (ex: tabuada do 2)
-# -1 = ambos os fatores são aleatórios dentro de numero_min/numero_max
 @export var fator_fixo: int = -1
-
-# Para divisão: resultado máximo possível (quociente)
 @export var resultado_max: int = 10
+
+# Ativa a mecânica de stamina — true apenas nas fases do verão
+@export var usar_stamina: bool = false
 
 @onready var label_alvo: Label     = $HUD/LabelAlvo
 @onready var label_pontos: Label   = $HUD/LabelPontos
@@ -28,6 +24,7 @@ extends Node2D
 @onready var label_vidas: Label    = $HUD/LabelVidas
 @onready var label_fase: Label     = $HUD/LabelFase
 @onready var cronometro            = $HUD/cornometro
+@onready var barra_stamina: ProgressBar = $HUD/BarraStamina
 
 var pontuacao: int = 0
 var acertos: int = 0
@@ -42,7 +39,19 @@ func _ready() -> void:
 	_atualizar_vidas()
 	_atualizar_fase()
 	cronometro.tempo_esgotado.connect(_ao_fim_do_tempo)
+
+	# Configura stamina no player
 	await get_tree().process_frame
+	var jogadores := get_tree().get_nodes_in_group("jogador")
+	if not jogadores.is_empty():
+		var player = jogadores[0]
+		player.stamina_ativa = usar_stamina
+		player.barra_stamina = barra_stamina
+		player.stamina = player.stamina_max
+
+	# Mostra ou esconde a barra dependendo da fase
+	barra_stamina.visible = usar_stamina
+
 	_nova_pergunta()
 
 func _process(delta: float) -> void:
@@ -131,15 +140,13 @@ func _nova_pergunta() -> void:
 			label_alvo.text = str(a) + " x " + str(b) + " = ?"
 
 		"divisao":
-			# Gera ao contrário: escolhe o quociente (resultado) e o divisor
-			# para garantir sempre divisão exata sem resto
 			var quociente := randi_range(1, resultado_max)
 			var divisor   := randi_range(numero_min, numero_max)
-			var dividendo := quociente * divisor   # sempre divisão exata
+			var dividendo := quociente * divisor
 			resposta_correta = quociente
 			label_alvo.text = str(dividendo) + " ÷ " + str(divisor) + " = ?"
 
-		_: # adicao
+		_:
 			a = randi_range(numero_min, numero_max)
 			b = randi_range(numero_min, numero_max)
 			resposta_correta = a + b
@@ -155,7 +162,6 @@ func _nova_pergunta() -> void:
 
 	var idx_correto: int = indices[0]
 	var indices_comum := indices.slice(1, 1 + respostas_com_digito_comum)
-
 	var usados: Array[int] = [resposta_correta]
 
 	for i in respostas.size():
@@ -195,7 +201,6 @@ func _valor_com_digito_comum(correto: int, usados: Array) -> int:
 	return correto + 1
 
 func _valor_errado_simples(correto: int, usados: Array) -> int:
-	# Para multiplicação, erros também são produtos de tabuada
 	if operacao == "multiplicacao":
 		for _tentativa in 20:
 			var fa := randi_range(numero_min, numero_max)
@@ -204,7 +209,6 @@ func _valor_errado_simples(correto: int, usados: Array) -> int:
 			if candidato > 0 and candidato != correto and candidato not in usados:
 				return candidato
 
-	# Para divisão, erros também são quocientes válidos de tabuada
 	if operacao == "divisao":
 		for _tentativa in 20:
 			var candidato := randi_range(1, resultado_max)
