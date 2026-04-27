@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfjv6jcq4g5ku"
-path="res://.godot/imported/Tiles (16x16).png-58f0f7bf94dfef07fae91ba0d52b01ed.ctex"
+uid="uid://bgfmm5h82vsm1"
+path="res://.godot/imported/AutumnTiles_16x16.png-c78a1202a8479b006597128f86f4448e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Tiles/Tiles (16x16).png"
-dest_files=["res://.godot/imported/Tiles (16x16).png-58f0f7bf94dfef07fae91ba0d52b01ed.ctex"]
+source_file="res://Art Assets/Tiles/AutumnTiles_16x16.png"
+dest_files=["res://.godot/imported/AutumnTiles_16x16.png-c78a1202a8479b006597128f86f4448e.ctex"]
 
 [params]
 
