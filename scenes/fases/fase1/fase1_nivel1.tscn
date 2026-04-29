@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs02fm4xeehbl"]
 
-[ext_resource type="Script" uid="uid://dlshaeohv7elg" path="res://scripts/fases/fase1_nivel1.gd" id="1_irg13"]
+[ext_resource type="Script" uid="uid://dlshaeohv7elg" path="res://scripts/fases/fase1/fase1_nivel1.gd" id="1_irg13"]
 [ext_resource type="PackedScene" uid="uid://dn0eacl6fxn0g" path="res://scenes/cenarios/cenario_primavera.tscn" id="2_j45a1"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_g17li"]
 [ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_dip6n"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b812a42qfm6bh"]
 
-[ext_resource type="Script" uid="uid://drswf4wq0iy1k" path="res://scripts/fases/fase3_nivel2.gd" id="1_ius6f"]
+[ext_resource type="Script" uid="uid://drswf4wq0iy1k" path="res://scripts/fases/fase3/fase3_nivel2.gd" id="1_ius6f"]
 [ext_resource type="PackedScene" uid="uid://cgt2f00rcxffk" path="res://scenes/cenarios/cenario_outono.tscn" id="2_pj1nw"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_scaex"]
 [ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_02lpq"]

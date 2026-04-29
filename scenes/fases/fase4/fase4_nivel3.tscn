@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8qputsidmocg"]
 
-[ext_resource type="Script" uid="uid://b868koramjoej" path="res://scripts/fases/fase4_nivel3.gd" id="1_5n4qd"]
+[ext_resource type="Script" uid="uid://b868koramjoej" path="res://scripts/fases/fase4/fase4_nivel3.gd" id="1_5n4qd"]
 [ext_resource type="PackedScene" uid="uid://nmrqcej6jhtr" path="res://scenes/cenarios/cenario_inverno.tscn" id="2_w74gk"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_p88le"]
 [ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="6_5n4qd"]
