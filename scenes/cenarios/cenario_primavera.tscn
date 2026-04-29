@@ -3,32 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dqmejl6wdb35u" path="res://Art Assets/Background/Sky.png" id="1_cm5j5"]
 [ext_resource type="Texture2D" uid="uid://cw6vr64r6whgc" path="res://Art Assets/Tiles/tileset_primavera_144x48.png" id="2_35not"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhm5w"]
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_abndw"]
 texture = ExtResource("2_35not")
 0:0/0 = 0
@@ -83,7 +57,6 @@ texture = ExtResource("2_35not")
 [sub_resource type="TileSet" id="TileSet_gk8nw"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 129
-sources/0 = SubResource("TileSetAtlasSource_bhm5w")
 sources/1 = SubResource("TileSetAtlasSource_abndw")
 
 [node name="Primavera" type="Node2D" unique_id=107084568]

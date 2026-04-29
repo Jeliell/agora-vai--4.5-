@@ -3,41 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dqmejl6wdb35u" path="res://Art Assets/Background/Sky.png" id="1_0jpyr"]
 [ext_resource type="Texture2D" uid="uid://b5u245p0e0dt3" path="res://Art Assets/Tiles/tileset_verao_144x48.png" id="2_xl400"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02ytj"]
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_suojy"]
 texture = ExtResource("2_xl400")
 0:0/0 = 0
@@ -92,7 +57,6 @@ texture = ExtResource("2_xl400")
 [sub_resource type="TileSet" id="TileSet_7hasl"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 129
-sources/0 = SubResource("TileSetAtlasSource_02ytj")
 sources/1 = SubResource("TileSetAtlasSource_suojy")
 
 [node name="Verão" type="Node2D" unique_id=39245604]

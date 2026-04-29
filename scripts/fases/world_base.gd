@@ -15,7 +15,7 @@ extends Node2D
 @export var fator_fixo: int = -1
 @export var resultado_max: int = 10
 
-# Ativa a mecânica de stamina — true apenas nas fases do verão
+# Apenas a stamina permanece aqui — afeta o jogador globalmente
 @export var usar_stamina: bool = false
 
 @onready var label_alvo: Label     = $HUD/LabelAlvo
@@ -40,7 +40,6 @@ func _ready() -> void:
 	_atualizar_fase()
 	cronometro.tempo_esgotado.connect(_ao_fim_do_tempo)
 
-	# Configura stamina no player
 	await get_tree().process_frame
 	var jogadores := get_tree().get_nodes_in_group("jogador")
 	if not jogadores.is_empty():
@@ -49,7 +48,6 @@ func _ready() -> void:
 		player.barra_stamina = barra_stamina
 		player.stamina = player.stamina_max
 
-	# Mostra ou esconde a barra dependendo da fase
 	barra_stamina.visible = usar_stamina
 
 	_nova_pergunta()

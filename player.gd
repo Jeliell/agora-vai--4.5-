@@ -7,7 +7,8 @@ var _posicao_inicial: Vector2
 var _anim_timer: float = 0.0
 var _anim_velocidade: float = 0.1
 
-# ── Stamina ───────────────────────────────────────
+# ── Stamina (Verão) ───────────────────────────────
+# Mantida no player porque afeta o jogador globalmente
 var stamina_ativa: bool = false
 var stamina: float = 100.0
 var stamina_max: float = 100.0
@@ -18,11 +19,16 @@ var speed_cansado: int = 80
 var barra_stamina: ProgressBar = null
 # ─────────────────────────────────────────────────
 
+# ── Controle externo (cenários afetam o player) ──
+# O cenário do inverno modifica esses valores em tempo real
+var atrito_horizontal: float = -1.0     # -1 = parada instantânea (padrão)
+var aceleracao_horizontal: float = -1.0 # -1 = aceleração instantânea (padrão)
+# ─────────────────────────────────────────────────
+
 func _ready() -> void:
 	add_to_group("jogador")
 	_posicao_inicial = global_position
 
-	# Proteção contra duplicidade
 	var jogadores = get_tree().get_nodes_in_group("jogador")
 	if jogadores.size() > 1 and jogadores[0] != self:
 		queue_free()
@@ -35,31 +41,36 @@ func resetar() -> void:
 	_atualizar_barra()
 
 func _physics_process(delta: float) -> void:
-	# Gravidade
 	if not is_on_floor():
 		velocity.y += grav
 	else:
 		velocity.y = 0
 
 	var velocidade_atual: int = speed_cansado if (stamina_ativa and stamina <= 0) else speed
-
-	# Movimentação horizontal
 	var direction: float = Input.get_axis("ui_left", "ui_right")
+
 	if direction != 0:
-		velocity.x = direction * velocidade_atual
+		# Aceleração: instantânea por padrão, gradual se cenário definir
+		if aceleracao_horizontal > 0:
+			velocity.x = move_toward(velocity.x, direction * velocidade_atual, aceleracao_horizontal * delta)
+		else:
+			velocity.x = direction * velocidade_atual
 		$Sprite2D.flip_h = (direction < 0)
 		_animar(delta, "andar")
 		if stamina_ativa:
 			stamina -= stamina_custo_correr * delta
 			stamina = max(stamina, 0.0)
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		_animar(delta, "parado")
+		# Desaceleração: instantânea por padrão, gradual se cenário definir
+		if atrito_horizontal > 0:
+			velocity.x = move_toward(velocity.x, 0, atrito_horizontal * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
+		_animar(delta, "andar" if abs(velocity.x) > 10 else "parado")
 		if stamina_ativa:
 			stamina += stamina_recuperacao * delta
 			stamina = min(stamina, stamina_max)
 
-	# Pulo
 	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
 		velocity.y = jump_force
 		if stamina_ativa:
@@ -82,10 +93,8 @@ func _animar(delta: float, estado: String) -> void:
 
 		match estado:
 			"parado":
-				# Linha 0 do spritesheet — 4 frames idle
 				$Sprite2D.frame = ($Sprite2D.frame + 1) % 4
 			"andar":
-				# Linha 1 do spritesheet — frames 24 a 29
 				var frame_inicial: int = 24
 				var total_frames_andar: int = 6
 				var frame_atual: int = $Sprite2D.frame

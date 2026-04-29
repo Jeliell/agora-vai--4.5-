@@ -1,135 +1,10 @@
-[gd_scene format=4 uid="uid://c8qputsidmocg"]
+[gd_scene format=3 uid="uid://c8qputsidmocg"]
 
 [ext_resource type="Script" uid="uid://b868koramjoej" path="res://scripts/fases/fase4_nivel3.gd" id="1_5n4qd"]
-[ext_resource type="Texture2D" uid="uid://dqmejl6wdb35u" path="res://Art Assets/Background/Sky.png" id="2_u28pb"]
-[ext_resource type="Texture2D" uid="uid://8lv21badce1" path="res://Art Assets/Tiles/WinterTiles_16x16.png" id="3_u28pb"]
-[ext_resource type="Texture2D" uid="uid://b1dgnba26o5yo" path="res://Art Assets/Tiles/tileset_inverno_144x48.png" id="4_46vwd"]
+[ext_resource type="PackedScene" uid="uid://nmrqcej6jhtr" path="res://scenes/cenarios/cenario_inverno.tscn" id="2_w74gk"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_p88le"]
 [ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="6_5n4qd"]
 [ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_6b4id"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_twd0d"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p88le"]
-texture = SubResource("CompressedTexture2D_twd0d")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4qp0"]
-texture = ExtResource("3_u28pb")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b4id"]
-texture = ExtResource("4_46vwd")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-5:0/0 = 0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:0/0 = 0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-7:0/0 = 0
-7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-5:1/0 = 0
-5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-7:1/0 = 0
-7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-8:1/0 = 0
-8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:2/0 = 0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-5:2/0 = 0
-5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:2/0 = 0
-6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-7:2/0 = 0
-7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSet" id="TileSet_3nc3u"]
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 129
-sources/0 = SubResource("TileSetAtlasSource_p88le")
-sources/3 = SubResource("TileSetAtlasSource_q4qp0")
-sources/5 = SubResource("TileSetAtlasSource_6b4id")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
 size = Vector2(93, 43)
@@ -162,25 +37,7 @@ font_size = 50
 [node name="World" type="Node2D" unique_id=1454552130]
 script = ExtResource("1_5n4qd")
 
-[node name="Inverno" type="Node2D" parent="." unique_id=475176055]
-
-[node name="ColorRect" type="ColorRect" parent="Inverno" unique_id=1014996032]
-offset_right = 1169.0
-offset_bottom = 579.0
-color = Color(0.113725, 0.756863, 1, 1)
-
-[node name="Sky" type="TextureRect" parent="Inverno" unique_id=52416132]
-offset_left = -4.0
-offset_top = 324.0
-offset_right = 1170.0
-offset_bottom = 516.0
-texture = ExtResource("2_u28pb")
-stretch_mode = 1
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Inverno" unique_id=366632697]
-scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAAABEABQAAAAEAAAAAABIABQAAAAIAAAABABEABQABAAEAAAABABIABQABAAIAAAACABEABQABAAEAAAACABIABQABAAIAAAADABEABQABAAEAAAADABIABQABAAIAAAAEABEABQABAAEAAAAEABIABQABAAIAAAAFABEABQABAAEAAAAFABIABQABAAIAAAAGABEABQABAAEAAAAGABIABQABAAIAAAAHABEABQABAAEAAAAHABIABQABAAIAAAAIABEABQABAAEAAAAIABIABQABAAIAAAAJABEABQABAAEAAAAJABIABQABAAIAAAAKABEABQABAAEAAAAKABIABQABAAIAAAALABEABQABAAEAAAALABIABQABAAIAAAAMABEABQABAAEAAAAMABIABQABAAIAAAANABEABQABAAEAAAANABIABQABAAIAAAAOABEABQABAAEAAAAOABIABQABAAIAAAAPABEABQABAAEAAAAPABIABQABAAIAAAAQABEABQABAAEAAAAQABIABQABAAIAAAARABEABQABAAEAAAARABIABQABAAIAAAASABEABQABAAEAAAASABIABQABAAIAAAATABEABQABAAEAAAATABIABQABAAIAAAAUABEABQABAAEAAAAUABIABQABAAIAAAAVABEABQABAAEAAAAVABIABQABAAIAAAAWABEABQABAAEAAAAWABIABQABAAIAAAAXABEABQABAAEAAAAXABIABQABAAIAAAAYABEABQABAAEAAAAYABIABQABAAIAAAAZABEABQABAAEAAAAZABIABQABAAIAAAAaABEABQABAAEAAAAaABIABQABAAIAAAAbABEABQABAAEAAAAbABIABQABAAIAAAAcABEABQABAAEAAAAcABIABQABAAIAAAAdABEABQABAAEAAAAdABIABQABAAIAAAAeABEABQABAAEAAAAeABIABQABAAIAAAAfABEABQABAAEAAAAfABIABQABAAIAAAAgABEABQABAAEAAAAgABIABQABAAIAAAAhABEABQABAAEAAAAhABIABQABAAIAAAAiABEABQABAAEAAAAiABIABQABAAIAAAAjABEABQABAAEAAAAjABIABQABAAIAAAAkABEABQACAAEAAAAkABIABQACAAIAAAAAAA8ABQAAAAAAAAAAABAABQAAAAEAAAABAA8ABQABAAAAAAABABAABQABAAEAAAACAA8ABQABAAAAAAACABAABQABAAEAAAADAA8ABQABAAAAAAADABAABQABAAEAAAAEAA8ABQABAAAAAAAEABAABQABAAEAAAAFAA8ABQABAAAAAAAFABAABQABAAEAAAAGAA8ABQABAAAAAAAGABAABQABAAEAAAAHAA8ABQABAAAAAAAHABAABQABAAEAAAAIAA8ABQABAAAAAAAIABAABQABAAEAAAAJAA8ABQABAAAAAAAJABAABQABAAEAAAAKAA8ABQABAAAAAAAKABAABQABAAEAAAALAA8ABQABAAAAAAALABAABQABAAEAAAAMAA8ABQABAAAAAAAMABAABQABAAEAAAANAA8ABQABAAAAAAANABAABQABAAEAAAAOAA8ABQABAAAAAAAOABAABQABAAEAAAAPAA8ABQABAAAAAAAPABAABQABAAEAAAAQAA8ABQABAAAAAAAQABAABQABAAEAAAARAA8ABQABAAAAAAARABAABQABAAEAAAASAA8ABQABAAAAAAASABAABQABAAEAAAATAA8ABQABAAAAAAATABAABQABAAEAAAAUAA8ABQABAAAAAAAUABAABQABAAEAAAAVAA8ABQABAAAAAAAVABAABQABAAEAAAAWAA8ABQABAAAAAAAWABAABQABAAEAAAAXAA8ABQABAAAAAAAXABAABQABAAEAAAAYAA8ABQABAAAAAAAYABAABQABAAEAAAAZAA8ABQABAAAAAAAZABAABQABAAEAAAAaAA8ABQABAAAAAAAaABAABQABAAEAAAAbAA8ABQABAAAAAAAbABAABQABAAEAAAAcAA8ABQABAAAAAAAcABAABQABAAEAAAAdAA8ABQABAAAAAAAdABAABQABAAEAAAAeAA8ABQABAAAAAAAeABAABQABAAEAAAAfAA8ABQABAAAAAAAfABAABQABAAEAAAAgAA8ABQABAAAAAAAgABAABQABAAEAAAAhAA8ABQABAAAAAAAhABAABQABAAEAAAAiAA8ABQABAAAAAAAiABAABQABAAEAAAAjAA8ABQABAAAAAAAjABAABQABAAEAAAAkAA8ABQACAAAAAAAkABAABQACAAEAAAAHAAsABQAAAAAAAAAIAAsABQABAAAAAAAJAAsABQACAAAAAAABAAgABQAAAAAAAAACAAgABQABAAAAAAADAAgABQACAAAAAAAZAAQABQAAAAAAAAAaAAQABQABAAAAAAAbAAQABQACAAAAAAAeAAgABQAAAAAAAAAfAAgABQABAAAAAAAgAAgABQACAAAAAAAYAAsABQAAAAAAAAAZAAsABQABAAAAAAAaAAsABQACAAAAAAAFAAQABQABAAAAAAAEAAQABQAAAAAAAAAGAAQABQACAAAAAAA=")
-tile_set = SubResource("TileSet_3nc3u")
+[node name="Inverno" parent="." unique_id=1791308959 instance=ExtResource("2_w74gk")]
 
 [node name="player" parent="." unique_id=73708419 instance=ExtResource("4_p88le")]
 position = Vector2(575, 466)
