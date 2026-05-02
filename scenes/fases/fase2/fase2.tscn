@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://cr60jqxohsvxa"]
+[gd_scene format=3 uid="uid://ddblknlng2pe7"]
 
-[ext_resource type="Script" uid="uid://cs4072mks5ypk" path="res://scripts/fases/fase3/fase3_nivel1.gd" id="1_r1fkf"]
-[ext_resource type="PackedScene" uid="uid://cgt2f00rcxffk" path="res://scenes/cenarios/cenario_outono.tscn" id="2_34pvn"]
-[ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_qd14c"]
-[ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="6_r1fkf"]
-[ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_xpo16"]
+[ext_resource type="Script" uid="uid://cweqfh7vqw1gu" path="res://scripts/fases/fase2/fase2.gd" id="1_8dmmo"]
+[ext_resource type="PackedScene" uid="uid://cuon255wdbtui" path="res://scenes/cenarios/cenario_verao.tscn" id="2_bum0d"]
+[ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_m4cpg"]
+[ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="6_8dmmo"]
+[ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_g5fcb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
 size = Vector2(93, 43)
@@ -35,17 +35,17 @@ font = SubResource("FontFile_4wyf3")
 font_size = 50
 
 [node name="World" type="Node2D" unique_id=1454552130]
-script = ExtResource("1_r1fkf")
+script = ExtResource("1_8dmmo")
 
-[node name="Outono" parent="." unique_id=991312727 instance=ExtResource("2_34pvn")]
+[node name="Verão" parent="." unique_id=39245604 instance=ExtResource("2_bum0d")]
 
-[node name="player" parent="." unique_id=73708419 instance=ExtResource("4_qd14c")]
+[node name="player" parent="." unique_id=73708419 instance=ExtResource("4_m4cpg")]
 position = Vector2(575, 466)
 scale = Vector2(2, 2)
 
 [node name="Resposta1" type="Area2D" parent="." unique_id=1701218742]
 position = Vector2(439, 158)
-script = ExtResource("6_xpo16")
+script = ExtResource("6_g5fcb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta1" unique_id=1449365648]
 position = Vector2(-167, 173)
@@ -60,7 +60,7 @@ label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
 
 [node name="Resposta2" type="Area2D" parent="." unique_id=1792736178]
-script = ExtResource("6_xpo16")
+script = ExtResource("6_g5fcb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta2" unique_id=162558206]
 position = Vector2(177, 107)
@@ -75,7 +75,7 @@ label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
 
 [node name="Resposta3" type="Area2D" parent="." unique_id=926387014]
-script = ExtResource("6_xpo16")
+script = ExtResource("6_g5fcb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta3" unique_id=276804104]
 position = Vector2(80, 235)
@@ -90,7 +90,7 @@ label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
 
 [node name="Resposta4" type="Area2D" parent="." unique_id=1871301116]
-script = ExtResource("6_xpo16")
+script = ExtResource("6_g5fcb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta4" unique_id=1085067042]
 position = Vector2(1008, 234)
@@ -105,7 +105,7 @@ label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
 
 [node name="Resposta5" type="Area2D" parent="." unique_id=1170998445]
-script = ExtResource("6_xpo16")
+script = ExtResource("6_g5fcb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta5" unique_id=945860277]
 position = Vector2(848, 107)
@@ -120,7 +120,7 @@ label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
 
 [node name="Resposta6" type="Area2D" parent="." unique_id=1715154889]
-script = ExtResource("6_xpo16")
+script = ExtResource("6_g5fcb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta6" unique_id=2099942043]
 position = Vector2(815, 332)
@@ -134,4 +134,10 @@ offset_bottom = 365.0
 label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
 
-[node name="HUD" parent="." unique_id=1430824241 instance=ExtResource("6_r1fkf")]
+[node name="HUD" parent="." unique_id=1430824241 instance=ExtResource("6_8dmmo")]
+
+[node name="BarraStamina" parent="HUD" index="6" unique_id=629754042]
+offset_left = 1064.0
+offset_right = 1166.0
+
+[editable path="HUD"]

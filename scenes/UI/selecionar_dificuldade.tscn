@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c1ksmefjtmqn3"]
+
+[ext_resource type="Script" uid="uid://deximgdiu2866" path="res://scripts/UI/selecionar_dificuldade.gd" id="1_urblm"]
+
+[node name="SelecionaDificuldade" type="Node2D" unique_id=1913901628]
+script = ExtResource("1_urblm")
+
+[node name="LabelAtual" type="Label" parent="." unique_id=1630281698]
+offset_left = 114.0
+offset_top = 16.0
+offset_right = 154.0
+offset_bottom = 39.0
+
+[node name="BotaoFacil" type="Button" parent="." unique_id=690135301]
+offset_left = 96.0
+offset_top = 52.0
+offset_right = 177.0
+offset_bottom = 70.0
+text = "Facil"
+
+[node name="BotaoMedio" type="Button" parent="." unique_id=442828658]
+offset_left = 96.0
+offset_top = 88.0
+offset_right = 173.0
+offset_bottom = 119.0
+text = "Médio"
+
+[node name="BotaoDificil" type="Button" parent="." unique_id=941521225]
+offset_left = 96.0
+offset_top = 123.0
+offset_right = 165.0
+offset_bottom = 154.0
+text = "Dificil"
+
+[node name="Menu" type="Button" parent="." unique_id=941052673]
+offset_left = 96.0
+offset_top = 159.0
+offset_right = 165.0
+offset_bottom = 192.0
+text = "Voltar"
+
+[connection signal="pressed" from="BotaoFacil" to="." method="_on_botao_facil_pressed"]
+[connection signal="pressed" from="BotaoMedio" to="." method="_on_botao_medio_pressed"]
+[connection signal="pressed" from="BotaoDificil" to="." method="_on_botao_dificil_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_botao_menu_pressed"]

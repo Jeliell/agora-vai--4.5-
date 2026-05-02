@@ -45,10 +45,10 @@ text = "Fase 4 - Em breve"
 
 [node name="Menu" type="Button" parent="PainelFases" unique_id=159400742]
 layout_mode = 0
-offset_left = 73.0
-offset_top = 62.0
-offset_right = 200.0
-offset_bottom = 103.0
+offset_left = 76.0
+offset_top = 69.0
+offset_right = 203.0
+offset_bottom = 110.0
 text = "Voltar ao Menu
 "
 
@@ -59,7 +59,7 @@ offset_top = 176.0
 offset_right = 286.0
 offset_bottom = 361.0
 
-[node name="ButaoNivel1" type="Button" parent="PainelNiveis" unique_id=373401576]
+[node name="BotaoNivel1" type="Button" parent="PainelNiveis" unique_id=373401576]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 22.0
@@ -67,7 +67,7 @@ offset_right = 106.0
 offset_bottom = 44.0
 text = "Nivel 1"
 
-[node name="ButaoNivel2" type="Button" parent="PainelNiveis" unique_id=243733470]
+[node name="BotaoNivel2" type="Button" parent="PainelNiveis" unique_id=243733470]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 58.0
@@ -75,7 +75,7 @@ offset_right = 111.0
 offset_bottom = 72.0
 text = "Nivel2"
 
-[node name="ButaoNivel3" type="Button" parent="PainelNiveis" unique_id=1601073406]
+[node name="BotaoNivel3" type="Button" parent="PainelNiveis" unique_id=1601073406]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 95.0
@@ -102,7 +102,7 @@ offset_bottom = 23.0
 [connection signal="pressed" from="PainelFases/BotaoFase3" to="." method="selecionar_fase" binds= [3]]
 [connection signal="pressed" from="PainelFases/BotaoFase4" to="." method="selecionar_fase" binds= [4]]
 [connection signal="pressed" from="PainelFases/Menu" to="." method="_on_botao_menu_pressed"]
-[connection signal="pressed" from="PainelNiveis/ButaoNivel1" to="." method="selecionar_nivel" binds= [1]]
-[connection signal="pressed" from="PainelNiveis/ButaoNivel2" to="." method="selecionar_nivel" binds= [2]]
-[connection signal="pressed" from="PainelNiveis/ButaoNivel3" to="." method="selecionar_nivel" binds= [3]]
+[connection signal="pressed" from="PainelNiveis/BotaoNivel1" to="." method="selecionar_nivel" binds= [1]]
+[connection signal="pressed" from="PainelNiveis/BotaoNivel2" to="." method="selecionar_nivel" binds= [2]]
+[connection signal="pressed" from="PainelNiveis/BotaoNivel3" to="." method="selecionar_nivel" binds= [3]]
 [connection signal="pressed" from="PainelNiveis/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

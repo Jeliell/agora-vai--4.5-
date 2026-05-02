@@ -13,17 +13,17 @@ offset_bottom = 98.0
 text = "Fase Concluida"
 
 [node name="BotaoProximaFase" type="Button" parent="." unique_id=560256078]
-offset_left = 414.0
+offset_left = 411.0
 offset_top = 98.0
-offset_right = 610.0
+offset_right = 607.0
 offset_bottom = 148.0
 text = "Proxima fase (Em breve)"
 
 [node name="BotaoReiniciar" type="Button" parent="." unique_id=1634100547]
 offset_left = 438.0
-offset_top = 165.0
+offset_top = 161.0
 offset_right = 572.0
-offset_bottom = 206.0
+offset_bottom = 202.0
 text = "Reiniciar Fase"
 
 [node name="BotaoMenu" type="Button" parent="." unique_id=575352224]

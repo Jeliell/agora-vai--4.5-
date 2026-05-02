@@ -1,22 +1,24 @@
 extends Node2D
 
+# ── Configurações ajustáveis pelos scripts de fase ──
 @export var numero_min: int = 1
 @export var numero_max: int = 10
 @export var variacao_errada_min: int = 1
 @export var variacao_errada_max: int = 4
 @export var vidas_iniciais: int = 3
 @export var acertos_para_avançar: int = 5
-@export var proxima_cena: String = ""
-@export var cena_reinicio: String = ""
 @export var respostas_com_digito_comum: int = 0
-@export var fase_atual: int = 1
-@export var nivel_atual: int = 1
 @export var operacao: String = "adicao"
 @export var fator_fixo: int = -1
 @export var resultado_max: int = 10
-
-# Apenas a stamina permanece aqui — afeta o jogador globalmente
 @export var usar_stamina: bool = false
+
+# Identifica a fase (1-4) e a próxima fase
+@export var fase_atual: int = 1
+@export var proxima_fase_cena: String = ""
+
+# Nível atual (1-3) — controlado internamente
+var nivel_atual: int = 1
 
 @onready var label_alvo: Label     = $HUD/LabelAlvo
 @onready var label_pontos: Label   = $HUD/LabelPontos
@@ -36,6 +38,12 @@ var _mostrar_feedback: bool = false
 func _ready() -> void:
 	add_to_group("mundo")
 	vidas = vidas_iniciais
+
+	# Lê o nível salvo no singleton (ao avançar de nível ou reiniciar)
+	# Padrão é 1 ao entrar pela primeira vez
+	nivel_atual = Configuracao.nivel_atual_da_fase
+	configurar_nivel()
+
 	_atualizar_vidas()
 	_atualizar_fase()
 	cronometro.tempo_esgotado.connect(_ao_fim_do_tempo)
@@ -49,8 +57,11 @@ func _ready() -> void:
 		player.stamina = player.stamina_max
 
 	barra_stamina.visible = usar_stamina
-
 	_nova_pergunta()
+
+# Sobrescrito por cada script de fase para definir os parâmetros do nível atual
+func configurar_nivel() -> void:
+	pass
 
 func _process(delta: float) -> void:
 	if _mostrar_feedback:
@@ -86,11 +97,24 @@ func _acertou() -> void:
 
 	if acertos >= acertos_para_avançar:
 		await get_tree().create_timer(1.0).timeout
-		get_tree().set_meta("proxima_cena", proxima_cena)
-		get_tree().change_scene_to_file("res://scenes/ui/fase_completa.tscn")
+		_avancar()
 		return
 
 	_nova_pergunta()
+
+func _avancar() -> void:
+	# Salva contexto no singleton para a próxima cena ler
+	Configuracao.fase_atual = fase_atual
+	Configuracao.proxima_fase_cena = proxima_fase_cena
+
+	if nivel_atual < 3:
+		# Próximo nível da mesma fase
+		Configuracao.nivel_atual_da_fase = nivel_atual + 1
+		get_tree().change_scene_to_file("res://scenes/UI/nivel_completo.tscn")
+	else:
+		# Completou a fase — próxima
+		Configuracao.nivel_atual_da_fase = 1  # reset para próxima fase
+		get_tree().change_scene_to_file("res://scenes/UI/fase_completa.tscn")
 
 func _errou() -> void:
 	vidas -= 1
@@ -99,8 +123,10 @@ func _errou() -> void:
 
 	if vidas <= 0:
 		await get_tree().create_timer(1.0).timeout
-		get_tree().set_meta("cena_reinicio", cena_reinicio)
-		get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
+		# Game over — guarda info para o reiniciar voltar ao nível 1 da fase
+		Configuracao.nivel_atual_da_fase = 1
+		Configuracao.cena_fase_atual = scene_file_path
+		get_tree().change_scene_to_file("res://scenes/UI/game_over.tscn")
 		return
 
 	_nova_pergunta()
@@ -152,12 +178,10 @@ func _nova_pergunta() -> void:
 
 	var respostas := get_tree().get_nodes_in_group("resposta")
 	if respostas.is_empty():
-		push_warning("Nenhum nó no grupo 'resposta' encontrado!")
 		return
 
 	var indices: Array = range(respostas.size())
 	indices.shuffle()
-
 	var idx_correto: int = indices[0]
 	var indices_comum := indices.slice(1, 1 + respostas_com_digito_comum)
 	var usados: Array[int] = [resposta_correta]

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b6tj0xx6xqpcr"]
+
+[ext_resource type="Script" uid="uid://cqgg8nhjlncek" path="res://scripts/UI/nivel_completo.gd" id="1_j85lu"]
+
+[node name="NivelCompleto" type="Node2D" unique_id=1942740472]
+script = ExtResource("1_j85lu")
+
+[node name="Label" type="Label" parent="." unique_id=872141658]
+offset_left = 183.0
+offset_top = 16.0
+offset_right = 306.0
+offset_bottom = 39.0
+text = "Nivel Completo!"
+
+[node name="BotaoProximoNivel" type="Button" parent="." unique_id=1828465968]
+offset_left = 183.0
+offset_top = 43.0
+offset_right = 309.0
+offset_bottom = 74.0
+text = "Próximo Nivel"
+
+[node name="BotaoReiniciar" type="Button" parent="." unique_id=1038325596]
+offset_left = 183.0
+offset_top = 85.0
+offset_right = 298.0
+offset_bottom = 116.0
+text = "Reinicar Nível
+"
+
+[node name="BotaoMenu" type="Button" parent="." unique_id=193932080]
+offset_left = 183.0
+offset_top = 124.0
+offset_right = 320.0
+offset_bottom = 155.0
+text = "Menu Principal"
+
+[connection signal="pressed" from="BotaoProximoNivel" to="." method="_on_botao_proximo_nivel_pressed"]
+[connection signal="pressed" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
+[connection signal="pressed" from="BotaoMenu" to="." method="_on_botao_menu_pressed"]

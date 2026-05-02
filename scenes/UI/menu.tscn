@@ -25,7 +25,7 @@ offset_right = 482.0
 offset_bottom = 223.0
 text = "Iniciar"
 
-[node name="Botaosair" type="Button" parent="." unique_id=1270357649]
+[node name="BotaoSair" type="Button" parent="." unique_id=1270357649]
 offset_left = 401.0
 offset_top = 330.0
 offset_right = 486.0
@@ -47,6 +47,6 @@ offset_bottom = 316.0
 text = "Selecionar Fase"
 
 [connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
-[connection signal="pressed" from="Botaosair" to="." method="_on_botaosair_pressed"]
-[connection signal="pressed" from="BotaoDificuldade" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BotaoSair" to="." method="_on_botao_sair_pressed"]
+[connection signal="pressed" from="BotaoDificuldade" to="." method="_on_botao_dificuldade_pressed"]
 [connection signal="pressed" from="BotaoSelecionarFase" to="." method="_on_botao_selecionar_fase_pressed"]

@@ -19,6 +19,10 @@ run/main_scene="uid://cilwq0kr5vwma"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Configuracao="*uid://dobb0olx5t5me"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
