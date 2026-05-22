@@ -2,16 +2,26 @@
 
 [ext_resource type="Script" uid="uid://bv8ujyre2eu6d" path="res://scripts/UI/menu.gd" id="1_2tfbb"]
 [ext_resource type="Texture2D" uid="uid://863u0po2iosj" path="res://Art Assets/UI/TitleScreen.png" id="2_2un8v"]
+[ext_resource type="PackedScene" uid="uid://pmd6y738yea1" path="res://scenes/UI/botao_plataforma.tscn" id="3_2un8v"]
+[ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_iysyy"]
+[ext_resource type="PackedScene" uid="uid://d00ew4nw2fyx5" path="res://scenes/UI/garca_menu.tscn" id="5_ny0ke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iysyy"]
+size = Vector2(1911, 61)
 
 [node name="Menu" type="Node2D" unique_id=1980198305]
 script = ExtResource("1_2tfbb")
 
-[node name="Fundo" type="TextureRect" parent="." unique_id=475539722]
-offset_left = 289.0
-offset_top = 14.0
-offset_right = 581.0
-offset_bottom = 163.0
+[node name="Duck" type="TextureRect" parent="." unique_id=475539722]
+offset_left = 355.00003
+offset_top = 142.0
+offset_right = 570.7489
+offset_bottom = 225.4813
+scale = Vector2(1.9003575, 1.9536407)
 texture = ExtResource("2_2un8v")
+
+[node name="player" parent="." unique_id=746185790 instance=ExtResource("4_iysyy")]
+position = Vector2(148, 122)
 
 [node name="AGORA VAI" type="Label" parent="." unique_id=1452930403]
 offset_right = 40.0
@@ -19,34 +29,71 @@ offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true
 
 [node name="BotaoJogar" type="Button" parent="." unique_id=420191135]
-offset_left = 401.0
-offset_top = 173.0
-offset_right = 482.0
-offset_bottom = 223.0
+z_index = 1
+offset_left = 76.0
+offset_top = 363.0
+offset_right = 252.0
+offset_bottom = 413.0
+button_mask = 0
 text = "Iniciar"
 
 [node name="BotaoSair" type="Button" parent="." unique_id=1270357649]
-offset_left = 401.0
-offset_top = 330.0
-offset_right = 486.0
-offset_bottom = 368.0
+z_index = 1
+offset_left = 877.0
+offset_top = 359.0
+offset_right = 1056.0
+offset_bottom = 414.0
 text = "Sair"
 
 [node name="BotaoDificuldade" type="Button" parent="." unique_id=614957372]
-offset_left = 389.0
-offset_top = 238.0
-offset_right = 485.0
-offset_bottom = 269.0
+z_index = 1
+offset_left = 317.0
+offset_top = 437.0
+offset_right = 496.0
+offset_bottom = 489.0
 text = "Dificuldade"
 
 [node name="BotaoSelecionarFase" type="Button" parent="." unique_id=2079500557]
-offset_left = 378.0
-offset_top = 280.0
-offset_right = 503.0
-offset_bottom = 316.0
+z_index = 1
+offset_left = 614.0
+offset_top = 440.0
+offset_right = 793.0
+offset_bottom = 492.0
 text = "Selecionar Fase"
+
+[node name="Iniciar" parent="." unique_id=1990194605 instance=ExtResource("3_2un8v")]
+position = Vector2(477, 96)
+
+[node name="EscolherFase" parent="." unique_id=296222025 instance=ExtResource("3_2un8v")]
+position = Vector2(214, 175)
+
+[node name="EscolherDificuldade" parent="." unique_id=157735320 instance=ExtResource("3_2un8v")]
+position = Vector2(-324, 99)
+scale = Vector2(0.99609417, 0.988096)
+
+[node name="Sair" parent="." unique_id=375288635 instance=ExtResource("3_2un8v")]
+position = Vector2(-83, 172)
+
+[node name="PontoOrigem" type="Marker2D" parent="." unique_id=249787449]
+position = Vector2(149, 122)
+
+[node name="ZonaDeQueda" type="Area2D" parent="." unique_id=758818588]
+position = Vector2(42, 670)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaDeQueda" unique_id=1610661389]
+position = Vector2(503.5, 20.5)
+shape = SubResource("RectangleShape2D_iysyy")
+
+[node name="GarcaMenu" parent="." unique_id=1101426258 instance=ExtResource("5_ny0ke")]
+position = Vector2(-224, 0)
+distancia_corpo_corpo = null
+offset_bico_transporte = null
+velocidade_caminhada = null
+limite_esquerdo = null
+limite_direito = null
 
 [connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
 [connection signal="pressed" from="BotaoSair" to="." method="_on_botao_sair_pressed"]
 [connection signal="pressed" from="BotaoDificuldade" to="." method="_on_botao_dificuldade_pressed"]
 [connection signal="pressed" from="BotaoSelecionarFase" to="." method="_on_botao_selecionar_fase_pressed"]
+[connection signal="body_entered" from="ZonaDeQueda" to="." method="_on_zona_de_queda_body_entered"]
