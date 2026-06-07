@@ -96,7 +96,7 @@ diffuse_texture = SubResource("CompressedTexture2D_7lwjm")
 size = Vector2(190, 63.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inem1"]
-size = Vector2(179.5, 50.75)
+size = Vector2(191, 64)
 
 [node name="BotaoPlataforma" type="StaticBody2D" unique_id=1990194605]
 script = ExtResource("1_7lwjm")
@@ -127,6 +127,6 @@ shape = SubResource("RectangleShape2D_62mxw")
 [node name="AreaDeteccao" type="Area2D" parent="." unique_id=1522008848]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccao" unique_id=315892000]
-position = Vector2(490.25, 290.625)
+position = Vector2(490.5, 291)
 shape = SubResource("RectangleShape2D_inem1")
 debug_color = Color(0.8449604, 0.3659127, 0.2697317, 0.41960785)

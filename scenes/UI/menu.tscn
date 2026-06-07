@@ -3,11 +3,41 @@
 [ext_resource type="Script" uid="uid://bv8ujyre2eu6d" path="res://scripts/UI/menu.gd" id="1_2tfbb"]
 [ext_resource type="Texture2D" uid="uid://863u0po2iosj" path="res://Art Assets/UI/TitleScreen.png" id="2_2un8v"]
 [ext_resource type="PackedScene" uid="uid://pmd6y738yea1" path="res://scenes/UI/botao_plataforma.tscn" id="3_2un8v"]
+[ext_resource type="Script" uid="uid://blasrf7md3jhd" path="res://scenes/UI/botao_jogar.gd" id="4_78n2u"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_iysyy"]
 [ext_resource type="PackedScene" uid="uid://d00ew4nw2fyx5" path="res://scenes/UI/garca_menu.tscn" id="5_ny0ke"]
+[ext_resource type="Script" uid="uid://gnkh2bgjx7af" path="res://scenes/UI/botao_sair.gd" id="5_svcqa"]
+[ext_resource type="Script" uid="uid://btf0thakn1t5o" path="res://scenes/UI/botao_dificuldade.gd" id="6_ofy2k"]
+[ext_resource type="Script" uid="uid://bksuow1aiuea4" path="res://scenes/UI/botao_selecionar_fase.gd" id="7_ypw4e"]
+[ext_resource type="Texture2D" uid="uid://bn7sanr084t0f" path="res://Art Assets/Background/background.jpg" id="10_aklih"]
+[ext_resource type="Texture2D" uid="uid://cpgfk37mk36x0" path="res://Art Assets/UI/A-JORNADA-DO-PATINHO-LÓGICO.png" id="11_wav1i"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_78n2u"]
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_svcqa"]
+events = [SubResource("InputEventKey_78n2u")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ypw4e"]
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_aklih"]
+events = [SubResource("InputEventKey_ypw4e")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_aklih"]
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_wav1i"]
+events = [SubResource("InputEventKey_aklih")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_wav1i"]
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_3b8ea"]
+events = [SubResource("InputEventKey_wav1i")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iysyy"]
-size = Vector2(1911, 61)
+size = Vector2(1911, 112)
 
 [node name="Menu" type="Node2D" unique_id=1980198305]
 script = ExtResource("1_2tfbb")
@@ -30,12 +60,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BotaoJogar" type="Button" parent="." unique_id=420191135]
 z_index = 1
-offset_left = 76.0
-offset_top = 363.0
-offset_right = 252.0
-offset_bottom = 413.0
+offset_left = 68.0
+offset_top = 351.0
+offset_right = 259.0
+offset_bottom = 418.0
+mouse_filter = 2
+action_mode = 0
 button_mask = 0
+shortcut = SubResource("Shortcut_svcqa")
 text = "Iniciar"
+flat = true
+script = ExtResource("4_78n2u")
+cena_destino = "uid://cs02fm4xeehbl"
 
 [node name="BotaoSair" type="Button" parent="." unique_id=1270357649]
 z_index = 1
@@ -43,15 +79,24 @@ offset_left = 877.0
 offset_top = 359.0
 offset_right = 1056.0
 offset_bottom = 414.0
+mouse_filter = 2
+shortcut = SubResource("Shortcut_aklih")
 text = "Sair"
+script = ExtResource("5_svcqa")
+eh_botao_sair = true
 
 [node name="BotaoDificuldade" type="Button" parent="." unique_id=614957372]
 z_index = 1
-offset_left = 317.0
-offset_top = 437.0
-offset_right = 496.0
+offset_left = 314.0
+offset_top = 425.0
+offset_right = 501.0
 offset_bottom = 489.0
+mouse_filter = 2
+shortcut = SubResource("Shortcut_wav1i")
 text = "Dificuldade"
+flat = true
+script = ExtResource("6_ofy2k")
+cena_destino = "uid://c6moj7kybo7ky"
 
 [node name="BotaoSelecionarFase" type="Button" parent="." unique_id=2079500557]
 z_index = 1
@@ -59,7 +104,12 @@ offset_left = 614.0
 offset_top = 440.0
 offset_right = 793.0
 offset_bottom = 492.0
+mouse_filter = 2
+shortcut = SubResource("Shortcut_3b8ea")
 text = "Selecionar Fase"
+flat = true
+script = ExtResource("7_ypw4e")
+cena_destino = "uid://c6moj7kybo7ky"
 
 [node name="Iniciar" parent="." unique_id=1990194605 instance=ExtResource("3_2un8v")]
 position = Vector2(477, 96)
@@ -81,19 +131,41 @@ position = Vector2(149, 122)
 position = Vector2(42, 670)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaDeQueda" unique_id=1610661389]
-position = Vector2(503.5, 20.5)
+z_index = 8
+position = Vector2(503.5, 40)
 shape = SubResource("RectangleShape2D_iysyy")
 
 [node name="GarcaMenu" parent="." unique_id=1101426258 instance=ExtResource("5_ny0ke")]
-position = Vector2(-224, 0)
-distancia_corpo_corpo = null
-offset_bico_transporte = null
-velocidade_caminhada = null
-limite_esquerdo = null
-limite_direito = null
+position = Vector2(378, 68)
+limite_esquerdo = 378.0
+limite_direito = 740.0
 
+[node name="Background" type="Sprite2D" parent="." unique_id=624292291]
+z_index = -6
+position = Vector2(562.5, 321.00003)
+scale = Vector2(1.8897762, 1.2428118)
+texture = ExtResource("10_aklih")
+
+[node name="AJornadaDoPatinhoLógico" type="Sprite2D" parent="." unique_id=446998027]
+z_index = -3
+position = Vector2(565, 334)
+scale = Vector2(0.7373047, 0.5)
+texture = ExtResource("11_wav1i")
+
+[connection signal="focus_entered" from="BotaoJogar" to="BotaoJogar" method="_on_focus_entered"]
+[connection signal="focus_exited" from="BotaoJogar" to="BotaoJogar" method="_on_focus_exited"]
 [connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="BotaoJogar" to="BotaoJogar" method="_on_pressed"]
+[connection signal="focus_entered" from="BotaoSair" to="BotaoSair" method="_on_focus_entered"]
+[connection signal="focus_exited" from="BotaoSair" to="BotaoSair" method="_on_focus_exited"]
 [connection signal="pressed" from="BotaoSair" to="." method="_on_botao_sair_pressed"]
+[connection signal="pressed" from="BotaoSair" to="BotaoSair" method="_on_pressed"]
+[connection signal="focus_entered" from="BotaoDificuldade" to="BotaoDificuldade" method="_on_focus_entered"]
+[connection signal="focus_exited" from="BotaoDificuldade" to="BotaoDificuldade" method="_on_focus_exited"]
 [connection signal="pressed" from="BotaoDificuldade" to="." method="_on_botao_dificuldade_pressed"]
+[connection signal="pressed" from="BotaoDificuldade" to="BotaoDificuldade" method="_on_pressed"]
+[connection signal="focus_entered" from="BotaoSelecionarFase" to="BotaoSelecionarFase" method="_on_focus_entered"]
+[connection signal="focus_exited" from="BotaoSelecionarFase" to="BotaoSelecionarFase" method="_on_focus_exited"]
 [connection signal="pressed" from="BotaoSelecionarFase" to="." method="_on_botao_selecionar_fase_pressed"]
+[connection signal="pressed" from="BotaoSelecionarFase" to="BotaoSelecionarFase" method="_on_pressed"]
 [connection signal="body_entered" from="ZonaDeQueda" to="." method="_on_zona_de_queda_body_entered"]
