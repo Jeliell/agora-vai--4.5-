@@ -5,13 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c4i8qoi62mar3" path="res://scenes/UI/botao_plataforma.tscn" id="3_2un8v"]
 [ext_resource type="FontFile" uid="uid://dfedkbfeoj0r" path="res://Art Assets/fontes/PixelifySans-Bold.ttf" id="4_7amk3"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_iysyy"]
-[ext_resource type="Script" uid="uid://b5qmlosqo0jti" path="res://scripts/UI/botao_sair.gd" id="5_7amk3"]
 [ext_resource type="PackedScene" uid="uid://euo47htq10rr" path="res://scenes/UI/garca_menu.tscn" id="5_ny0ke"]
-[ext_resource type="Script" uid="uid://0d5gripbrtbq" path="res://scripts/UI/botao_dificuldade.gd" id="6_uviw4"]
-[ext_resource type="Script" uid="uid://cm7ywukx30xc2" path="res://scripts/UI/botao_selecionar_fase.gd" id="7_cr4s1"]
 [ext_resource type="Script" uid="uid://dv7gic1m0510b" path="res://scripts/UI/botao_plataforma.gd" id="9_45usf"]
 [ext_resource type="Texture2D" uid="uid://bn7sanr084t0f" path="res://Art Assets/Background/background.jpg" id="10_aklih"]
-[ext_resource type="Script" uid="uid://bunwuygr7122h" path="res://scripts/UI/botao_jogar.gd" id="11_uviw4"]
+[ext_resource type="Script" uid="uid://ddrj2gdcujn8u" path="res://scenes/UI/botao_menu.gd" id="10_wav1i"]
 [ext_resource type="Texture2D" uid="uid://cpgfk37mk36x0" path="res://Art Assets/UI/A-JORNADA-DO-PATINHO-LÓGICO.png" id="11_wav1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iysyy"]
@@ -55,23 +52,23 @@ _data = {
 &"RESET": SubResource("Animation_uviw4")
 }
 
-[sub_resource type="InputEventKey" id="InputEventKey_wav1i"]
-keycode = 4194309
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aklih"]
+size = Vector2(193.71756, 63.63852)
 
-[sub_resource type="Shortcut" id="Shortcut_3b8ea"]
-events = [SubResource("InputEventKey_wav1i")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wav1i"]
+size = Vector2(190, 66)
 
-[sub_resource type="InputEventKey" id="InputEventKey_aklih"]
-keycode = 4194309
-
-[sub_resource type="Shortcut" id="Shortcut_wav1i"]
-events = [SubResource("InputEventKey_aklih")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3b8ea"]
+size = Vector2(192, 65.5)
 
 [sub_resource type="InputEventKey" id="InputEventKey_ypw4e"]
 keycode = 4194309
 
 [sub_resource type="Shortcut" id="Shortcut_aklih"]
 events = [SubResource("InputEventKey_ypw4e")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ruad"]
+size = Vector2(191, 67)
 
 [node name="Menu" type="Node2D" unique_id=1980198305]
 script = ExtResource("1_2tfbb")
@@ -151,53 +148,31 @@ action_mode = 0
 button_mask = 0
 text = "Iniciar"
 flat = true
-script = ExtResource("11_uviw4")
+script = ExtResource("10_wav1i")
 cena_destino = "uid://cs02fm4xeehbl"
 
 [node name="Pulsar" type="AnimationPlayer" parent="Iniciar/BotaoJogar" unique_id=554776248]
 libraries/ = SubResource("AnimationLibrary_cr4s1")
 autoplay = &"Pulsar"
 
+[node name="Area2D" type="Area2D" parent="Iniciar/BotaoJogar" unique_id=51301291]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Iniciar/BotaoJogar/Area2D" unique_id=1101915977]
+position = Vector2(94.36858, 30.361422)
+shape = SubResource("RectangleShape2D_aklih")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
 [node name="EscolherFase" parent="." unique_id=296222025 instance=ExtResource("3_2un8v")]
 position = Vector2(687, 562)
 script = ExtResource("9_45usf")
 
-[node name="BotaoSelecionarFase" type="Button" parent="EscolherFase" unique_id=2079500557]
+[node name="BotaoFase" type="Button" parent="EscolherFase" unique_id=1315470014]
 z_index = 1
-offset_left = -87.0
-offset_top = -30.0
-offset_right = 92.0
-offset_bottom = 27.0
-pivot_offset = Vector2(89.5, 28.5)
-mouse_filter = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.24705306, 0.24246165, 0.2140243, 1)
-theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("4_7amk3")
-theme_override_font_sizes/font_size = 40
-shortcut = SubResource("Shortcut_3b8ea")
-text = "Fases"
-flat = true
-script = ExtResource("7_cr4s1")
-cena_destino = "uid://c6moj7kybo7ky"
-
-[node name="Pulsar" type="AnimationPlayer" parent="EscolherFase/BotaoSelecionarFase" unique_id=164572238]
-libraries/ = SubResource("AnimationLibrary_cr4s1")
-autoplay = &"Pulsar"
-
-[node name="Dificuldade" parent="." unique_id=375288635 instance=ExtResource("3_2un8v")]
-position = Vector2(390, 559)
-script = ExtResource("9_45usf")
-
-[node name="BotaoDificuldade" type="Button" parent="Dificuldade" unique_id=614957372]
-z_index = 1
-offset_left = -90.0
-offset_top = -32.0
-offset_right = 97.0
-offset_bottom = 32.0
-pivot_offset = Vector2(93.5, 32)
+offset_left = -95.0
+offset_top = -34.0
+offset_right = 96.0
+offset_bottom = 33.0
+pivot_offset = Vector2(95.5, 33.5)
 mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.47293556, 0.2698273, 0, 1)
@@ -210,16 +185,66 @@ theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_7amk3")
-theme_override_font_sizes/font_size = 32
-shortcut = SubResource("Shortcut_wav1i")
-text = "Dificuldade"
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+button_mask = 0
+text = "Fase"
 flat = true
-script = ExtResource("6_uviw4")
-cena_destino = "uid://c1ksmefjtmqn3"
+script = ExtResource("10_wav1i")
+cena_destino = "uid://c6moj7kybo7ky"
 
-[node name="Pulsar" type="AnimationPlayer" parent="Dificuldade/BotaoDificuldade" unique_id=1053763659]
+[node name="Pulsar" type="AnimationPlayer" parent="EscolherFase/BotaoFase" unique_id=1788267282]
 libraries/ = SubResource("AnimationLibrary_cr4s1")
 autoplay = &"Pulsar"
+
+[node name="Area2D" type="Area2D" parent="EscolherFase/BotaoFase" unique_id=1393362253]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EscolherFase/BotaoFase/Area2D" unique_id=266159078]
+position = Vector2(96, 30)
+shape = SubResource("RectangleShape2D_wav1i")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
+[node name="Dificuldade" parent="." unique_id=375288635 instance=ExtResource("3_2un8v")]
+position = Vector2(390, 559)
+script = ExtResource("9_45usf")
+
+[node name="BotaoDificuldade" type="Button" parent="Dificuldade" unique_id=343430726]
+z_index = 1
+offset_left = -91.999985
+offset_top = -31.0
+offset_right = 102.000015
+offset_bottom = 31.0
+pivot_offset = Vector2(95.5, 33.5)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/font_hover_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_7amk3")
+theme_override_font_sizes/font_size = 35
+action_mode = 0
+button_mask = 0
+text = "Dificuldade"
+flat = true
+script = ExtResource("10_wav1i")
+cena_destino = "uid://c1ksmefjtmqn3"
+
+[node name="Pulsar" type="AnimationPlayer" parent="Dificuldade/BotaoDificuldade" unique_id=1973921347]
+libraries/ = SubResource("AnimationLibrary_cr4s1")
+autoplay = &"Pulsar"
+
+[node name="Area2D" type="Area2D" parent="Dificuldade/BotaoDificuldade" unique_id=380757176]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dificuldade/BotaoDificuldade/Area2D" unique_id=883334345]
+position = Vector2(92, 27.25)
+shape = SubResource("RectangleShape2D_3b8ea")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
 
 [node name="Sair" parent="." unique_id=1990194605 instance=ExtResource("3_2un8v")]
 position = Vector2(950, 483)
@@ -250,27 +275,41 @@ theme_override_font_sizes/font_size = 40
 shortcut = SubResource("Shortcut_aklih")
 text = "Sair"
 flat = true
-script = ExtResource("5_7amk3")
+script = ExtResource("10_wav1i")
 eh_botao_sair = true
 
 [node name="Pulsar" type="AnimationPlayer" parent="Sair/BotaoSair" unique_id=1270884441]
 libraries/ = SubResource("AnimationLibrary_cr4s1")
 autoplay = &"Pulsar"
 
+[node name="Area2D2" type="Area2D" parent="Sair/BotaoSair" unique_id=610577854]
+position = Vector2(-565, 79)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sair/BotaoSair/Area2D2" unique_id=1944656585]
+position = Vector2(654.5, -49.5)
+shape = SubResource("RectangleShape2D_2ruad")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
 [connection signal="body_entered" from="ZonaDeQueda" to="." method="_on_zona_de_queda_body_entered"]
 [connection signal="focus_entered" from="Iniciar/BotaoJogar" to="Iniciar/BotaoJogar" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Iniciar/BotaoJogar" to="Iniciar/BotaoJogar" method="_on_focus_exited"]
 [connection signal="pressed" from="Iniciar/BotaoJogar" to="." method="_on_botao_jogar_pressed"]
 [connection signal="pressed" from="Iniciar/BotaoJogar" to="Iniciar/BotaoJogar" method="_on_pressed"]
-[connection signal="focus_entered" from="EscolherFase/BotaoSelecionarFase" to="EscolherFase/BotaoSelecionarFase" method="_on_focus_entered"]
-[connection signal="focus_exited" from="EscolherFase/BotaoSelecionarFase" to="EscolherFase/BotaoSelecionarFase" method="_on_focus_exited"]
-[connection signal="pressed" from="EscolherFase/BotaoSelecionarFase" to="." method="_on_botao_selecionar_fase_pressed"]
-[connection signal="pressed" from="EscolherFase/BotaoSelecionarFase" to="EscolherFase/BotaoSelecionarFase" method="_on_pressed"]
+[connection signal="body_entered" from="Iniciar/BotaoJogar/Area2D" to="Iniciar/BotaoJogar" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Iniciar/BotaoJogar/Area2D" to="Iniciar/BotaoJogar" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="EscolherFase/BotaoFase" to="EscolherFase/BotaoFase" method="_on_focus_entered"]
+[connection signal="focus_exited" from="EscolherFase/BotaoFase" to="EscolherFase/BotaoFase" method="_on_focus_exited"]
+[connection signal="pressed" from="EscolherFase/BotaoFase" to="EscolherFase/BotaoFase" method="_on_pressed"]
+[connection signal="body_entered" from="EscolherFase/BotaoFase/Area2D" to="EscolherFase/BotaoFase" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="EscolherFase/BotaoFase/Area2D" to="EscolherFase/BotaoFase" method="_on_area_2d_body_exited"]
 [connection signal="focus_entered" from="Dificuldade/BotaoDificuldade" to="Dificuldade/BotaoDificuldade" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Dificuldade/BotaoDificuldade" to="Dificuldade/BotaoDificuldade" method="_on_focus_exited"]
-[connection signal="pressed" from="Dificuldade/BotaoDificuldade" to="." method="_on_botao_dificuldade_pressed"]
 [connection signal="pressed" from="Dificuldade/BotaoDificuldade" to="Dificuldade/BotaoDificuldade" method="_on_pressed"]
+[connection signal="body_entered" from="Dificuldade/BotaoDificuldade/Area2D" to="Dificuldade/BotaoDificuldade" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Dificuldade/BotaoDificuldade/Area2D" to="Dificuldade/BotaoDificuldade" method="_on_area_2d_body_exited"]
 [connection signal="focus_entered" from="Sair/BotaoSair" to="Sair/BotaoSair" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Sair/BotaoSair" to="Sair/BotaoSair" method="_on_focus_exited"]
 [connection signal="pressed" from="Sair/BotaoSair" to="." method="_on_botao_sair_pressed"]
 [connection signal="pressed" from="Sair/BotaoSair" to="Sair/BotaoSair" method="_on_pressed"]
+[connection signal="body_entered" from="Sair/BotaoSair/Area2D2" to="Sair/BotaoSair" method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Sair/BotaoSair/Area2D2" to="Sair/BotaoSair" method="_on_area_2d_2_body_exited"]

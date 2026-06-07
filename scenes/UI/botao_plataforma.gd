@@ -38,3 +38,11 @@ func _on_body_exited(body: Node2D) -> void:
         if has_node("Label"):
             $Label.modulate = Color(1, 1, 1)
         position.y -= 2
+
+
+func _on_area_deteccao_body_entered(body: Node2D) -> void:
+    pass # Replace with function body.
+
+
+func _on_area_deteccao_body_exited(body: Node2D) -> void:
+    pass # Replace with function body.

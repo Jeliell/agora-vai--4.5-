@@ -1,7 +1,7 @@
 extends Button
 
 # "*.tscn" filtra para que o Inspetor só aceite arquivos de cena
-@export_file("*.tscn") var cena_destino: String = ""
+@export_file("res://scenes/UI/selecionar_fase.tscn") var cena_destino: String = ""
 @export var eh_botao_sair: bool = false
 
 func _ready():
@@ -20,10 +20,10 @@ func _on_focus_exited():
 func _on_pressed():
     if eh_botao_sair:
         get_tree().quit()
-    elif cena_destino != "": 
+    elif cena_destino != "": # CORRIGIDO: Agora verifica se o campo NÃO ESTÁ VAZIO
         get_tree().change_scene_to_file(cena_destino)
     else:
-        print("Atenção: O botão ", name, " não tem destino configurado no Inspetor!")
+        print("Atenção: O botão ", name, " não tem destino configurado!")
 
 # --- Sinais da Area2D ---
 func _on_area_jogar_body_entered(body):
@@ -31,5 +31,14 @@ func _on_area_jogar_body_entered(body):
         grab_focus()
 
 func _on_area_jogar_body_exited(body):
+    if body.is_in_group("jogador"):
+        release_focus()
+
+
+func _on_area_2d_body_entered(body):
+    if body.is_in_group("jogador"):
+        grab_focus()
+
+func _on_area_2d_body_exited(body):
     if body.is_in_group("jogador"):
         release_focus()
