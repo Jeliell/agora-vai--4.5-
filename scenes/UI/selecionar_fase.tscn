@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bn7sanr084t0f" path="res://Art Assets/Background/background.jpg" id="8_okyuq"]
 [ext_resource type="PackedScene" uid="uid://euo47htq10rr" path="res://scenes/UI/garca_menu.tscn" id="9_j7w81"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j3wbw"]
+
 [sub_resource type="Animation" id="Animation_7amk3"]
 resource_name = "Pulsar"
 length = 0.5
@@ -56,6 +58,8 @@ size = Vector2(192, 65.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6yx1"]
 size = Vector2(190, 66)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsyoj"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mir7r"]
 size = Vector2(1911, 112)
 
@@ -70,13 +74,13 @@ offset_top = 334.0
 offset_right = 438.0
 offset_bottom = 487.0
 
-[node name="Fase 1" parent="PainelFases" unique_id=1990194605 instance=ExtResource("2_hsyoj")]
+[node name="BotaoFase1" parent="PainelFases" unique_id=1990194605 instance=ExtResource("2_hsyoj")]
 position = Vector2(-40, 227)
 scale = Vector2(0.99609417, 0.988096)
 script = ExtResource("3_npb31")
 cena_destino = "res://scenes/fases/fase1/fase1.tscn"
 
-[node name="BotaoFase1" type="Button" parent="PainelFases/Fase 1" unique_id=907261576]
+[node name="BotaoFase1" type="Button" parent="PainelFases/BotaoFase1" unique_id=907261576]
 z_index = 1
 offset_left = -93.36467
 offset_top = -34.409607
@@ -92,29 +96,30 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_yg2ri")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3wbw")
 action_mode = 0
 button_mask = 0
 text = "Fase 1"
 flat = true
 script = ExtResource("5_ihfn3")
 
-[node name="Pulsar" type="AnimationPlayer" parent="PainelFases/Fase 1/BotaoFase1" unique_id=1078261823]
+[node name="Pulsar" type="AnimationPlayer" parent="PainelFases/BotaoFase1/BotaoFase1" unique_id=1078261823]
 libraries/ = SubResource("AnimationLibrary_53lm7")
 autoplay = &"Pulsar"
 
-[node name="Area2D" type="Area2D" parent="PainelFases/Fase 1/BotaoFase1" unique_id=1104376673]
+[node name="Area2D" type="Area2D" parent="PainelFases/BotaoFase1/BotaoFase1" unique_id=1104376673]
 position = Vector2(-7.6293945e-06, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelFases/Fase 1/BotaoFase1/Area2D" unique_id=537525304]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelFases/BotaoFase1/BotaoFase1/Area2D" unique_id=537525304]
 position = Vector2(94.36858, 30.361422)
 shape = SubResource("RectangleShape2D_bolui")
 debug_color = Color(0, 0.60038817, 0.70000815, 0)
 
-[node name="Fase 2" parent="PainelFases" unique_id=2143907973 instance=ExtResource("2_hsyoj")]
+[node name="BotaoFase2" parent="PainelFases" unique_id=2143907973 instance=ExtResource("2_hsyoj")]
 position = Vector2(225, 164)
 script = ExtResource("3_npb31")
 
-[node name="BotaoFase2" type="Button" parent="PainelFases/Fase 2" unique_id=1956803291]
+[node name="BotaoFase2" type="Button" parent="PainelFases/BotaoFase2" unique_id=1956803291]
 z_index = 1
 offset_left = -91.999985
 offset_top = -31.0
@@ -130,28 +135,29 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_yg2ri")
 theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3wbw")
 action_mode = 0
 button_mask = 0
 text = "Fase 2"
 flat = true
 script = ExtResource("5_ihfn3")
 
-[node name="Pulsar" type="AnimationPlayer" parent="PainelFases/Fase 2/BotaoFase2" unique_id=1739337564]
+[node name="Pulsar" type="AnimationPlayer" parent="PainelFases/BotaoFase2/BotaoFase2" unique_id=1739337564]
 libraries/ = SubResource("AnimationLibrary_53lm7")
 autoplay = &"Pulsar"
 
-[node name="Area2D" type="Area2D" parent="PainelFases/Fase 2/BotaoFase2" unique_id=471377870]
+[node name="Area2D" type="Area2D" parent="PainelFases/BotaoFase2/BotaoFase2" unique_id=471377870]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelFases/Fase 2/BotaoFase2/Area2D" unique_id=621863848]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelFases/BotaoFase2/BotaoFase2/Area2D" unique_id=621863848]
 position = Vector2(92, 27.25)
 shape = SubResource("RectangleShape2D_3qt76")
 debug_color = Color(0, 0.60038817, 0.70000815, 0)
 
-[node name="Fase 3" parent="PainelFases" unique_id=778323407 instance=ExtResource("2_hsyoj")]
+[node name="BotaoFase3" parent="PainelFases" unique_id=778323407 instance=ExtResource("2_hsyoj")]
 position = Vector2(528, 110)
 script = ExtResource("3_npb31")
 
-[node name="BotaoFase3" type="Button" parent="PainelFases/Fase 3" unique_id=1458927594]
+[node name="BotaoFase3" type="Button" parent="PainelFases/BotaoFase3" unique_id=1458927594]
 z_index = 1
 offset_left = -95.0
 offset_top = -34.0
@@ -167,28 +173,29 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_yg2ri")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3wbw")
 action_mode = 0
 button_mask = 0
 text = "Fase 3"
 flat = true
 script = ExtResource("5_ihfn3")
 
-[node name="Pulsar" type="AnimationPlayer" parent="PainelFases/Fase 3/BotaoFase3" unique_id=528199418]
+[node name="Pulsar" type="AnimationPlayer" parent="PainelFases/BotaoFase3/BotaoFase3" unique_id=528199418]
 libraries/ = SubResource("AnimationLibrary_53lm7")
 autoplay = &"Pulsar"
 
-[node name="Area2D" type="Area2D" parent="PainelFases/Fase 3/BotaoFase3" unique_id=33302529]
+[node name="Area2D" type="Area2D" parent="PainelFases/BotaoFase3/BotaoFase3" unique_id=33302529]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelFases/Fase 3/BotaoFase3/Area2D" unique_id=513298105]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelFases/BotaoFase3/BotaoFase3/Area2D" unique_id=513298105]
 position = Vector2(96, 30)
 shape = SubResource("RectangleShape2D_i6yx1")
 debug_color = Color(0, 0.60038817, 0.70000815, 0)
 
-[node name="Fase 4" parent="PainelFases" unique_id=1840288774 instance=ExtResource("2_hsyoj")]
+[node name="BotaoFase4" parent="PainelFases" unique_id=1840288774 instance=ExtResource("2_hsyoj")]
 position = Vector2(828, -18)
 script = ExtResource("3_npb31")
 
-[node name="BotaoFase4" type="Button" parent="PainelFases/Fase 4" unique_id=501053599]
+[node name="BotaoFase4" type="Button" parent="PainelFases/BotaoFase4" unique_id=501053599]
 z_index = 1
 offset_left = -95.0
 offset_top = -34.0
@@ -204,19 +211,20 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_yg2ri")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3wbw")
 action_mode = 0
 button_mask = 0
 text = "Fase 4"
 flat = true
 script = ExtResource("5_ihfn3")
 
-[node name="Pulsar" type="AnimationPlayer" parent="PainelFases/Fase 4/BotaoFase4" unique_id=311194934]
+[node name="Pulsar" type="AnimationPlayer" parent="PainelFases/BotaoFase4/BotaoFase4" unique_id=311194934]
 libraries/ = SubResource("AnimationLibrary_53lm7")
 autoplay = &"Pulsar"
 
-[node name="Area2D" type="Area2D" parent="PainelFases/Fase 4/BotaoFase4" unique_id=40401486]
+[node name="Area2D" type="Area2D" parent="PainelFases/BotaoFase4/BotaoFase4" unique_id=40401486]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelFases/Fase 4/BotaoFase4/Area2D" unique_id=864277569]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelFases/BotaoFase4/BotaoFase4/Area2D" unique_id=864277569]
 position = Vector2(96, 30)
 shape = SubResource("RectangleShape2D_i6yx1")
 debug_color = Color(0, 0.60038817, 0.70000815, 0)
@@ -268,37 +276,162 @@ offset_top = 281.0
 offset_right = 674.0
 offset_bottom = 466.0
 
-[node name="BotaoNivel1" type="Button" parent="PainelNiveis" unique_id=373401576]
-layout_mode = 0
-offset_left = 62.0
-offset_top = 22.0
-offset_right = 106.0
-offset_bottom = 44.0
+[node name="BotaoNivel1" parent="PainelNiveis" unique_id=90269029 instance=ExtResource("2_hsyoj")]
+position = Vector2(-265, 305)
+scale = Vector2(0.99609417, 0.988096)
+script = ExtResource("3_npb31")
+cena_destino = "res://scenes/fases/fase1/fase1.tscn"
+
+[node name="BotaoNivel1" type="Button" parent="PainelNiveis/BotaoNivel1" unique_id=1585570021]
+z_index = 1
+offset_left = -93.36467
+offset_top = -34.409607
+offset_right = 97.63533
+offset_bottom = 32.590393
+pivot_offset = Vector2(95.5, 33.5)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9736844, 0.8881644, 0, 1)
+theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_yg2ri")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hsyoj")
+action_mode = 0
+button_mask = 0
 text = "Nivel 1"
+flat = true
+script = ExtResource("5_ihfn3")
 
-[node name="BotaoNivel2" type="Button" parent="PainelNiveis" unique_id=243733470]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 58.0
-offset_right = 111.0
-offset_bottom = 72.0
-text = "Nivel2"
+[node name="Pulsar" type="AnimationPlayer" parent="PainelNiveis/BotaoNivel1/BotaoNivel1" unique_id=1310833970]
+libraries/ = SubResource("AnimationLibrary_53lm7")
+autoplay = &"Pulsar"
 
-[node name="BotaoNivel3" type="Button" parent="PainelNiveis" unique_id=1601073406]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 95.0
-offset_right = 121.0
-offset_bottom = 119.0
+[node name="Area2D" type="Area2D" parent="PainelNiveis/BotaoNivel1/BotaoNivel1" unique_id=661287271]
+position = Vector2(-7.6293945e-06, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelNiveis/BotaoNivel1/BotaoNivel1/Area2D" unique_id=1126893579]
+position = Vector2(94.36858, 30.361422)
+shape = SubResource("RectangleShape2D_bolui")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
+[node name="BotaoNivel2" parent="PainelNiveis" unique_id=423290751 instance=ExtResource("2_hsyoj")]
+position = Vector2(8, 303)
+script = ExtResource("3_npb31")
+
+[node name="BotaoNivel2" type="Button" parent="PainelNiveis/BotaoNivel2" unique_id=264369523]
+z_index = 1
+offset_left = -91.999985
+offset_top = -31.0
+offset_right = 102.000015
+offset_bottom = 31.0
+pivot_offset = Vector2(95.5, 33.5)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9736844, 0.8881644, 0, 1)
+theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_yg2ri")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hsyoj")
+action_mode = 0
+button_mask = 0
+text = "Nivel 2"
+flat = true
+script = ExtResource("5_ihfn3")
+
+[node name="Pulsar" type="AnimationPlayer" parent="PainelNiveis/BotaoNivel2/BotaoNivel2" unique_id=531947557]
+libraries/ = SubResource("AnimationLibrary_53lm7")
+autoplay = &"Pulsar"
+
+[node name="Area2D" type="Area2D" parent="PainelNiveis/BotaoNivel2/BotaoNivel2" unique_id=572854810]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelNiveis/BotaoNivel2/BotaoNivel2/Area2D" unique_id=506032057]
+position = Vector2(92, 27.25)
+shape = SubResource("RectangleShape2D_3qt76")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
+[node name="BotaoNivel3" parent="PainelNiveis" unique_id=2056587009 instance=ExtResource("2_hsyoj")]
+position = Vector2(276, 301)
+script = ExtResource("3_npb31")
+
+[node name="BotaoNivel3" type="Button" parent="PainelNiveis/BotaoNivel3" unique_id=1937720701]
+z_index = 1
+offset_left = -95.0
+offset_top = -34.0
+offset_right = 96.0
+offset_bottom = 33.0
+pivot_offset = Vector2(95.5, 33.5)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9736844, 0.8881644, 0, 1)
+theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_yg2ri")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hsyoj")
+action_mode = 0
+button_mask = 0
 text = "Nivel 3"
+flat = true
+script = ExtResource("5_ihfn3")
 
-[node name="BotaoVoltar" type="Button" parent="PainelNiveis" unique_id=1124521239]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 134.0
-offset_right = 116.0
-offset_bottom = 160.0
-text = "Voltar"
+[node name="Pulsar" type="AnimationPlayer" parent="PainelNiveis/BotaoNivel3/BotaoNivel3" unique_id=1499971108]
+libraries/ = SubResource("AnimationLibrary_53lm7")
+autoplay = &"Pulsar"
+
+[node name="Area2D" type="Area2D" parent="PainelNiveis/BotaoNivel3/BotaoNivel3" unique_id=1437221750]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelNiveis/BotaoNivel3/BotaoNivel3/Area2D" unique_id=1616365176]
+position = Vector2(96, 30)
+shape = SubResource("RectangleShape2D_i6yx1")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
+[node name="Menu" parent="PainelNiveis" unique_id=1429308337 instance=ExtResource("2_hsyoj")]
+position = Vector2(592, 295)
+script = ExtResource("3_npb31")
+eh_botao_sair = true
+
+[node name="BotaoVoltar" type="Button" parent="PainelNiveis/Menu" unique_id=989644707]
+z_index = 1
+offset_left = -95.0
+offset_top = -34.0
+offset_right = 96.0
+offset_bottom = 33.0
+pivot_offset = Vector2(95.5, 33.5)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9736844, 0.8881644, 0, 1)
+theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_yg2ri")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hsyoj")
+action_mode = 0
+button_mask = 0
+text = "Menu"
+flat = true
+script = ExtResource("5_ihfn3")
+cena_destino = "uid://cilwq0kr5vwma"
+
+[node name="Pulsar" type="AnimationPlayer" parent="PainelNiveis/Menu/BotaoVoltar" unique_id=1023981748]
+libraries/ = SubResource("AnimationLibrary_53lm7")
+autoplay = &"Pulsar"
+
+[node name="Area2D" type="Area2D" parent="PainelNiveis/Menu/BotaoVoltar" unique_id=82459645]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PainelNiveis/Menu/BotaoVoltar/Area2D" unique_id=338030745]
+position = Vector2(96, 30)
+shape = SubResource("RectangleShape2D_i6yx1")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
 
 [node name="Fases" type="Label" parent="." unique_id=177176541]
 offset_left = 90.0
@@ -319,11 +452,11 @@ horizontal_alignment = 1
 
 [node name="player" parent="." unique_id=746185790 instance=ExtResource("7_gf408")]
 z_index = 2
-position = Vector2(100.00001, 480)
+position = Vector2(113.00001, 186.00003)
 scale = Vector2(2.183483, 1.900028)
 
 [node name="PontoOrigem" type="Marker2D" parent="." unique_id=725806656]
-position = Vector2(105, 466)
+position = Vector2(116, 155)
 
 [node name="ZonaDeQueda" type="Area2D" parent="." unique_id=366593133]
 position = Vector2(52, 721)
@@ -345,33 +478,52 @@ position = Vector2(337, -94)
 limite_esquerdo = 378.0
 limite_direito = 740.0
 
-[connection signal="focus_entered" from="PainelFases/Fase 1/BotaoFase1" to="PainelFases/Fase 1/BotaoFase1" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PainelFases/Fase 1/BotaoFase1" to="PainelFases/Fase 1/BotaoFase1" method="_on_focus_exited"]
-[connection signal="pressed" from="PainelFases/Fase 1/BotaoFase1" to="." method="_on_botao_fase_1_pressed"]
-[connection signal="body_entered" from="PainelFases/Fase 1/BotaoFase1/Area2D" to="PainelFases/Fase 1/BotaoFase1" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="PainelFases/Fase 1/BotaoFase1/Area2D" to="PainelFases/Fase 1/BotaoFase1" method="_on_area_2d_body_exited"]
-[connection signal="focus_entered" from="PainelFases/Fase 2/BotaoFase2" to="PainelFases/Fase 2/BotaoFase2" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PainelFases/Fase 2/BotaoFase2" to="PainelFases/Fase 2/BotaoFase2" method="_on_focus_exited"]
-[connection signal="pressed" from="PainelFases/Fase 2/BotaoFase2" to="." method="_on_botao_fase_2_pressed"]
-[connection signal="body_entered" from="PainelFases/Fase 2/BotaoFase2/Area2D" to="PainelFases/Fase 2/BotaoFase2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="PainelFases/Fase 2/BotaoFase2/Area2D" to="PainelFases/Fase 2/BotaoFase2" method="_on_area_2d_body_exited"]
-[connection signal="focus_entered" from="PainelFases/Fase 3/BotaoFase3" to="PainelFases/Fase 3/BotaoFase3" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PainelFases/Fase 3/BotaoFase3" to="PainelFases/Fase 3/BotaoFase3" method="_on_focus_exited"]
-[connection signal="pressed" from="PainelFases/Fase 3/BotaoFase3" to="." method="_on_botao_fase_3_pressed"]
-[connection signal="body_entered" from="PainelFases/Fase 3/BotaoFase3/Area2D" to="PainelFases/Fase 3/BotaoFase3" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="PainelFases/Fase 3/BotaoFase3/Area2D" to="PainelFases/Fase 3/BotaoFase3" method="_on_area_2d_body_exited"]
-[connection signal="focus_entered" from="PainelFases/Fase 4/BotaoFase4" to="PainelFases/Fase 4/BotaoFase4" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PainelFases/Fase 4/BotaoFase4" to="PainelFases/Fase 4/BotaoFase4" method="_on_focus_exited"]
-[connection signal="pressed" from="PainelFases/Fase 4/BotaoFase4" to="." method="_on_botao_fase_4_pressed"]
-[connection signal="body_entered" from="PainelFases/Fase 4/BotaoFase4/Area2D" to="PainelFases/Fase 4/BotaoFase4" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="PainelFases/Fase 4/BotaoFase4/Area2D" to="PainelFases/Fase 4/BotaoFase4" method="_on_area_2d_body_exited"]
+[connection signal="focus_exited" from="PainelFases" to="." method="_on_painel_fases_focus_exited"]
+[connection signal="focus_entered" from="PainelFases/BotaoFase1/BotaoFase1" to="PainelFases/BotaoFase1/BotaoFase1" method="_on_focus_entered"]
+[connection signal="focus_exited" from="PainelFases/BotaoFase1/BotaoFase1" to="PainelFases/BotaoFase1/BotaoFase1" method="_on_focus_exited"]
+[connection signal="pressed" from="PainelFases/BotaoFase1/BotaoFase1" to="." method="_on_botao_fase_1_pressed"]
+[connection signal="body_entered" from="PainelFases/BotaoFase1/BotaoFase1/Area2D" to="PainelFases/BotaoFase1/BotaoFase1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PainelFases/BotaoFase1/BotaoFase1/Area2D" to="PainelFases/BotaoFase1/BotaoFase1" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="PainelFases/BotaoFase2/BotaoFase2" to="PainelFases/BotaoFase2/BotaoFase2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="PainelFases/BotaoFase2/BotaoFase2" to="PainelFases/BotaoFase2/BotaoFase2" method="_on_focus_exited"]
+[connection signal="pressed" from="PainelFases/BotaoFase2/BotaoFase2" to="." method="_on_botao_fase_2_pressed"]
+[connection signal="body_entered" from="PainelFases/BotaoFase2/BotaoFase2/Area2D" to="PainelFases/BotaoFase2/BotaoFase2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PainelFases/BotaoFase2/BotaoFase2/Area2D" to="PainelFases/BotaoFase2/BotaoFase2" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="PainelFases/BotaoFase3/BotaoFase3" to="PainelFases/BotaoFase3/BotaoFase3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="PainelFases/BotaoFase3/BotaoFase3" to="PainelFases/BotaoFase3/BotaoFase3" method="_on_focus_exited"]
+[connection signal="pressed" from="PainelFases/BotaoFase3/BotaoFase3" to="." method="_on_botao_fase_3_pressed"]
+[connection signal="body_entered" from="PainelFases/BotaoFase3/BotaoFase3/Area2D" to="PainelFases/BotaoFase3/BotaoFase3" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PainelFases/BotaoFase3/BotaoFase3/Area2D" to="PainelFases/BotaoFase3/BotaoFase3" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="PainelFases/BotaoFase4/BotaoFase4" to="PainelFases/BotaoFase4/BotaoFase4" method="_on_focus_entered"]
+[connection signal="focus_exited" from="PainelFases/BotaoFase4/BotaoFase4" to="PainelFases/BotaoFase4/BotaoFase4" method="_on_focus_exited"]
+[connection signal="pressed" from="PainelFases/BotaoFase4/BotaoFase4" to="." method="_on_botao_fase_4_pressed"]
+[connection signal="body_entered" from="PainelFases/BotaoFase4/BotaoFase4/Area2D" to="PainelFases/BotaoFase4/BotaoFase4" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PainelFases/BotaoFase4/BotaoFase4/Area2D" to="PainelFases/BotaoFase4/BotaoFase4" method="_on_area_2d_body_exited"]
 [connection signal="focus_entered" from="PainelFases/Menu/BotaoVoltar" to="PainelFases/Menu/BotaoVoltar" method="_on_focus_entered"]
 [connection signal="focus_exited" from="PainelFases/Menu/BotaoVoltar" to="PainelFases/Menu/BotaoVoltar" method="_on_focus_exited"]
 [connection signal="pressed" from="PainelFases/Menu/BotaoVoltar" to="PainelFases/Menu/BotaoVoltar" method="_on_pressed"]
 [connection signal="body_entered" from="PainelFases/Menu/BotaoVoltar/Area2D" to="PainelFases/Menu/BotaoVoltar" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="PainelFases/Menu/BotaoVoltar/Area2D" to="PainelFases/Menu/BotaoVoltar" method="_on_area_2d_body_exited"]
-[connection signal="pressed" from="PainelNiveis/BotaoNivel1" to="." method="selecionar_nivel" binds= [1]]
-[connection signal="pressed" from="PainelNiveis/BotaoNivel2" to="." method="selecionar_nivel" binds= [2]]
-[connection signal="pressed" from="PainelNiveis/BotaoNivel3" to="." method="selecionar_nivel" binds= [3]]
-[connection signal="pressed" from="PainelNiveis/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]
+[connection signal="focus_entered" from="PainelNiveis" to="." method="_on_painel_niveis_focus_entered"]
+[connection signal="focus_exited" from="PainelNiveis" to="." method="_on_painel_niveis_focus_exited"]
+[connection signal="focus_entered" from="PainelNiveis/BotaoNivel1/BotaoNivel1" to="PainelNiveis/BotaoNivel1/BotaoNivel1" method="_on_focus_entered"]
+[connection signal="focus_exited" from="PainelNiveis/BotaoNivel1/BotaoNivel1" to="PainelNiveis/BotaoNivel1/BotaoNivel1" method="_on_focus_exited"]
+[connection signal="pressed" from="PainelNiveis/BotaoNivel1/BotaoNivel1" to="." method="_on_botao_nivel_1_pressed"]
+[connection signal="body_entered" from="PainelNiveis/BotaoNivel1/BotaoNivel1/Area2D" to="PainelNiveis/BotaoNivel1/BotaoNivel1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PainelNiveis/BotaoNivel1/BotaoNivel1/Area2D" to="PainelNiveis/BotaoNivel1/BotaoNivel1" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="PainelNiveis/BotaoNivel2/BotaoNivel2" to="PainelNiveis/BotaoNivel2/BotaoNivel2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="PainelNiveis/BotaoNivel2/BotaoNivel2" to="PainelNiveis/BotaoNivel2/BotaoNivel2" method="_on_focus_exited"]
+[connection signal="pressed" from="PainelNiveis/BotaoNivel2/BotaoNivel2" to="." method="_on_botao_nivel_2_pressed"]
+[connection signal="body_entered" from="PainelNiveis/BotaoNivel2/BotaoNivel2/Area2D" to="PainelNiveis/BotaoNivel2/BotaoNivel2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PainelNiveis/BotaoNivel2/BotaoNivel2/Area2D" to="PainelNiveis/BotaoNivel2/BotaoNivel2" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="PainelNiveis/BotaoNivel3/BotaoNivel3" to="PainelNiveis/BotaoNivel3/BotaoNivel3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="PainelNiveis/BotaoNivel3/BotaoNivel3" to="PainelNiveis/BotaoNivel3/BotaoNivel3" method="_on_focus_exited"]
+[connection signal="pressed" from="PainelNiveis/BotaoNivel3/BotaoNivel3" to="." method="_on_botao_nivel_3_pressed"]
+[connection signal="body_entered" from="PainelNiveis/BotaoNivel3/BotaoNivel3/Area2D" to="PainelNiveis/BotaoNivel3/BotaoNivel3" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PainelNiveis/BotaoNivel3/BotaoNivel3/Area2D" to="PainelNiveis/BotaoNivel3/BotaoNivel3" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="PainelNiveis/Menu/BotaoVoltar" to="PainelNiveis/Menu/BotaoVoltar" method="_on_focus_entered"]
+[connection signal="focus_exited" from="PainelNiveis/Menu/BotaoVoltar" to="PainelNiveis/Menu/BotaoVoltar" method="_on_focus_exited"]
+[connection signal="pressed" from="PainelNiveis/Menu/BotaoVoltar" to="PainelNiveis/Menu/BotaoVoltar" method="_on_pressed"]
+[connection signal="body_entered" from="PainelNiveis/Menu/BotaoVoltar/Area2D" to="PainelNiveis/Menu/BotaoVoltar" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PainelNiveis/Menu/BotaoVoltar/Area2D" to="PainelNiveis/Menu/BotaoVoltar" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="ZonaDeQueda" to="." method="_on_zona_de_queda_body_entered"]

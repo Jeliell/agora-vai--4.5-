@@ -30,25 +30,41 @@ var fase_selecionada: int = -1
 
 @onready var painel_fases: Control  = $PainelFases
 @onready var painel_niveis: Control = $PainelNiveis
-@onready var label_fase_titulo: Label = $PainelNiveis/LabelTitulo
+@onready var label_fase_titulo: Label = $Fases
 
 func _ready() -> void:
-    painel_niveis.visible = false
+    # Mostra as Fases e liga a física/interação delas
     painel_fases.visible = true
+    painel_fases.process_mode = Node.PROCESS_MODE_INHERIT
+    
+    # Esconde os Níveis e desliga eles da tomada
+    painel_niveis.visible = false
+    painel_niveis.process_mode = Node.PROCESS_MODE_DISABLED
 
 func selecionar_fase(fase: int) -> void:
     fase_selecionada = fase
     label_fase_titulo.text = "Fase " + str(fase)
+    
+    # Desliga totalmente o painel de Fases (Fica invisível e sem colisão)
     painel_fases.visible = false
+    painel_fases.process_mode = Node.PROCESS_MODE_DISABLED
+    
+    # Liga totalmente o painel de Níveis (Fica visível e com colisão)
     painel_niveis.visible = true
+    painel_niveis.process_mode = Node.PROCESS_MODE_INHERIT
+
+func _on_botao_voltar_pressed() -> void:
+    # Desliga totalmente o painel de Níveis
+    painel_niveis.visible = false
+    painel_niveis.process_mode = Node.PROCESS_MODE_DISABLED
+    
+    # Liga totalmente o painel de Fases
+    painel_fases.visible = true
+    painel_fases.process_mode = Node.PROCESS_MODE_INHERIT
 
 func selecionar_nivel(nivel: int) -> void:
     Configuracao.nivel_atual_da_fase = nivel
     get_tree().change_scene_to_file(FASES[fase_selecionada])
-
-func _on_botao_voltar_pressed() -> void:
-    painel_niveis.visible = false
-    painel_fases.visible = true
 
 func _on_botao_menu_pressed() -> void:
     get_tree().change_scene_to_file("res://scenes/UI/menu.tscn")
@@ -75,6 +91,3 @@ func _on_botao_nivel_2_pressed() -> void:
     
 func _on_botao_nivel_3_pressed() -> void:
     selecionar_nivel(3)
-
-func _on_botao_nivel_4_pressed() -> void:
-    selecionar_nivel(4)
