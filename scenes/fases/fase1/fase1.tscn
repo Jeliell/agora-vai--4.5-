@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="4_2uh17"]
 [ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="5_ux0y4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okevt"]
 size = Vector2(93, 43)
 
 [sub_resource type="FontFile" id="FontFile_4wyf3"]
@@ -34,6 +34,9 @@ cache/0/50/0/scale = 1.0
 font = SubResource("FontFile_4wyf3")
 font_size = 50
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
+size = Vector2(93, 43)
+
 [node name="World" type="Node2D" unique_id=1454552130]
 script = ExtResource("1_okevt")
 
@@ -49,7 +52,7 @@ script = ExtResource("4_2uh17")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resposta1" unique_id=1449365648]
 position = Vector2(-167, 173)
-shape = SubResource("RectangleShape2D_qfnet")
+shape = SubResource("RectangleShape2D_okevt")
 
 [node name="Label" type="Label" parent="Resposta1" unique_id=960683871]
 offset_left = -212.0
