@@ -61,14 +61,14 @@ size = Vector2(190, 66)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b8ea"]
 size = Vector2(192, 65.5)
 
-[sub_resource type="InputEventKey" id="InputEventKey_ypw4e"]
-keycode = 4194309
-
-[sub_resource type="Shortcut" id="Shortcut_aklih"]
-events = [SubResource("InputEventKey_ypw4e")]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aklih"]
+_data = {
+&"Pulsar": SubResource("Animation_7amk3"),
+&"RESET": SubResource("Animation_uviw4")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ruad"]
-size = Vector2(191, 67)
+size = Vector2(190, 66)
 
 [node name="Menu" type="Node2D" unique_id=1980198305]
 script = ExtResource("1_2tfbb")
@@ -95,7 +95,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(152, 336)
 
 [node name="ZonaDeQueda" type="Area2D" parent="." unique_id=758818588]
-position = Vector2(42, 670)
+position = Vector2(51, 727)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaDeQueda" unique_id=1610661389]
 z_index = 8
@@ -180,7 +180,7 @@ theme_override_fonts/font = ExtResource("4_7amk3")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 button_mask = 0
-text = "Fase"
+text = "Fases"
 flat = true
 script = ExtResource("10_wav1i")
 cena_destino = "uid://c6moj7kybo7ky"
@@ -239,13 +239,13 @@ position = Vector2(950, 483)
 script = ExtResource("9_45usf")
 eh_botao_sair = true
 
-[node name="BotaoSair" type="Button" parent="Sair" unique_id=1270357649]
+[node name="BotaoSair" type="Button" parent="Sair" unique_id=1749024051]
 z_index = 1
-offset_left = -87.0
+offset_left = -95.0
 offset_top = -34.0
-offset_right = 92.0
-offset_bottom = 32.0
-pivot_offset = Vector2(89.5, 33)
+offset_right = 96.0
+offset_bottom = 33.0
+pivot_offset = Vector2(95.5, 33.5)
 mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9736844, 0.8881644, 0, 1)
@@ -253,24 +253,23 @@ theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
 theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_constants/h_separation = 4
 theme_override_fonts/font = ExtResource("4_7amk3")
 theme_override_font_sizes/font_size = 40
-shortcut = SubResource("Shortcut_aklih")
+action_mode = 0
+button_mask = 0
 text = "Sair"
 flat = true
 script = ExtResource("10_wav1i")
 eh_botao_sair = true
 
-[node name="Pulsar" type="AnimationPlayer" parent="Sair/BotaoSair" unique_id=1270884441]
-libraries/ = SubResource("AnimationLibrary_cr4s1")
+[node name="Pulsar" type="AnimationPlayer" parent="Sair/BotaoSair" unique_id=1232124704]
+libraries/ = SubResource("AnimationLibrary_aklih")
 autoplay = &"Pulsar"
 
-[node name="Area2D2" type="Area2D" parent="Sair/BotaoSair" unique_id=610577854]
-position = Vector2(-565, 79)
+[node name="Area2D" type="Area2D" parent="Sair/BotaoSair" unique_id=802779159]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sair/BotaoSair/Area2D2" unique_id=1944656585]
-position = Vector2(654.5, -49.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sair/BotaoSair/Area2D" unique_id=1609133926]
+position = Vector2(96, 30)
 shape = SubResource("RectangleShape2D_2ruad")
 debug_color = Color(0, 0.60038817, 0.70000815, 0)
 
@@ -293,7 +292,6 @@ debug_color = Color(0, 0.60038817, 0.70000815, 0)
 [connection signal="body_exited" from="Dificuldade/BotaoDificuldade/Area2D" to="Dificuldade/BotaoDificuldade" method="_on_area_2d_body_exited"]
 [connection signal="focus_entered" from="Sair/BotaoSair" to="Sair/BotaoSair" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Sair/BotaoSair" to="Sair/BotaoSair" method="_on_focus_exited"]
-[connection signal="pressed" from="Sair/BotaoSair" to="." method="_on_botao_sair_pressed"]
 [connection signal="pressed" from="Sair/BotaoSair" to="Sair/BotaoSair" method="_on_pressed"]
-[connection signal="body_entered" from="Sair/BotaoSair/Area2D2" to="Sair/BotaoSair" method="_on_area_2d_2_body_entered"]
-[connection signal="body_exited" from="Sair/BotaoSair/Area2D2" to="Sair/BotaoSair" method="_on_area_2d_2_body_exited"]
+[connection signal="body_entered" from="Sair/BotaoSair/Area2D" to="Sair/BotaoSair" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Sair/BotaoSair/Area2D" to="Sair/BotaoSair" method="_on_area_2d_body_exited"]
