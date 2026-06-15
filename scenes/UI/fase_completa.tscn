@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://2m8qo12ds64w"]
 
 [ext_resource type="Script" uid="uid://cwnl4vrifuenf" path="res://scripts/UI/fase_completa.gd" id="1_ujbbs"]
+[ext_resource type="Resource" uid="uid://dpgjddr1cth8p" path="res://dados/cutscene_fase1.tres" id="2_srd5x"]
 
 [node name="FaseCompleta" type="Node2D" unique_id=1839215289]
 script = ExtResource("1_ujbbs")
+cutscenes_por_fase = {
+1: ExtResource("2_srd5x")
+}
 
 [node name="Fase Completa!" type="Label" parent="." unique_id=161140528]
 offset_left = 449.0

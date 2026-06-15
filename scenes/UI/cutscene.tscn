@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ddxudh0q5v3g8"]
+
+[ext_resource type="Script" uid="uid://b3bsq4ww3kr1i" path="res://scripts/UI/cutscene.gd" id="1_jwg1r"]
+[ext_resource type="Texture2D" uid="uid://da0o3r81bni0h" path="res://Art Assets/NovoDuck/duck-Sheet.png" id="2_bsng1"]
+
+[node name="Cutscene" type="Node2D" unique_id=194035425]
+script = ExtResource("1_jwg1r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=972752009]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.16470589, 0.16470589, 0.22745098, 1)
+
+[node name="RetratoPato" type="Sprite2D" parent="." unique_id=1385322276]
+position = Vector2(260, 300)
+scale = Vector2(4, 4)
+texture = ExtResource("2_bsng1")
+hframes = 24
+vframes = 5
+
+[node name="RetratoGarca" type="Sprite2D" parent="." unique_id=2117433803]
+position = Vector2(890, 300)
+scale = Vector2(4, 4)
+texture = ExtResource("2_bsng1")
+flip_h = true
+hframes = 24
+vframes = 5
+
+[node name="CaixaDialogo" type="Panel" parent="." unique_id=1453077997]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 468.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LabelNome" type="Label" parent="CaixaDialogo" unique_id=1708423194]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 15.0
+offset_right = 80.0
+offset_bottom = 38.0
+text = "Pato"
+
+[node name="LabelTexto" type="Label" parent="CaixaDialogo" unique_id=616962890]
+custom_minimum_size = Vector2(1070, 100)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = 80.0
+offset_bottom = 83.0
+text = "TEXTO EXEMPLO"

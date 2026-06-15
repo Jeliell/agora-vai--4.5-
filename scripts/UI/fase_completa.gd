@@ -1,16 +1,32 @@
 extends Node2D
 
+# Arraste o .tres da cutscene de cada fase no Inspector
+# Chave = número da fase (int), Valor = CutsceneData
+@export var cutscenes_por_fase: Dictionary = {}
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _on_botao_proxima_fase_pressed() -> void:
-	var cena: String = Configuracao.proxima_fase_cena
-	if cena == "":
+	var destino: String = ""
+	var proxima: String = Configuracao.proxima_fase_cena
+
+	if proxima == "":
+		# Fim do jogo
 		Configuracao.resetar_progresso()
-		get_tree().change_scene_to_file("res://scenes/UI/menu.tscn")
+		destino = "res://scenes/UI/menu.tscn"
 	else:
 		Configuracao.nivel_atual_da_fase = 1
-		get_tree().change_scene_to_file(cena)
+		destino = proxima
+
+	# Verifica se há cutscene para a fase recém-concluída
+	var cutscene: CutsceneData = cutscenes_por_fase.get(Configuracao.fase_atual, null)
+	if cutscene != null:
+		cutscene.cena_seguinte = destino
+		Configuracao.cutscene_atual = cutscene
+		get_tree().change_scene_to_file("res://scenes/UI/cutscene.tscn")
+	else:
+		get_tree().change_scene_to_file(destino)
 
 func _on_botao_reiniciar_pressed() -> void:
 	Configuracao.nivel_atual_da_fase = 1

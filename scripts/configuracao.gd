@@ -2,16 +2,17 @@ extends Node
 
 # Singleton - registra em Projeto → Configurações → Autoload com nome "Configuracao"
 
-# Dificuldade selecionada
 var dificuldade: String = "medio"
 
-# Estado da progressão de fase/nível
+# Progressão
 var nivel_atual_da_fase: int = 1
 var fase_atual: int = 1
 var proxima_fase_cena: String = ""
 var cena_fase_atual: String = ""
 
-# Tempos por dificuldade
+# Cutscene a ser exibida (definida antes de carregar a cena de cutscene)
+var cutscene_atual: CutsceneData = null
+
 const TEMPOS = {
 	"facil":   30.0,
 	"medio":   20.0,
@@ -39,6 +40,5 @@ func ajustar_variacao(valor: int) -> int:
 func ajustar_numero(valor: int) -> int:
 	return max(1, int(valor * NUMERO_FATOR.get(dificuldade, 1.0)))
 
-# Reseta a progressão (chamado ao voltar ao menu ou começar do zero)
 func resetar_progresso() -> void:
 	nivel_atual_da_fase = 1
