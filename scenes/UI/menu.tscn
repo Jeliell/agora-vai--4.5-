@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bv8ujyre2eu6d" path="res://scripts/UI/menu.gd" id="1_2tfbb"]
 [ext_resource type="Texture2D" uid="uid://863u0po2iosj" path="res://Art Assets/UI/TitleScreen.png" id="2_2un8v"]
+[ext_resource type="Resource" uid="uid://cjceke4hpgmv" path="res://dados/cutscene_inicio.tres.tres" id="2_iysyy"]
 
 [node name="Menu" type="Node2D" unique_id=1980198305]
 script = ExtResource("1_2tfbb")
+cutscene_inicio = ExtResource("2_iysyy")
 
 [node name="Fundo" type="TextureRect" parent="." unique_id=475539722]
 offset_left = 289.0

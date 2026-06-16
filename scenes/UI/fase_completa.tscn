@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://2m8qo12ds64w"]
 
 [ext_resource type="Script" uid="uid://cwnl4vrifuenf" path="res://scripts/UI/fase_completa.gd" id="1_ujbbs"]
+[ext_resource type="Resource" uid="uid://k0lfcwextiil" path="res://dados/cutscene_fase2.tres" id="2_hgxfh"]
 [ext_resource type="Resource" uid="uid://dpgjddr1cth8p" path="res://dados/cutscene_fase1.tres" id="2_srd5x"]
+[ext_resource type="Resource" uid="uid://chxiyueq1n4n7" path="res://dados/cutscene_fase3.tres" id="4_mlmw3"]
+[ext_resource type="Resource" uid="uid://vc4q5n1rs0gn" path="res://dados/cutscene_fase4.tres" id="5_kis4j"]
 
 [node name="FaseCompleta" type="Node2D" unique_id=1839215289]
 script = ExtResource("1_ujbbs")
 cutscenes_por_fase = {
-1: ExtResource("2_srd5x")
+1: ExtResource("2_srd5x"),
+2: ExtResource("2_hgxfh"),
+3: ExtResource("4_mlmw3"),
+4: ExtResource("5_kis4j")
 }
 
 [node name="Fase Completa!" type="Label" parent="." unique_id=161140528]

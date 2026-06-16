@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://vc4q5n1rs0gn"]
+
+[ext_resource type="Script" uid="uid://c5glm0xyacp85" path="res://scripts/cutscene/fala.gd" id="1_mvr31"]
+[ext_resource type="Script" uid="uid://c7b30pn8iiafg" path="res://scripts/cutscene/cutscene_data.gd" id="2_318re"]
+
+[sub_resource type="Resource" id="Resource_627ml"]
+script = ExtResource("1_mvr31")
+texto = "Ufa! Consegui resolver todas as continhas da primavera!"
+metadata/_custom_type_script = "uid://c5glm0xyacp85"
+
+[sub_resource type="Resource" id="Resource_pq4vd"]
+script = ExtResource("1_mvr31")
+personagem = "garca"
+texto = "Muito bem, pequeno pato! Você está ficando esperto com os números."
+metadata/_custom_type_script = "uid://c5glm0xyacp85"
+
+[sub_resource type="Resource" id="Resource_yo2i2"]
+script = ExtResource("1_mvr31")
+texto = "Obrigado, dona Garça! Mas... o que vem agora?"
+metadata/_custom_type_script = "uid://c5glm0xyacp85"
+
+[sub_resource type="Resource" id="Resource_8f2ra"]
+script = ExtResource("1_mvr31")
+personagem = "garca"
+texto = "Agora o verão chegou! Prepare-se, o calor vai testar seu fôlego."
+metadata/_custom_type_script = "uid://c5glm0xyacp85"
+
+[resource]
+script = ExtResource("2_318re")
+falas = Array[ExtResource("1_mvr31")]([SubResource("Resource_627ml"), SubResource("Resource_pq4vd"), SubResource("Resource_yo2i2"), SubResource("Resource_8f2ra")])
+metadata/_custom_type_script = "uid://c7b30pn8iiafg"
