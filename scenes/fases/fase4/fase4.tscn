@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://nmrqcej6jhtr" path="res://scenes/cenarios/cenario_inverno.tscn" id="2_etrfh"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_s5um4"]
 [ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="6_2u7yl"]
+[ext_resource type="PackedScene" uid="uid://b6tj0xx6xqpcr" path="res://scenes/UI/nivel_completo.tscn" id="6_c8skf"]
 [ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_unbrw"]
+[ext_resource type="PackedScene" uid="uid://2m8qo12ds64w" path="res://scenes/UI/fase_completa.tscn" id="7_ufgnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
 size = Vector2(93, 43)
@@ -135,3 +137,9 @@ label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
 
 [node name="HUD" parent="." unique_id=1430824241 instance=ExtResource("6_2u7yl")]
+
+[node name="NivelCompleto" parent="." unique_id=1942740472 instance=ExtResource("6_c8skf")]
+visible = false
+
+[node name="FaseCompleta" parent="." unique_id=1826094087 instance=ExtResource("7_ufgnr")]
+visible = false

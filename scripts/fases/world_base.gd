@@ -13,11 +13,9 @@ extends Node2D
 @export var resultado_max: int = 10
 @export var usar_stamina: bool = false
 
-# Identifica a fase (1-4) e a próxima fase
 @export var fase_atual: int = 1
 @export var proxima_fase_cena: String = ""
 
-# Nível atual (1-3) — controlado internamente
 var nivel_atual: int = 1
 
 @onready var label_alvo: Label     = $HUD/LabelAlvo
@@ -27,6 +25,9 @@ var nivel_atual: int = 1
 @onready var label_fase: Label     = $HUD/LabelFase
 @onready var cronometro            = $HUD/cornometro
 @onready var barra_stamina: ProgressBar = $HUD/BarraStamina
+@onready var pause = $Pause
+@onready var popup_nivel = $NivelCompleto
+@onready var popup_fase  = $FaseCompleta
 
 var pontuacao: int = 0
 var acertos: int = 0
@@ -39,14 +40,23 @@ func _ready() -> void:
 	add_to_group("mundo")
 	vidas = vidas_iniciais
 
-	# Lê o nível salvo no singleton (ao avançar de nível ou reiniciar)
-	# Padrão é 1 ao entrar pela primeira vez
 	nivel_atual = Configuracao.nivel_atual_da_fase
 	configurar_nivel()
 
 	_atualizar_vidas()
 	_atualizar_fase()
 	cronometro.tempo_esgotado.connect(_ao_fim_do_tempo)
+
+	# Conecta o botão de pause do HUD (se existir)
+	var botao_pause = $HUD.get_node_or_null("BotaoPause")
+	if botao_pause:
+		botao_pause.pressed.connect(_on_botao_pause_pressed)
+
+	# Garante que os pop-ups começam escondidos
+	if popup_nivel:
+		popup_nivel.visible = false
+	if popup_fase:
+		popup_fase.visible = false
 
 	await get_tree().process_frame
 	var jogadores := get_tree().get_nodes_in_group("jogador")
@@ -59,7 +69,6 @@ func _ready() -> void:
 	barra_stamina.visible = usar_stamina
 	_nova_pergunta()
 
-# Sobrescrito por cada script de fase para definir os parâmetros do nível atual
 func configurar_nivel() -> void:
 	pass
 
@@ -69,6 +78,67 @@ func _process(delta: float) -> void:
 		if _timer_feedback <= 0:
 			label_feedback.text = ""
 			_mostrar_feedback = false
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_alternar_pause()
+	if Configuracao.debug_ativo:
+		_processar_debug(event)
+
+func _processar_debug(event: InputEvent) -> void:
+	if not event is InputEventKey or not event.pressed or event.echo:
+		return
+
+	match event.keycode:
+		KEY_F1:
+			vidas -= 1
+			_atualizar_vidas()
+			if vidas <= 0:
+				_errou()
+		KEY_F2:
+			vidas += 1
+			_atualizar_vidas()
+		KEY_F3:
+			acertos = acertos_para_avançar
+			_avancar()
+		KEY_F4:
+			Configuracao.fase_atual = fase_atual
+			Configuracao.proxima_fase_cena = proxima_fase_cena
+			Configuracao.nivel_atual_da_fase = 1
+			if proxima_fase_cena != "":
+				get_tree().change_scene_to_file(proxima_fase_cena)
+		KEY_F5:
+			var fase_anterior: int = fase_atual - 1
+			if fase_anterior >= 1:
+				Configuracao.nivel_atual_da_fase = 1
+				get_tree().change_scene_to_file("res://scenes/fases/fase" + str(fase_anterior) + "/fase" + str(fase_anterior) + ".tscn")
+		KEY_F6:
+			Configuracao.nivel_atual_da_fase = nivel_atual
+			get_tree().reload_current_scene()
+		KEY_F7:
+			_mudar_dificuldade(1)
+		KEY_F8:
+			_mudar_dificuldade(-1)
+		KEY_F9:
+			cronometro.tempo_travado = not cronometro.tempo_travado
+
+func _mudar_dificuldade(direcao: int) -> void:
+	var ordem := ["facil", "medio", "dificil"]
+	var atual: int = ordem.find(Configuracao.dificuldade)
+	var novo: int = clamp(atual + direcao, 0, ordem.size() - 1)
+	Configuracao.dificuldade = ordem[novo]
+
+func _alternar_pause() -> void:
+	# Não permite pausar se um pop-up de fim já está aberto
+	if (popup_nivel and popup_nivel.visible) or (popup_fase and popup_fase.visible):
+		return
+	if pause.visible:
+		pause.fechar()
+	else:
+		pause.abrir()
+
+func _on_botao_pause_pressed() -> void:
+	pause.abrir()
 
 func _ao_fim_do_tempo() -> void:
 	var respostas := get_tree().get_nodes_in_group("resposta")
@@ -103,18 +173,17 @@ func _acertou() -> void:
 	_nova_pergunta()
 
 func _avancar() -> void:
-	# Salva contexto no singleton para a próxima cena ler
 	Configuracao.fase_atual = fase_atual
 	Configuracao.proxima_fase_cena = proxima_fase_cena
 
 	if nivel_atual < 3:
-		# Próximo nível da mesma fase
+		# Próximo nível — abre o pop-up overlay (sem trocar de cena)
 		Configuracao.nivel_atual_da_fase = nivel_atual + 1
-		get_tree().change_scene_to_file("res://scenes/UI/nivel_completo.tscn")
+		popup_nivel.abrir()
 	else:
-		# Completou a fase — próxima
-		Configuracao.nivel_atual_da_fase = 1  # reset para próxima fase
-		get_tree().change_scene_to_file("res://scenes/UI/fase_completa.tscn")
+		# Completou a fase — abre o pop-up de fase completa
+		Configuracao.nivel_atual_da_fase = 1
+		popup_fase.abrir()
 
 func _errou() -> void:
 	vidas -= 1
@@ -123,7 +192,6 @@ func _errou() -> void:
 
 	if vidas <= 0:
 		await get_tree().create_timer(1.0).timeout
-		# Game over — guarda info para o reiniciar voltar ao nível 1 da fase
 		Configuracao.nivel_atual_da_fase = 1
 		Configuracao.cena_fase_atual = scene_file_path
 		get_tree().change_scene_to_file("res://scenes/UI/game_over.tscn")

@@ -9,6 +9,7 @@ var nivel_atual_da_fase: int = 1
 var fase_atual: int = 1
 var proxima_fase_cena: String = ""
 var cena_fase_atual: String = ""
+var debug_ativo: bool = true
 
 # Cutscene a ser exibida (definida antes de carregar a cena de cutscene)
 var cutscene_atual: CutsceneData = null

@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://cweqfh7vqw1gu" path="res://scripts/fases/fase2/fase2.gd" id="1_8dmmo"]
 [ext_resource type="PackedScene" uid="uid://cuon255wdbtui" path="res://scenes/cenarios/cenario_verao.tscn" id="2_bum0d"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_m4cpg"]
+[ext_resource type="PackedScene" uid="uid://b6tj0xx6xqpcr" path="res://scenes/UI/nivel_completo.tscn" id="6_6rkr0"]
 [ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="6_8dmmo"]
 [ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_g5fcb"]
+[ext_resource type="PackedScene" uid="uid://2m8qo12ds64w" path="res://scenes/UI/fase_completa.tscn" id="7_fbubx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
 size = Vector2(93, 43)
@@ -139,5 +141,11 @@ horizontal_alignment = 1
 [node name="BarraStamina" parent="HUD" index="6" unique_id=629754042]
 offset_left = 1064.0
 offset_right = 1166.0
+
+[node name="NivelCompleto" parent="." unique_id=1942740472 instance=ExtResource("6_6rkr0")]
+visible = false
+
+[node name="FaseCompleta" parent="." unique_id=1826094087 instance=ExtResource("7_fbubx")]
+visible = false
 
 [editable path="HUD"]

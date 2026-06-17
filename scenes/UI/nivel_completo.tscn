@@ -1,49 +1,86 @@
 [gd_scene format=3 uid="uid://b6tj0xx6xqpcr"]
 
 [ext_resource type="Script" uid="uid://cqgg8nhjlncek" path="res://scripts/UI/nivel_completo.gd" id="1_j85lu"]
-[ext_resource type="Texture2D" uid="uid://547i5i5txud6" path="res://Art Assets/UIPack/BoxesBanners/Banner_Blue.png" id="2_gq4yt"]
+[ext_resource type="Texture2D" uid="uid://5aqno6jdqvvf" path="res://Art Assets/UIPack/BoxesBanners/Box_Blue_Rounded.png" id="2_h6cqi"]
+[ext_resource type="Texture2D" uid="uid://d3tec0wowbbt4" path="res://Art Assets/UIPack/ButtonsText/ButtonText_Large_Blue_Round.png" id="3_yqcwe"]
 
-[node name="NivelCompleto" type="Node2D" unique_id=1942740472]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvfde"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("3_yqcwe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_322me"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("3_yqcwe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkp3b"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("3_yqcwe")
+
+[node name="NivelCompleto" type="CanvasLayer" unique_id=1851208621]
+process_mode = 2
 script = ExtResource("1_j85lu")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=113629518]
-offset_left = 326.0
-offset_top = 40.0
-offset_right = 826.0
-offset_bottom = 240.0
-texture = ExtResource("2_gq4yt")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=482297955]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=988442308]
+offset_left = 351.0
+offset_top = 64.0
+offset_right = 801.0
+offset_bottom = 584.0
+size_flags_stretch_ratio = 5.0
+texture = ExtResource("2_h6cqi")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="." unique_id=872141658]
-offset_left = 326.0
-offset_top = 100.0
-offset_right = 826.0
+[node name="LabelTitulo" type="Label" parent="." unique_id=1222601239]
+offset_left = 376.0
+offset_top = 110.0
+offset_right = 776.0
 offset_bottom = 180.0
-text = "Nivel Completo!"
+text = "Nível Completo!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BotaoProximoNivel" type="Button" parent="." unique_id=1828465968]
-offset_left = 183.0
-offset_top = 43.0
-offset_right = 309.0
-offset_bottom = 74.0
-text = "Próximo Nivel"
+[node name="BotaoProximoNivel" type="Button" parent="." unique_id=664494816]
+offset_left = 430.0
+offset_top = 210.0
+offset_right = 722.0
+offset_bottom = 290.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_uvfde")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uvfde")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uvfde")
+text = "Proxima fase "
 
-[node name="BotaoReiniciar" type="Button" parent="." unique_id=1038325596]
-offset_left = 183.0
-offset_top = 85.0
-offset_right = 298.0
-offset_bottom = 116.0
-text = "Reinicar Nível
-"
+[node name="BotaoReiniciar" type="Button" parent="." unique_id=1833296024]
+offset_left = 430.0
+offset_top = 310.0
+offset_right = 722.0
+offset_bottom = 390.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_322me")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_322me")
+theme_override_styles/hover = SubResource("StyleBoxTexture_322me")
+text = "Reiniciar"
 
-[node name="BotaoMenu" type="Button" parent="." unique_id=193932080]
-offset_left = 183.0
-offset_top = 124.0
-offset_right = 320.0
-offset_bottom = 155.0
+[node name="BotaoMenu" type="Button" parent="." unique_id=876747422]
+offset_left = 430.0
+offset_top = 410.0
+offset_right = 722.0
+offset_bottom = 490.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_vkp3b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vkp3b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vkp3b")
 text = "Menu Principal"
 
 [connection signal="pressed" from="BotaoProximoNivel" to="." method="_on_botao_proximo_nivel_pressed"]
