@@ -22,7 +22,6 @@ metadata/_custom_type_script = "uid://c5glm0xyacp85"
 [sub_resource type="Resource" id="Resource_8f2ra"]
 script = ExtResource("1_627ml")
 personagem = "garca"
-texto = "Agora o verão chegou! Prepare-se, o calor vai testar seu fôlego."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [resource]

@@ -3,6 +3,106 @@
 [ext_resource type="Script" uid="uid://b3bsq4ww3kr1i" path="res://scripts/UI/cutscene.gd" id="1_jwg1r"]
 [ext_resource type="Texture2D" uid="uid://da0o3r81bni0h" path="res://Art Assets/NovoDuck/duck-Sheet.png" id="2_bsng1"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsng1"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8ui1"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgrxc"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v8pi"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j3gv"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10c5f"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_718t4"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3jgb"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xyen"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(256, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dfwa"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(288, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4ygh"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(320, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjv0h"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(352, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odp8w"]
+atlas = ExtResource("2_bsng1")
+region = Rect2(384, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgmh4"]
+resource_name = "run_aside"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsng1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8ui1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgrxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v8pi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j3gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10c5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_718t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3jgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xyen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dfwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4ygh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjv0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odp8w")
+}],
+"loop": true,
+"name": &"run_aside",
+"speed": 10.0
+}]
+
 [node name="Cutscene" type="Node2D" unique_id=194035425]
 script = ExtResource("1_jwg1r")
 
@@ -11,12 +111,12 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.16470589, 0.16470589, 0.22745098, 1)
 
-[node name="RetratoPato" type="Sprite2D" parent="." unique_id=1385322276]
+[node name="RetratoPato" type="AnimatedSprite2D" parent="." unique_id=1787118758]
 position = Vector2(260, 300)
 scale = Vector2(4, 4)
-texture = ExtResource("2_bsng1")
-hframes = 24
-vframes = 5
+sprite_frames = SubResource("SpriteFrames_xgmh4")
+animation = &"run_aside"
+frame_progress = 0.5977892
 
 [node name="RetratoGarca" type="Sprite2D" parent="." unique_id=2117433803]
 position = Vector2(890, 300)

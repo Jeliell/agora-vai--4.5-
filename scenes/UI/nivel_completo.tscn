@@ -1,16 +1,28 @@
 [gd_scene format=3 uid="uid://b6tj0xx6xqpcr"]
 
 [ext_resource type="Script" uid="uid://cqgg8nhjlncek" path="res://scripts/UI/nivel_completo.gd" id="1_j85lu"]
+[ext_resource type="Texture2D" uid="uid://547i5i5txud6" path="res://Art Assets/UIPack/BoxesBanners/Banner_Blue.png" id="2_gq4yt"]
 
 [node name="NivelCompleto" type="Node2D" unique_id=1942740472]
 script = ExtResource("1_j85lu")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=113629518]
+offset_left = 326.0
+offset_top = 40.0
+offset_right = 826.0
+offset_bottom = 240.0
+texture = ExtResource("2_gq4yt")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Label" type="Label" parent="." unique_id=872141658]
-offset_left = 183.0
-offset_top = 16.0
-offset_right = 306.0
-offset_bottom = 39.0
+offset_left = 326.0
+offset_top = 100.0
+offset_right = 826.0
+offset_bottom = 180.0
 text = "Nivel Completo!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BotaoProximoNivel" type="Button" parent="." unique_id=1828465968]
 offset_left = 183.0

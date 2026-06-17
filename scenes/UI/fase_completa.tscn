@@ -5,6 +5,15 @@
 [ext_resource type="Resource" uid="uid://dpgjddr1cth8p" path="res://dados/cutscene_fase1.tres" id="2_srd5x"]
 [ext_resource type="Resource" uid="uid://chxiyueq1n4n7" path="res://dados/cutscene_fase3.tres" id="4_mlmw3"]
 [ext_resource type="Resource" uid="uid://vc4q5n1rs0gn" path="res://dados/cutscene_fase4.tres" id="5_kis4j"]
+[ext_resource type="Texture2D" uid="uid://5aqno6jdqvvf" path="res://Art Assets/UIPack/BoxesBanners/Box_Blue_Rounded.png" id="6_kis4j"]
+[ext_resource type="Texture2D" uid="uid://d3tec0wowbbt4" path="res://Art Assets/UIPack/ButtonsText/ButtonText_Large_Blue_Round.png" id="7_qh4f6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4kvy"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("7_qh4f6")
 
 [node name="FaseCompleta" type="Node2D" unique_id=1839215289]
 script = ExtResource("1_ujbbs")
@@ -15,33 +24,63 @@ cutscenes_por_fase = {
 4: ExtResource("5_kis4j")
 }
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2110804700]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1531096239]
+offset_left = 351.0
+offset_top = 64.0
+offset_right = 801.0
+offset_bottom = 584.0
+size_flags_stretch_ratio = 5.0
+texture = ExtResource("6_kis4j")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Fase Completa!" type="Label" parent="." unique_id=161140528]
-offset_left = 449.0
-offset_top = 75.0
-offset_right = 489.0
-offset_bottom = 98.0
+offset_left = 376.0
+offset_top = 110.0
+offset_right = 776.0
+offset_bottom = 180.0
 text = "Fase Concluida"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BotaoProximaFase" type="Button" parent="." unique_id=560256078]
-offset_left = 411.0
-offset_top = 98.0
-offset_right = 607.0
-offset_bottom = 148.0
-text = "Proxima fase (Em breve)"
+offset_left = 430.0
+offset_top = 210.0
+offset_right = 722.0
+offset_bottom = 290.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e4kvy")
+text = "Proxima fase "
 
-[node name="BotaoReiniciar" type="Button" parent="." unique_id=1634100547]
-offset_left = 438.0
-offset_top = 161.0
-offset_right = 572.0
-offset_bottom = 202.0
-text = "Reiniciar Fase"
+[node name="BotaoReiniciar" type="Button" parent="." unique_id=2113141470]
+offset_left = 430.0
+offset_top = 310.0
+offset_right = 722.0
+offset_bottom = 390.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e4kvy")
+text = "Reiniciar"
 
 [node name="BotaoMenu" type="Button" parent="." unique_id=575352224]
-offset_left = 438.0
-offset_top = 224.0
-offset_right = 562.0
-offset_bottom = 269.0
+offset_left = 430.0
+offset_top = 410.0
+offset_right = 722.0
+offset_bottom = 490.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e4kvy")
 text = "Menu Principal"
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=405040440]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="BotaoProximaFase" to="." method="_on_botao_proxima_fase_pressed"]
 [connection signal="pressed" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]

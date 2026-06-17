@@ -23,6 +23,10 @@ config/icon="res://icon.svg"
 
 Configuracao="*uid://dobb0olx5t5me"
 
+[gui]
+
+theme/custom="uid://xv2n4udwf6md"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
