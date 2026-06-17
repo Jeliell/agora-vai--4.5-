@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="6_r1fkf"]
 [ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_xpo16"]
 [ext_resource type="PackedScene" uid="uid://2m8qo12ds64w" path="res://scenes/UI/fase_completa.tscn" id="7_mww03"]
+[ext_resource type="PackedScene" uid="uid://dwhcibbdmq6ye" path="res://scenes/UI/pause.tscn" id="8_mww03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
 size = Vector2(93, 43)
@@ -142,4 +143,7 @@ horizontal_alignment = 1
 visible = false
 
 [node name="FaseCompleta" parent="." unique_id=1826094087 instance=ExtResource("7_mww03")]
+visible = false
+
+[node name="Pause" parent="." unique_id=1472606612 instance=ExtResource("8_mww03")]
 visible = false
