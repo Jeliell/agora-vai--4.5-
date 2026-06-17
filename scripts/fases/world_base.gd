@@ -102,11 +102,10 @@ func _processar_debug(event: InputEvent) -> void:
 			acertos = acertos_para_avançar
 			_avancar()
 		KEY_F4:
-			Configuracao.fase_atual = fase_atual
-			Configuracao.proxima_fase_cena = proxima_fase_cena
-			Configuracao.nivel_atual_da_fase = 1
-			if proxima_fase_cena != "":
-				get_tree().change_scene_to_file(proxima_fase_cena)
+			acertos = acertos_para_avançar
+			nivel_atual = 3
+			_avancar()
+			
 		KEY_F5:
 			var fase_anterior: int = fase_atual - 1
 			if fase_anterior >= 1:
