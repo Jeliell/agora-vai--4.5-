@@ -1,7 +1,32 @@
 [gd_scene format=4 uid="uid://dn0eacl6fxn0g"]
 
-[ext_resource type="Texture2D" uid="uid://gy0wvai1kxi0" path="res://Art Assets/Background/ChatGPT Image 27 de mai. de 2026, 22_56_03.png" id="1_cm5j5"]
+[ext_resource type="Texture2D" uid="uid://dtgxvmyqh8bda" path="res://Art Assets/Background/BACKGROUNDWBACK1.png" id="1_bhm5w"]
 [ext_resource type="Texture2D" uid="uid://cw6vr64r6whgc" path="res://Art Assets/Tiles/tileset_primavera_144x48.png" id="2_35not"]
+[ext_resource type="Texture2D" uid="uid://dtm63jim2y4ui" path="res://Art Assets/Background/Gemini_Generated_Image_649w3e649w3e649w.png" id="3_gk8nw"]
+[ext_resource type="Shader" uid="uid://dkpkiqixae25u" path="res://scenes/cenarios/scroll.gdshader" id="4_gk8nw"]
+
+[sub_resource type="Shader" id="Shader_bhm5w"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abndw"]
+shader = SubResource("Shader_bhm5w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gk8nw"]
+shader = ExtResource("4_gk8nw")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_abndw"]
 texture = ExtResource("2_35not")
@@ -61,18 +86,38 @@ sources/1 = SubResource("TileSetAtlasSource_abndw")
 
 [node name="Primavera" type="Node2D" unique_id=107084568]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1769659206]
-offset_right = 1169.0
-offset_bottom = 579.0
-color = Color(0.2008689, 0.7546493, 0.98021096, 1)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=428304059]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1680976023]
+motion_mirroring = Vector2(2048, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1478510446]
+material = SubResource("ShaderMaterial_abndw")
+position = Vector2(716, 135)
+texture = ExtResource("3_gk8nw")
 
 [node name="Sky" type="TextureRect" parent="." unique_id=2020242270]
-offset_left = -1.0
-offset_top = -274.0
-offset_right = 1671.0
-offset_bottom = 667.0
-texture = ExtResource("1_cm5j5")
+clip_contents = true
+offset_left = -90.0
+offset_top = -286.0
+offset_right = 1178.0
+offset_bottom = 608.0
+texture = ExtResource("1_bhm5w")
+expand_mode = 1
 stretch_mode = 1
+
+[node name="Sky2" type="TextureRect" parent="." unique_id=2067696544]
+show_behind_parent = true
+texture_repeat = 3
+material = SubResource("ShaderMaterial_gk8nw")
+offset_left = -148.0
+offset_top = -225.0
+offset_right = 1624.0
+offset_bottom = 496.0
+texture = ExtResource("3_gk8nw")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=109651799]
 scale = Vector2(2, 2)
