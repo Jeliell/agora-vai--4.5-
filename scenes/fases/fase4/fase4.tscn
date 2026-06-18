@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_unbrw"]
 [ext_resource type="PackedScene" uid="uid://2m8qo12ds64w" path="res://scenes/UI/fase_completa.tscn" id="7_ufgnr"]
 [ext_resource type="PackedScene" uid="uid://dwhcibbdmq6ye" path="res://scenes/UI/pause.tscn" id="8_ufgnr"]
+[ext_resource type="PackedScene" uid="uid://cpdntw7amo2s3" path="res://scenes/UI/game_over.tscn" id="9_31mr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
 size = Vector2(93, 43)
@@ -146,4 +147,7 @@ visible = false
 visible = false
 
 [node name="Pause" parent="." unique_id=1472606612 instance=ExtResource("8_ufgnr")]
+visible = false
+
+[node name="GameOver" parent="." unique_id=269408006 instance=ExtResource("9_31mr8")]
 visible = false

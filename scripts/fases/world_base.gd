@@ -28,6 +28,7 @@ var nivel_atual: int = 1
 @onready var pause = $Pause
 @onready var popup_nivel = $NivelCompleto
 @onready var popup_fase  = $FaseCompleta
+@onready var game_over = $GameOver
 
 var pontuacao: int = 0
 var acertos: int = 0
@@ -191,15 +192,13 @@ func _errou() -> void:
 
 	if vidas <= 0:
 		await get_tree().create_timer(1.0).timeout
-		Configuracao.nivel_atual_da_fase = 1
-		Configuracao.cena_fase_atual = scene_file_path
-		get_tree().change_scene_to_file("res://scenes/UI/game_over.tscn")
+		game_over.abrir()
 		return
 
 	_nova_pergunta()
 
 func _atualizar_vidas() -> void:
-	label_vidas.text = "♥ ".repeat(vidas)
+	label_vidas.text = "♥ ".repeat(max(0, vidas))
 
 func _atualizar_fase() -> void:
 	label_fase.text = "Fase " + str(fase_atual) + "  Nível " + str(nivel_atual)
