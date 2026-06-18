@@ -37,9 +37,14 @@ cache/0/50/0/scale = 1.0
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
 font = SubResource("FontFile_4wyf3")
 font_size = 50
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
 size = Vector2(93, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux0y4"]
+size = Vector2(20, 648)
 
 [node name="World" type="Node2D" unique_id=1454552130]
 script = ExtResource("1_okevt")
@@ -154,5 +159,17 @@ visible = false
 
 [node name="GameOver" parent="." unique_id=269408006 instance=ExtResource("9_ux0y4")]
 visible = false
+
+[node name="ParedeEsquerda" type="StaticBody2D" parent="." unique_id=1291041274]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsquerda" unique_id=25251561]
+position = Vector2(-10, 324)
+shape = SubResource("RectangleShape2D_ux0y4")
+
+[node name="ParedeDireita" type="StaticBody2D" parent="." unique_id=201782006]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDireita" unique_id=512653291]
+position = Vector2(1162, 324)
+shape = SubResource("RectangleShape2D_ux0y4")
 
 [editable path="HUD"]

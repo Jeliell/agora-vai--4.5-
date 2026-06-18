@@ -38,6 +38,9 @@ cache/0/50/0/scale = 1.0
 font = SubResource("FontFile_4wyf3")
 font_size = 50
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eutu3"]
+size = Vector2(20, 648)
+
 [node name="World" type="Node2D" unique_id=1454552130]
 script = ExtResource("1_r1fkf")
 
@@ -151,3 +154,15 @@ visible = false
 
 [node name="GameOver" parent="." unique_id=269408006 instance=ExtResource("9_eutu3")]
 visible = false
+
+[node name="ParedeEsquerda" type="StaticBody2D" parent="." unique_id=1259917803]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsquerda" unique_id=28633163]
+position = Vector2(-10, 324)
+shape = SubResource("RectangleShape2D_eutu3")
+
+[node name="ParedeDireita" type="StaticBody2D" parent="." unique_id=155907493]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDireita" unique_id=1672051493]
+position = Vector2(1162, 324)
+shape = SubResource("RectangleShape2D_eutu3")

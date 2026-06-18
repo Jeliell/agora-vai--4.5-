@@ -6,7 +6,7 @@ extends Node2D
 @export var variacao_errada_min: int = 1
 @export var variacao_errada_max: int = 4
 @export var vidas_iniciais: int = 3
-@export var acertos_para_avançar: int = 5
+@export var acertos_para_avançar: int = 3
 @export var respostas_com_digito_comum: int = 0
 @export var operacao: String = "adicao"
 @export var fator_fixo: int = -1
@@ -19,9 +19,9 @@ extends Node2D
 var nivel_atual: int = 1
 
 @onready var label_alvo: Label     = $HUD/LabelAlvo
-@onready var label_pontos: Label   = $HUD/LabelPontos
+@onready var container_estrelas = $HUD/ContainerEstrelas
 @onready var label_feedback: Label = $HUD/LabelFeedback
-@onready var label_vidas: Label    = $HUD/LabelVidas
+@onready var container_vidas = $HUD/ContainerVidas
 @onready var label_fase: Label     = $HUD/LabelFase
 @onready var cronometro            = $HUD/cornometro
 @onready var barra_stamina: ProgressBar = $HUD/BarraStamina
@@ -45,6 +45,7 @@ func _ready() -> void:
 	configurar_nivel()
 
 	_atualizar_vidas()
+	_atualizar_estrelas()
 	_atualizar_fase()
 	cronometro.tempo_esgotado.connect(_ao_fim_do_tempo)
 
@@ -115,11 +116,11 @@ func _processar_debug(event: InputEvent) -> void:
 		KEY_F6:
 			Configuracao.nivel_atual_da_fase = nivel_atual
 			get_tree().reload_current_scene()
-		KEY_F7:
+		KEY_7:  # Aumenta dificuldade (era F7)
 			_mudar_dificuldade(1)
-		KEY_F8:
+		KEY_8:  # Diminui dificuldade (era F8)
 			_mudar_dificuldade(-1)
-		KEY_F9:
+		KEY_9:  # Trava/destrava tempo (era F9)
 			cronometro.tempo_travado = not cronometro.tempo_travado
 
 func _mudar_dificuldade(direcao: int) -> void:
@@ -162,7 +163,7 @@ func _ao_fim_do_tempo() -> void:
 func _acertou() -> void:
 	pontuacao += 1
 	acertos += 1
-	label_pontos.text = "Pontos: " + str(pontuacao)
+	_atualizar_estrelas()                             
 	_exibir_feedback("Correto!", Color(0.2, 0.85, 0.3))
 
 	if acertos >= acertos_para_avançar:
@@ -197,8 +198,27 @@ func _errou() -> void:
 
 	_nova_pergunta()
 
+var _tex_estrela = preload("res://Art Assets/UIPack/Icons/Icon_Small_Star.png")
+var _tex_estrela_cinza = preload("res://Art Assets/UIPack/Icons/Icon_Small_StarGrey.png")
+
+func _atualizar_estrelas() -> void:
+	var estrelas = container_estrelas.get_children()
+	for i in estrelas.size():
+		if i < acertos:
+			estrelas[i].texture = _tex_estrela
+		else:
+			estrelas[i].texture = _tex_estrela_cinza
+# Carrega as texturas uma vez
+var _tex_cheio = preload("res://Art Assets/UIPack/Icons/Icon_Small_HeartFull.png")
+var _tex_vazio = preload("res://Art Assets/UIPack/Icons/Icon_Small_HeartEmpty.png")
+
 func _atualizar_vidas() -> void:
-	label_vidas.text = "♥ ".repeat(max(0, vidas))
+	var coracoes = container_vidas.get_children()
+	for i in coracoes.size():
+		if i < vidas:
+			coracoes[i].texture = _tex_cheio
+		else:
+			coracoes[i].texture = _tex_vazio
 
 func _atualizar_fase() -> void:
 	label_fase.text = "Fase " + str(fase_atual) + "  Nível " + str(nivel_atual)
