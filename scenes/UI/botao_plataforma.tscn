@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://c4i8qoi62mar3"]
+
+[ext_resource type="Script" uid="uid://cpjkw1gdcqj67" path="res://scenes/UI/botao_plataforma.gd" id="1_7lwjm"]
+
+[sub_resource type="FontFile" id="FontFile_7lwjm"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_62mxw"]
+font = SubResource("FontFile_7lwjm")
+font_size = 26
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7lwjm"]
+load_path = "res://.godot/imported/tileset_verao_144x48.png-73e58c98843f547ef6c2cd03dca920a0.ctex"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_62mxw"]
+diffuse_texture = SubResource("CompressedTexture2D_7lwjm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62mxw"]
+size = Vector2(190, 63.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inem1"]
+size = Vector2(191, 64)
+
+[node name="BotaoPlataforma" type="StaticBody2D" unique_id=1990194605]
+position = Vector2(0, 8)
+script = ExtResource("1_7lwjm")
+
+[node name="Label" type="Label" parent="." unique_id=2112238719]
+offset_left = -86.213165
+offset_top = -34.99997
+offset_right = 91.786835
+offset_bottom = 3.0000305
+scale = Vector2(0.9830508, 0.9511111)
+size_flags_horizontal = 4
+text = "SAIR"
+label_settings = SubResource("LabelSettings_62mxw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1428305160]
+position = Vector2(1.7868652, -3)
+scale = Vector2(3.905824, 4.8633327)
+texture = SubResource("CanvasTexture_62mxw")
+region_enabled = true
+region_rect = Rect2(0, 0, 47.99886, 13.18084)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414608692]
+position = Vector2(0.7868042, -3)
+shape = SubResource("RectangleShape2D_62mxw")
+
+[node name="AreaDeteccao" type="Area2D" parent="." unique_id=1522008848]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccao" unique_id=315892000]
+position = Vector2(2.2868042, -3)
+shape = SubResource("RectangleShape2D_inem1")
+debug_color = Color(0.8449604, 0.3659127, 0.2697317, 0.41960785)
+
+[connection signal="body_entered" from="AreaDeteccao" to="." method="_on_area_deteccao_body_entered"]
+[connection signal="body_exited" from="AreaDeteccao" to="." method="_on_area_deteccao_body_exited"]
