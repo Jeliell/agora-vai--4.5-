@@ -1,7 +1,91 @@
-[gd_scene format=3 uid="uid://ddxudh0q5v3g8"]
+[gd_scene format=4 uid="uid://ddxudh0q5v3g8"]
 
 [ext_resource type="Script" uid="uid://b3bsq4ww3kr1i" path="res://scripts/UI/cutscene.gd" id="1_jwg1r"]
+[ext_resource type="Texture2D" uid="uid://dtm63jim2y4ui" path="res://Art Assets/Background/Gemini_Generated_Image_649w3e649w3e649w.png" id="2_10c5f"]
 [ext_resource type="Texture2D" uid="uid://da0o3r81bni0h" path="res://Art Assets/NovoDuck/duck-Sheet.png" id="2_bsng1"]
+[ext_resource type="Texture2D" uid="uid://dtgxvmyqh8bda" path="res://Art Assets/Background/BACKGROUNDWBACK1.png" id="3_718t4"]
+[ext_resource type="Shader" uid="uid://dkpkiqixae25u" path="res://scenes/cenarios/scroll.gdshader" id="4_q3jgb"]
+[ext_resource type="Texture2D" uid="uid://cw6vr64r6whgc" path="res://Art Assets/Tiles/tileset_primavera_144x48.png" id="5_0xyen"]
+[ext_resource type="Texture2D" uid="uid://cbijxh35o643s" path="res://Art Assets/Characters/Garça/Gemini_Generated_Image_qewma6qewma6qewm.png" id="7_3dfwa"]
+
+[sub_resource type="Shader" id="Shader_g4ygh"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pjv0h"]
+shader = SubResource("Shader_g4ygh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_odp8w"]
+shader = ExtResource("4_q3jgb")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ckg8"]
+texture = ExtResource("5_0xyen")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_yi7v1"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 129
+sources/1 = SubResource("TileSetAtlasSource_6ckg8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsng1"]
 atlas = ExtResource("2_bsng1")
@@ -103,28 +187,107 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgmh4"]
+atlas = ExtResource("7_3dfwa")
+region = Rect2(0, 0, 158, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30jcn"]
+atlas = ExtResource("7_3dfwa")
+region = Rect2(158, 0, 158, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7mif"]
+atlas = ExtResource("7_3dfwa")
+region = Rect2(474, 0, 158, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34pro"]
+atlas = ExtResource("7_3dfwa")
+region = Rect2(316, 197, 158, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64bp2"]
+atlas = ExtResource("7_3dfwa")
+region = Rect2(474, 197, 158, 197)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swf67"]
+resource_name = "garca"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgmh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30jcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7mif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34pro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64bp2")
+}],
+"loop": true,
+"name": &"garca",
+"speed": 2.5
+}]
+
 [node name="Cutscene" type="Node2D" unique_id=194035425]
 script = ExtResource("1_jwg1r")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=972752009]
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.16470589, 0.16470589, 0.22745098, 1)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1582177623]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1090098294]
+motion_mirroring = Vector2(2048, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=450765225]
+material = SubResource("ShaderMaterial_pjv0h")
+position = Vector2(716, 135)
+texture = ExtResource("2_10c5f")
+
+[node name="Sky" type="TextureRect" parent="." unique_id=794047721]
+clip_contents = true
+offset_left = -90.0
+offset_top = -286.0
+offset_right = 1178.0
+offset_bottom = 608.0
+texture = ExtResource("3_718t4")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sky2" type="TextureRect" parent="." unique_id=845316671]
+show_behind_parent = true
+texture_repeat = 3
+material = SubResource("ShaderMaterial_odp8w")
+offset_left = -148.0
+offset_top = -225.0
+offset_right = 1624.0
+offset_bottom = 496.0
+texture = ExtResource("2_10c5f")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1982378407]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAADABIAAQABAAEAAAACABIAAQABAAEAAAACABEAAQABAAEAAAABABEAAQABAAEAAAABABIAAQABAAEAAAAAABEAAQAAAAEAAAABABAAAQABAAEAAAAAABAAAQAAAAEAAAAAAA8AAQAAAAAAAAABAA8AAQABAAAAAAACAA8AAQABAAAAAAACABAAAQABAAEAAAADABAAAQABAAEAAAADAA8AAQABAAAAAAAEAA8AAQABAAAAAAAFAA8AAQABAAAAAAAGAA8AAQABAAAAAAAHAA8AAQABAAAAAAAIAA8AAQABAAAAAAAJAA8AAQABAAAAAAAKAA8AAQABAAAAAAALAA8AAQABAAAAAAAMAA8AAQABAAAAAAANAA8AAQABAAAAAAAOAA8AAQABAAAAAAAPAA8AAQABAAAAAAAiAA8AAQABAAAAAAAjAA8AAQABAAAAAAAjABAAAQABAAEAAAAkABAAAQACAAEAAAAjABEAAQABAAEAAAAiABEAAQABAAEAAAAiABIAAQABAAEAAAAkAA8AAQACAAAAAAAkABEAAQACAAEAAAAkABIAAQABAAEAAAAjABIAAQABAAEAAAAhABIAAQABAAEAAAAhABEAAQABAAEAAAAiABAAAQABAAEAAAAgABEAAQABAAEAAAAfABEAAQABAAEAAAAeABIAAQABAAEAAAAdABIAAQABAAEAAAAeABEAAQABAAEAAAAgABAAAQABAAEAAAAhABAAAQABAAEAAAAdABEAAQABAAEAAAAfABAAAQABAAEAAAAeABAAAQABAAEAAAAdABAAAQABAAEAAAAeAA8AAQABAAAAAAAfAA8AAQABAAAAAAAgAA8AAQABAAAAAAAhAA8AAQABAAAAAAAcABAAAQABAAEAAAAcABEAAQABAAEAAAAbABEAAQABAAEAAAAaABEAAQABAAEAAAAZABIAAQABAAEAAAAYABIAAQABAAEAAAAXABIAAQABAAEAAAAWABIAAQABAAEAAAAYABEAAQABAAEAAAAZABEAAQABAAEAAAAbABIAAQABAAEAAAAaABIAAQABAAEAAAAcABIAAQABAAEAAAAfABIAAQABAAEAAAAgABIAAQABAAEAAAASABIAAQABAAEAAAATABIAAQABAAEAAAAUABIAAQABAAEAAAAVABIAAQABAAEAAAAQABIAAQABAAEAAAARABIAAQABAAEAAAAXABEAAQABAAEAAAAWABEAAQABAAEAAAANABIAAQABAAEAAAAOABIAAQABAAEAAAAPABIAAQABAAEAAAARABEAAQABAAEAAAASABEAAQABAAEAAAATABEAAQABAAEAAAAMABIAAQABAAEAAAALABIAAQABAAEAAAAJABIAAQABAAEAAAAKABIAAQABAAEAAAANABEAAQABAAEAAAAOABEAAQABAAEAAAAPABEAAQABAAEAAAAQABEAAQABAAEAAAAIABIAAQABAAEAAAAHABIAAQABAAEAAAAGABIAAQABAAEAAAAFABIAAQABAAEAAAAJABEAAQABAAEAAAAKABEAAQABAAEAAAALABEAAQABAAEAAAAMABEAAQABAAEAAAAIABEAAQABAAEAAAAHABEAAQABAAEAAAAEABIAAQABAAEAAAAFABEAAQABAAEAAAAGABEAAQABAAEAAAAEABEAAQABAAEAAAAHABAAAQABAAEAAAAGABAAAQABAAEAAAADABEAAQABAAEAAAAEABAAAQABAAEAAAAFABAAAQABAAEAAAAJABAAAQABAAEAAAAIABAAAQABAAEAAAAKABAAAQABAAEAAAALABAAAQABAAEAAAANABAAAQABAAEAAAAMABAAAQABAAEAAAAOABAAAQABAAEAAAAPABAAAQABAAEAAAAQAA8AAQABAAAAAAARAA8AAQABAAAAAAASAA8AAQABAAAAAAATAA8AAQABAAAAAAAUAA8AAQABAAAAAAASABAAAQABAAEAAAARABAAAQABAAEAAAAQABAAAQABAAEAAAAVAA8AAQABAAAAAAAWAA8AAQABAAAAAAAUABAAAQABAAEAAAATABAAAQABAAEAAAAVABAAAQABAAEAAAAXAA8AAQABAAAAAAAYAA8AAQABAAAAAAAZAA8AAQABAAAAAAAYABAAAQABAAEAAAAXABAAAQABAAEAAAAWABAAAQABAAEAAAAVABEAAQABAAEAAAAZABAAAQABAAEAAAAaABAAAQABAAEAAAAUABEAAQABAAEAAAAaAA8AAQABAAAAAAAbAA8AAQABAAAAAAAcAA8AAQABAAAAAAAbABAAAQABAAEAAAAdAA8AAQABAAAAAAABABMAAQABAAEAAAACABMAAQABAAEAAAADABMAAQABAAEAAAAEABMAAQABAAEAAAAFABMAAQABAAEAAAAGABMAAQABAAEAAAAHABMAAQABAAEAAAAkABMAAQABAAEAAAAkABQAAQABAAEAAAAjABQAAQABAAEAAAAiABQAAQABAAEAAAAhABQAAQABAAEAAAAgABQAAQABAAEAAAAfABQAAQABAAEAAAAeABQAAQABAAEAAAAdABQAAQABAAEAAAAcABQAAQABAAEAAAAcABUAAQABAAEAAAAbABUAAQABAAEAAAAaABUAAQABAAEAAAAZABUAAQABAAEAAAAYABUAAQABAAEAAAAXABUAAQABAAEAAAAWABUAAQABAAEAAAAVABUAAQABAAEAAAAUABUAAQABAAEAAAATABUAAQABAAEAAAASABUAAQABAAEAAAASABYAAQABAAEAAAARABYAAQABAAEAAAAQABYAAQABAAEAAAAPABYAAQABAAEAAAAOABYAAQABAAEAAAANABYAAQABAAEAAAAMABYAAQABAAEAAAALABYAAQABAAEAAAAKABYAAQABAAEAAAAJABYAAQABAAEAAAAIABYAAQABAAEAAAAHABYAAQABAAEAAAAGABYAAQABAAEAAAAFABYAAQABAAEAAAAEABYAAQABAAEAAAADABYAAQABAAEAAAACABYAAQABAAEAAAACABUAAQABAAEAAAABABUAAQABAAEAAAABABQAAQABAAEAAAACABQAAQABAAEAAAADABQAAQABAAEAAAAEABQAAQABAAEAAAAFABQAAQABAAEAAAAGABQAAQABAAEAAAAHABQAAQABAAEAAAAIABQAAQABAAEAAAAJABQAAQABAAEAAAAKABQAAQABAAEAAAALABQAAQABAAEAAAAKABMAAQABAAEAAAAJABMAAQABAAEAAAAIABMAAQABAAEAAAALABMAAQABAAEAAAAMABMAAQABAAEAAAANABMAAQABAAEAAAARABMAAQABAAEAAAASABMAAQABAAEAAAATABMAAQABAAEAAAAQABMAAQABAAEAAAAPABMAAQABAAEAAAAOABMAAQABAAEAAAANABQAAQABAAEAAAAMABQAAQABAAEAAAAOABQAAQABAAEAAAAPABQAAQABAAEAAAAQABQAAQABAAEAAAARABQAAQABAAEAAAASABQAAQABAAEAAAATABQAAQABAAEAAAAUABQAAQABAAEAAAAVABQAAQABAAEAAAAWABQAAQABAAEAAAAXABQAAQABAAEAAAAYABQAAQABAAEAAAAZABQAAQABAAEAAAAaABQAAQABAAEAAAAbABQAAQABAAEAAAAcABMAAQABAAEAAAAbABMAAQABAAEAAAAaABMAAQABAAEAAAAZABMAAQABAAEAAAAYABMAAQABAAEAAAAXABMAAQABAAEAAAAWABMAAQABAAEAAAAUABMAAQABAAEAAAAVABMAAQABAAEAAAAdABMAAQABAAEAAAAeABMAAQABAAEAAAAfABMAAQABAAEAAAAgABMAAQABAAEAAAAhABMAAQABAAEAAAAiABMAAQABAAEAAAAjABMAAQABAAEAAAAAABIAAQAAAAEAAAAAABMAAQAAAAEAAAAAABQAAQAAAAEAAAA=")
+tile_set = SubResource("TileSet_yi7v1")
 
 [node name="RetratoPato" type="AnimatedSprite2D" parent="." unique_id=1787118758]
-position = Vector2(260, 300)
+position = Vector2(260, 450)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xgmh4")
 animation = &"run_aside"
-frame_progress = 0.5977892
+frame = 11
+frame_progress = 0.30691066
 
-[node name="RetratoGarca" type="Sprite2D" parent="." unique_id=2117433803]
-position = Vector2(890, 300)
-scale = Vector2(4, 4)
-texture = ExtResource("2_bsng1")
+[node name="RetratoGarca" type="AnimatedSprite2D" parent="." unique_id=70196347]
+position = Vector2(890, 405)
+sprite_frames = SubResource("SpriteFrames_swf67")
+animation = &"garca"
+autoplay = "garca"
+frame = 1
+frame_progress = 0.7260894
 flip_h = true
-hframes = 24
-vframes = 5
 
 [node name="CaixaDialogo" type="Panel" parent="." unique_id=1453077997]
 anchors_preset = 7
