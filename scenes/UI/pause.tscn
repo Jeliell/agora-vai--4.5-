@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dwhcibbdmq6ye"]
+
+[ext_resource type="Texture2D" uid="uid://5aqno6jdqvvf" path="res://Art Assets/UIPack/BoxesBanners/Box_Blue_Rounded.png" id="1_oaemh"]
+[ext_resource type="Script" uid="uid://dycmeb0p8t4h" path="res://scripts/UI/pause.gd" id="1_tnhvy"]
+[ext_resource type="Texture2D" uid="uid://d3tec0wowbbt4" path="res://Art Assets/UIPack/ButtonsText/ButtonText_Large_Blue_Round.png" id="3_xr3kq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4kvy"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("3_xr3kq")
+
+[node name="Pause" type="CanvasLayer" unique_id=1472606612]
+process_mode = 2
+script = ExtResource("1_tnhvy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1538850718]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=928437322]
+offset_left = 351.0
+offset_top = 124.0
+offset_right = 801.0
+offset_bottom = 524.0
+texture = ExtResource("1_oaemh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelTitulo" type="Label" parent="." unique_id=1380360080]
+offset_left = 376.0
+offset_top = 140.0
+offset_right = 776.0
+offset_bottom = 210.0
+text = "Jogo Pausado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotaoContinuar" type="Button" parent="." unique_id=530219217]
+offset_left = 430.0
+offset_top = 230.0
+offset_right = 722.0
+offset_bottom = 310.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e4kvy")
+text = "Continuar"
+
+[node name="BotaoReiniciar" type="Button" parent="." unique_id=679824920]
+offset_left = 430.0
+offset_top = 330.0
+offset_right = 722.0
+offset_bottom = 410.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e4kvy")
+text = "Reiniciar"
+
+[node name="BotaoMenu" type="Button" parent="." unique_id=1416851630]
+offset_left = 430.0
+offset_top = 430.0
+offset_right = 722.0
+offset_bottom = 510.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e4kvy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e4kvy")
+text = "Menu"
+
+[connection signal="pressed" from="BotaoContinuar" to="." method="_on_botao_continuar_pressed"]
+[connection signal="pressed" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
+[connection signal="pressed" from="BotaoMenu" to="." method="_on_botao_menu_pressed"]

@@ -23,6 +23,11 @@ config/icon="res://icon.svg"
 
 Configuracao="*uid://dobb0olx5t5me"
 
+[display]
+
+window/size/mode=4
+window/stretch/mode="canvas_items"
+
 [gui]
 
 theme/custom="uid://xv2n4udwf6md"

@@ -1,13 +1,8 @@
 [gd_scene format=4 uid="uid://nmrqcej6jhtr"]
 
-[ext_resource type="Texture2D" uid="uid://cj6uewvlogv8v" path="res://Art Assets/Background/backgelo.png" id="1_jb2sl"]
-[ext_resource type="Shader" uid="uid://dkpkiqixae25u" path="res://scenes/cenarios/scroll.gdshader" id="2_irqfs"]
+[ext_resource type="Texture2D" uid="uid://b2fh1ofevkx7o" path="res://Art Assets/Background/ChatGPT Image 27 de mai. de 2026, 23_17_12.png" id="1_6bu23"]
 [ext_resource type="Script" uid="uid://b5pm2wndhhte6" path="res://scripts/cenarios/tilemap_inverno.gd" id="3_6bu23"]
 [ext_resource type="Texture2D" uid="uid://b1dgnba26o5yo" path="res://Art Assets/Tiles/tileset_inverno_144x48.png" id="3_jb2sl"]
-[ext_resource type="Texture2D" uid="uid://67uuic4bgah3" path="res://Art Assets/Background/loopinggelo.png" id="3_x2ta0"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5sa2o"]
-shader = ExtResource("2_irqfs")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5sa2o"]
 texture = ExtResource("3_jb2sl")
@@ -67,27 +62,18 @@ sources/5 = SubResource("TileSetAtlasSource_5sa2o")
 
 [node name="Inverno" type="Node2D" unique_id=1791308959]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1080233073]
+offset_right = 1169.0
+offset_bottom = 579.0
+color = Color(0.113725, 0.756863, 1, 1)
+
 [node name="Sky" type="TextureRect" parent="." unique_id=1388423701]
-offset_left = 1.0
-offset_top = -260.0
-offset_right = 1173.0
-offset_bottom = 549.0
-texture = ExtResource("1_jb2sl")
+offset_top = -243.0
+offset_right = 1172.0
+offset_bottom = 566.0
+texture = ExtResource("1_6bu23")
 expand_mode = 5
 stretch_mode = 1
-
-[node name="Sky" type="TextureRect" parent="Sky" unique_id=1707904120]
-show_behind_parent = true
-texture_repeat = 3
-material = SubResource("ShaderMaterial_5sa2o")
-layout_mode = 0
-offset_left = -583.0
-offset_top = 126.0
-offset_right = 2031.0
-offset_bottom = 935.0
-texture = ExtResource("3_x2ta0")
-expand_mode = 1
-stretch_mode = 6
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=97609702]
 position = Vector2(-5, 1)

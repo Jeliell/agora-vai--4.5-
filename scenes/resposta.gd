@@ -10,6 +10,10 @@ func _ready() -> void:
 	body_entered.connect(_ao_entrar)
 	body_exited.connect(_ao_sair)
 
+	label.add_theme_color_override("font_color", Color.WHITE)
+	label.add_theme_color_override("font_outline_color", Color.BLACK)
+	label.add_theme_constant_override("outline_size", 4)
+
 func definir(v: int) -> void:
 	valor = v
 	label.text = str(v)

@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://cweqfh7vqw1gu" path="res://scripts/fases/fase2/fase2.gd" id="1_8dmmo"]
 [ext_resource type="PackedScene" uid="uid://cuon255wdbtui" path="res://scenes/cenarios/cenario_verao.tscn" id="2_bum0d"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_m4cpg"]
+[ext_resource type="PackedScene" uid="uid://b6tj0xx6xqpcr" path="res://scenes/UI/nivel_completo.tscn" id="6_6rkr0"]
 [ext_resource type="PackedScene" uid="uid://b3wcodkkpubnh" path="res://scenes/UI/hud.tscn" id="6_8dmmo"]
 [ext_resource type="Script" uid="uid://vhtrh3wkbvbx" path="res://scenes/resposta.gd" id="6_g5fcb"]
+[ext_resource type="PackedScene" uid="uid://2m8qo12ds64w" path="res://scenes/UI/fase_completa.tscn" id="7_fbubx"]
+[ext_resource type="PackedScene" uid="uid://dwhcibbdmq6ye" path="res://scenes/UI/pause.tscn" id="8_fbubx"]
+[ext_resource type="PackedScene" uid="uid://cpdntw7amo2s3" path="res://scenes/UI/game_over.tscn" id="9_c4j4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnet"]
 size = Vector2(93, 43)
@@ -33,6 +37,9 @@ cache/0/50/0/scale = 1.0
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
 font = SubResource("FontFile_4wyf3")
 font_size = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4j4q"]
+size = Vector2(20, 648)
 
 [node name="World" type="Node2D" unique_id=1454552130]
 script = ExtResource("1_8dmmo")
@@ -136,8 +143,32 @@ horizontal_alignment = 1
 
 [node name="HUD" parent="." unique_id=1430824241 instance=ExtResource("6_8dmmo")]
 
-[node name="BarraStamina" parent="HUD" index="6" unique_id=629754042]
+[node name="BarraStamina" parent="HUD" index="5" unique_id=629754042]
 offset_left = 1064.0
 offset_right = 1166.0
+
+[node name="NivelCompleto" parent="." unique_id=1942740472 instance=ExtResource("6_6rkr0")]
+visible = false
+
+[node name="FaseCompleta" parent="." unique_id=1826094087 instance=ExtResource("7_fbubx")]
+visible = false
+
+[node name="Pause" parent="." unique_id=1472606612 instance=ExtResource("8_fbubx")]
+visible = false
+
+[node name="GameOver" parent="." unique_id=269408006 instance=ExtResource("9_c4j4q")]
+visible = false
+
+[node name="ParedeEsquerda" type="StaticBody2D" parent="." unique_id=483201711]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsquerda" unique_id=594535721]
+position = Vector2(-10, 324)
+shape = SubResource("RectangleShape2D_c4j4q")
+
+[node name="ParedeDireita" type="StaticBody2D" parent="." unique_id=766208049]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDireita" unique_id=1021375212]
+position = Vector2(1162, 324)
+shape = SubResource("RectangleShape2D_c4j4q")
 
 [editable path="HUD"]

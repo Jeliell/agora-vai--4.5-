@@ -15,7 +15,8 @@ content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("7_qh4f6")
 
-[node name="FaseCompleta" type="Node2D" unique_id=1839215289]
+[node name="FaseCompleta" type="CanvasLayer" unique_id=1826094087]
+process_mode = 2
 script = ExtResource("1_ujbbs")
 cutscenes_por_fase = {
 1: ExtResource("2_srd5x"),
@@ -39,7 +40,7 @@ texture = ExtResource("6_kis4j")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Fase Completa!" type="Label" parent="." unique_id=161140528]
+[node name="LabelTitulo" type="Label" parent="." unique_id=161140528]
 offset_left = 376.0
 offset_top = 110.0
 offset_right = 776.0
@@ -77,10 +78,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_e4kvy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_e4kvy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_e4kvy")
 text = "Menu Principal"
-
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=405040440]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [connection signal="pressed" from="BotaoProximaFase" to="." method="_on_botao_proxima_fase_pressed"]
 [connection signal="pressed" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
