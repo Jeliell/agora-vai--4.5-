@@ -1,45 +1,281 @@
 [gd_scene format=3 uid="uid://c1ksmefjtmqn3"]
 
 [ext_resource type="Script" uid="uid://deximgdiu2866" path="res://scripts/UI/selecionar_dificuldade.gd" id="1_urblm"]
+[ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="3_mishb"]
+[ext_resource type="PackedScene" uid="uid://euo47htq10rr" path="res://scenes/UI/garca_menu.tscn" id="4_pr0xk"]
+[ext_resource type="Texture2D" uid="uid://bn7sanr084t0f" path="res://Art Assets/Background/background.jpg" id="5_ugjgt"]
+[ext_resource type="PackedScene" uid="uid://c4i8qoi62mar3" path="res://scenes/UI/botao_plataforma.tscn" id="7_td4t8"]
+[ext_resource type="Script" uid="uid://dv7gic1m0510b" path="res://scripts/UI/botao_plataforma.gd" id="8_ggf47"]
+[ext_resource type="FontFile" uid="uid://dfedkbfeoj0r" path="res://Art Assets/fontes/PixelifySans-Bold.ttf" id="9_pr0xk"]
+[ext_resource type="Script" uid="uid://ddrj2gdcujn8u" path="res://scenes/UI/botao_menu.gd" id="10_ugjgt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22gpi"]
+size = Vector2(1911, 112)
+
+[sub_resource type="Animation" id="Animation_7amk3"]
+resource_name = "Pulsar"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.5041764),
+"transitions": PackedFloat32Array(1.0000188, 0.06698709, 1.0000188),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uviw4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_66nke"]
+_data = {
+&"Pulsar": SubResource("Animation_7amk3"),
+&"RESET": SubResource("Animation_uviw4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhs28"]
+size = Vector2(193.71756, 63.63852)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aprps"]
+size = Vector2(192, 65.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i4v0"]
+size = Vector2(190, 66)
 
 [node name="SelecionaDificuldade" type="Node2D" unique_id=1913901628]
 script = ExtResource("1_urblm")
 
-[node name="LabelAtual" type="Label" parent="." unique_id=1630281698]
-offset_left = 114.0
-offset_top = 16.0
-offset_right = 154.0
-offset_bottom = 39.0
+[node name="player" parent="." unique_id=746185790 instance=ExtResource("3_mishb")]
+z_index = 2
+position = Vector2(100.00001, 480)
+scale = Vector2(2.183483, 1.900028)
 
-[node name="BotaoFacil" type="Button" parent="." unique_id=690135301]
-offset_left = 96.0
-offset_top = 52.0
-offset_right = 177.0
-offset_bottom = 70.0
-text = "Facil"
+[node name="Dificuldade" type="Label" parent="." unique_id=1630281698]
+offset_left = 106.0
+offset_top = 244.0
+offset_right = 986.0
+offset_bottom = 341.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.00092526554, 0.21188462, 0.75450605, 1)
+theme_override_colors/font_outline_color = Color(0.00092526554, 0.21188462, 0.75450605, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("9_pr0xk")
+theme_override_font_sizes/font_size = 80
+text = "Selecione a Dificuldade"
 
-[node name="BotaoMedio" type="Button" parent="." unique_id=442828658]
-offset_left = 96.0
-offset_top = 88.0
-offset_right = 173.0
-offset_bottom = 119.0
+[node name="PontoOrigem" type="Marker2D" parent="." unique_id=880276209]
+position = Vector2(105, 466)
+
+[node name="ZonaDeQueda" type="Area2D" parent="." unique_id=652049089]
+position = Vector2(52, 721)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaDeQueda" unique_id=2011597875]
+z_index = 8
+position = Vector2(510, 22)
+shape = SubResource("RectangleShape2D_22gpi")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=79748612]
+z_index = -6
+position = Vector2(562.5, 321.00003)
+scale = Vector2(1.8897762, 1.2428118)
+texture = ExtResource("5_ugjgt")
+
+[node name="Facil" parent="." unique_id=1990194605 instance=ExtResource("7_td4t8")]
+position = Vector2(110.000015, 579)
+scale = Vector2(0.99609417, 0.988096)
+script = ExtResource("8_ggf47")
+cena_destino = "res://scenes/fases/fase1/fase1.tscn"
+
+[node name="BotaoJogar" type="Button" parent="Facil" unique_id=1404831820]
+z_index = 1
+offset_left = -93.36467
+offset_top = -34.409607
+offset_right = 97.63533
+offset_bottom = 32.590393
+pivot_offset = Vector2(95.5, 33.5)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9736844, 0.8881644, 0, 1)
+theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("9_pr0xk")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+button_mask = 0
+text = "Fácil"
+flat = true
+script = ExtResource("10_ugjgt")
+
+[node name="Pulsar" type="AnimationPlayer" parent="Facil/BotaoJogar" unique_id=1854304308]
+libraries/ = SubResource("AnimationLibrary_66nke")
+autoplay = &"Pulsar"
+
+[node name="Area2D" type="Area2D" parent="Facil/BotaoJogar" unique_id=1907973818]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Facil/BotaoJogar/Area2D" unique_id=6448101]
+position = Vector2(94.36858, 30.361422)
+shape = SubResource("RectangleShape2D_hhs28")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
+[node name="Medio" parent="." unique_id=567067872 instance=ExtResource("7_td4t8")]
+position = Vector2(390, 559)
+script = ExtResource("8_ggf47")
+
+[node name="BotaoDificuldade" type="Button" parent="Medio" unique_id=1356101114]
+z_index = 1
+offset_left = -91.999985
+offset_top = -31.0
+offset_right = 102.000015
+offset_bottom = 31.0
+pivot_offset = Vector2(95.5, 33.5)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9736844, 0.8881644, 0, 1)
+theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("9_pr0xk")
+theme_override_font_sizes/font_size = 35
+action_mode = 0
+button_mask = 0
 text = "Médio"
+flat = true
+script = ExtResource("10_ugjgt")
 
-[node name="BotaoDificil" type="Button" parent="." unique_id=941521225]
-offset_left = 96.0
-offset_top = 123.0
-offset_right = 165.0
-offset_bottom = 154.0
-text = "Dificil"
+[node name="Pulsar" type="AnimationPlayer" parent="Medio/BotaoDificuldade" unique_id=1487868080]
+libraries/ = SubResource("AnimationLibrary_66nke")
+autoplay = &"Pulsar"
 
-[node name="Menu" type="Button" parent="." unique_id=941052673]
-offset_left = 96.0
-offset_top = 159.0
-offset_right = 165.0
-offset_bottom = 192.0
+[node name="Area2D" type="Area2D" parent="Medio/BotaoDificuldade" unique_id=1389472429]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Medio/BotaoDificuldade/Area2D" unique_id=2051302179]
+position = Vector2(92, 27.25)
+shape = SubResource("RectangleShape2D_aprps")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
+[node name="Dificil" parent="." unique_id=981319978 instance=ExtResource("7_td4t8")]
+position = Vector2(685, 504)
+script = ExtResource("8_ggf47")
+
+[node name="BotaoFase" type="Button" parent="Dificil" unique_id=1208843412]
+z_index = 1
+offset_left = -95.0
+offset_top = -34.0
+offset_right = 96.0
+offset_bottom = 33.0
+pivot_offset = Vector2(95.5, 33.5)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9736844, 0.8881644, 0, 1)
+theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("9_pr0xk")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+button_mask = 0
+text = "Difícil"
+flat = true
+script = ExtResource("10_ugjgt")
+
+[node name="Pulsar" type="AnimationPlayer" parent="Dificil/BotaoFase" unique_id=799825089]
+libraries/ = SubResource("AnimationLibrary_66nke")
+autoplay = &"Pulsar"
+
+[node name="Area2D" type="Area2D" parent="Dificil/BotaoFase" unique_id=1077353903]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dificil/BotaoFase/Area2D" unique_id=325170404]
+position = Vector2(96, 30)
+shape = SubResource("RectangleShape2D_5i4v0")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
+[node name="Voltar" parent="." unique_id=382991813 instance=ExtResource("7_td4t8")]
+position = Vector2(986, 579)
+script = ExtResource("8_ggf47")
+eh_botao_sair = true
+
+[node name="BotaoVoltar" type="Button" parent="Voltar" unique_id=872862777]
+z_index = 1
+offset_left = -95.0
+offset_top = -34.0
+offset_right = 96.0
+offset_bottom = 33.0
+pivot_offset = Vector2(95.5, 33.5)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9736844, 0.8881644, 0, 1)
+theme_override_colors/font_outline_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.47293556, 0.2698273, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("9_pr0xk")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+button_mask = 0
 text = "Voltar"
+flat = true
+script = ExtResource("10_ugjgt")
+cena_destino = "uid://cilwq0kr5vwma"
 
-[connection signal="pressed" from="BotaoFacil" to="." method="_on_botao_facil_pressed"]
-[connection signal="pressed" from="BotaoMedio" to="." method="_on_botao_medio_pressed"]
-[connection signal="pressed" from="BotaoDificil" to="." method="_on_botao_dificil_pressed"]
-[connection signal="pressed" from="Menu" to="." method="_on_botao_menu_pressed"]
+[node name="Pulsar" type="AnimationPlayer" parent="Voltar/BotaoVoltar" unique_id=1095162949]
+libraries/ = SubResource("AnimationLibrary_66nke")
+autoplay = &"Pulsar"
+
+[node name="Area2D" type="Area2D" parent="Voltar/BotaoVoltar" unique_id=2083631488]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Voltar/BotaoVoltar/Area2D" unique_id=645853334]
+position = Vector2(96, 30)
+shape = SubResource("RectangleShape2D_5i4v0")
+debug_color = Color(0, 0.60038817, 0.70000815, 0)
+
+[node name="GarcaMenu" parent="." unique_id=1101426258 instance=ExtResource("4_pr0xk")]
+z_index = 3
+position = Vector2(337, -94)
+limite_esquerdo = 378.0
+limite_direito = 740.0
+
+[connection signal="body_entered" from="ZonaDeQueda" to="." method="_on_zona_de_queda_body_entered"]
+[connection signal="focus_entered" from="Facil/BotaoJogar" to="Facil/BotaoJogar" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Facil/BotaoJogar" to="Facil/BotaoJogar" method="_on_focus_exited"]
+[connection signal="pressed" from="Facil/BotaoJogar" to="Facil/BotaoJogar" method="_on_pressed"]
+[connection signal="body_entered" from="Facil/BotaoJogar/Area2D" to="Facil/BotaoJogar" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Facil/BotaoJogar/Area2D" to="Facil/BotaoJogar" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="Medio/BotaoDificuldade" to="Medio/BotaoDificuldade" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Medio/BotaoDificuldade" to="Medio/BotaoDificuldade" method="_on_focus_exited"]
+[connection signal="pressed" from="Medio/BotaoDificuldade" to="Medio/BotaoDificuldade" method="_on_pressed"]
+[connection signal="body_entered" from="Medio/BotaoDificuldade/Area2D" to="Medio/BotaoDificuldade" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Medio/BotaoDificuldade/Area2D" to="Medio/BotaoDificuldade" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="Dificil/BotaoFase" to="Dificil/BotaoFase" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Dificil/BotaoFase" to="Dificil/BotaoFase" method="_on_focus_exited"]
+[connection signal="pressed" from="Dificil/BotaoFase" to="Dificil/BotaoFase" method="_on_pressed"]
+[connection signal="body_entered" from="Dificil/BotaoFase/Area2D" to="Dificil/BotaoFase" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Dificil/BotaoFase/Area2D" to="Dificil/BotaoFase" method="_on_area_2d_body_exited"]
+[connection signal="focus_entered" from="Voltar/BotaoVoltar" to="Voltar/BotaoVoltar" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Voltar/BotaoVoltar" to="Voltar/BotaoVoltar" method="_on_focus_exited"]
+[connection signal="pressed" from="Voltar/BotaoVoltar" to="Voltar/BotaoVoltar" method="_on_pressed"]
+[connection signal="body_entered" from="Voltar/BotaoVoltar/Area2D" to="Voltar/BotaoVoltar" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Voltar/BotaoVoltar/Area2D" to="Voltar/BotaoVoltar" method="_on_area_2d_body_exited"]
