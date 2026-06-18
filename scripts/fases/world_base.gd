@@ -20,12 +20,12 @@ extends Node2D
 # Nível atual (1-3) — controlado internamente
 var nivel_atual: int = 1
 
-@onready var label_alvo: Label     = $HUD/LabelAlvo
-@onready var label_pontos: Label   = $HUD/LabelPontos
+@onready var label_alvo: Label     = $HUD/PanelContainer3/LabelAlvo
+@onready var label_pontos: Label   = $HUD/PanelContainer4/LabelPontos
 @onready var label_feedback: Label = $HUD/LabelFeedback
-@onready var label_vidas: Label    = $HUD/LabelVidas
+@onready var label_vidas: Label    = $HUD/PanelContainer/LabelVidas
 @onready var label_fase: Label     = $HUD/LabelFase
-@onready var cronometro            = $HUD/cornometro
+@onready var cronometro            = $HUD/PanelContainer2/cornometro
 @onready var barra_stamina: ProgressBar = $HUD/BarraStamina
 
 var pontuacao: int = 0
@@ -132,6 +132,8 @@ func _errou() -> void:
 	_nova_pergunta()
 
 func _atualizar_vidas() -> void:
+
+
 	label_vidas.text = "♥ ".repeat(vidas)
 
 func _atualizar_fase() -> void:

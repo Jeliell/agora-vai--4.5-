@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmqu6m5qg0ord"
-path="res://.godot/imported/ChatGPT Image 27 de mai. de 2026, 23_07_57.png-e698767c3680c6a7b89a3f52d7997223.ctex"
+uid="uid://c3ogf4y2wthmk"
+path="res://.godot/imported/placa_cronometro.png-5a8100094ddcd3fb255d5b5016c2b584.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Background/ChatGPT Image 27 de mai. de 2026, 23_07_57.png"
-dest_files=["res://.godot/imported/ChatGPT Image 27 de mai. de 2026, 23_07_57.png-e698767c3680c6a7b89a3f52d7997223.ctex"]
+source_file="res://Art Assets/HUD/placa_cronometro.png"
+dest_files=["res://.godot/imported/placa_cronometro.png-5a8100094ddcd3fb255d5b5016c2b584.ctex"]
 
 [params]
 
