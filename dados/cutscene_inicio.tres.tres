@@ -5,24 +5,24 @@
 
 [sub_resource type="Resource" id="Resource_627ml"]
 script = ExtResource("1_i0cyb")
-texto = "Ufa! Consegui resolver todas as continhas da primavera!"
+personagem = "garca"
+texto = "Vejo que está observando o horizonte outra vez, pequeno pato."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_pq4vd"]
 script = ExtResource("1_i0cyb")
-personagem = "garca"
-texto = "Muito bem, pequeno pato! Você está ficando esperto com os números."
+texto = "Sim. Quero conhecer lugares novos e ajudar quem encontrar pelo caminho, mas ainda não sei como."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_yo2i2"]
 script = ExtResource("1_i0cyb")
-texto = "Obrigado, dona Garça! Mas... o que vem agora?"
+personagem = "garca"
+texto = "Todo explorador começa aprendendo. Hoje você dará seus primeiros passos através da matemática."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_8f2ra"]
 script = ExtResource("1_i0cyb")
-personagem = "garca"
-texto = "Agora o verão chegou! Prepare-se, o calor vai testar seu fôlego."
+texto = "Então vou aprender tudo o que puder. Minha jornada começa agora!"
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [resource]

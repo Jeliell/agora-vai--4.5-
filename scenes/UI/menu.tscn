@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bv8ujyre2eu6d" path="res://scripts/UI/menu.gd" id="1_2tfbb"]
 [ext_resource type="Texture2D" uid="uid://863u0po2iosj" path="res://Art Assets/UI/TitleScreen.png" id="2_2un8v"]
+[ext_resource type="Resource" uid="uid://cjceke4hpgmv" path="res://dados/cutscene_inicio.tres.tres" id="2_wav1i"]
 [ext_resource type="PackedScene" uid="uid://c4i8qoi62mar3" path="res://scenes/UI/botao_plataforma.tscn" id="3_2un8v"]
-[ext_resource type="FontFile" uid="uid://dfedkbfeoj0r" path="res://Art Assets/fontes/PixelifySans-Bold.ttf" id="4_7amk3"]
+[ext_resource type="FontFile" uid="uid://dfedkbfeoj0r" path="res://Art Assets/Fontes/PixelifySans-Bold.ttf" id="4_7amk3"]
 [ext_resource type="PackedScene" uid="uid://biid5q2ia5ygp" path="res://player.tscn" id="4_iysyy"]
 [ext_resource type="PackedScene" uid="uid://euo47htq10rr" path="res://scenes/UI/garca_menu.tscn" id="5_ny0ke"]
 [ext_resource type="Script" uid="uid://dv7gic1m0510b" path="res://scripts/UI/botao_plataforma.gd" id="9_45usf"]
@@ -72,6 +73,7 @@ size = Vector2(190, 66)
 
 [node name="Menu" type="Node2D" unique_id=1980198305]
 script = ExtResource("1_2tfbb")
+cutscene_inicio = ExtResource("2_wav1i")
 
 [node name="Duck" type="TextureRect" parent="." unique_id=475539722]
 offset_left = 355.50003
@@ -277,7 +279,6 @@ debug_color = Color(0, 0.60038817, 0.70000815, 0)
 [connection signal="focus_entered" from="Iniciar/BotaoJogar" to="Iniciar/BotaoJogar" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Iniciar/BotaoJogar" to="Iniciar/BotaoJogar" method="_on_focus_exited"]
 [connection signal="pressed" from="Iniciar/BotaoJogar" to="." method="_on_botao_jogar_pressed"]
-[connection signal="pressed" from="Iniciar/BotaoJogar" to="Iniciar/BotaoJogar" method="_on_pressed"]
 [connection signal="body_entered" from="Iniciar/BotaoJogar/Area2D" to="Iniciar/BotaoJogar" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Iniciar/BotaoJogar/Area2D" to="Iniciar/BotaoJogar" method="_on_area_2d_body_exited"]
 [connection signal="focus_entered" from="EscolherFase/BotaoFase" to="EscolherFase/BotaoFase" method="_on_focus_entered"]

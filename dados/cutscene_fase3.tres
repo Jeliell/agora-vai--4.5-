@@ -5,24 +5,24 @@
 
 [sub_resource type="Resource" id="Resource_627ml"]
 script = ExtResource("1_ayiv1")
-texto = "Ufa! Consegui resolver todas as continhas da primavera!"
+texto = "Durante minha jornada percebi que ninguém aprende sozinho"
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_pq4vd"]
 script = ExtResource("1_ayiv1")
 personagem = "garca"
-texto = "Muito bem, pequeno pato! Você está ficando esperto com os números."
+texto = "Essa é a essência da divisão. Compartilhar recursos, conhecimento e oportunidades."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_yo2i2"]
 script = ExtResource("1_ayiv1")
-texto = "Obrigado, dona Garça! Mas... o que vem agora?"
+texto = "Quanto mais compartilho o que aprendo, mais aprendo também."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_8f2ra"]
 script = ExtResource("1_ayiv1")
 personagem = "garca"
-texto = "Agora o verão chegou! Prepare-se, o calor vai testar seu fôlego."
+texto = "Uma lição valiosa. Ela será necessária para enfrentar o inverno que se aproxima."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [resource]

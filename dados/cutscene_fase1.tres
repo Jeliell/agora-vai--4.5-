@@ -5,23 +5,24 @@
 
 [sub_resource type="Resource" id="Resource_627ml"]
 script = ExtResource("1_627ml")
-texto = "Ufa! Consegui resolver todas as continhas da primavera!"
+texto = "Descobri que cada resposta correta me ensinava algo novo."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_pq4vd"]
 script = ExtResource("1_627ml")
 personagem = "garca"
-texto = "Muito bem, pequeno pato! Você está ficando esperto com os números."
+texto = "A soma é exatamente isso. Juntar conhecimentos para se tornar mais forte e preparado."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_yo2i2"]
 script = ExtResource("1_627ml")
-texto = "Obrigado, dona Garça! Mas... o que vem agora?"
+texto = "Quanto mais aprendo, mais distante parece o limite do que posso alcançar."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_8f2ra"]
 script = ExtResource("1_627ml")
 personagem = "garca"
+texto = "Continue avançando. O verão o ensinará que crescer também significa enfrentar mudanças."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [resource]

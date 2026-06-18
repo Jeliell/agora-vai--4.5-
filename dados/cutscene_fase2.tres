@@ -5,24 +5,24 @@
 
 [sub_resource type="Resource" id="Resource_627ml"]
 script = ExtResource("1_hj80o")
-texto = "Ufa! Consegui resolver todas as continhas da primavera!"
+texto = "Algumas perguntas foram difíceis. Pensei até em desistir."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_pq4vd"]
 script = ExtResource("1_hj80o")
 personagem = "garca"
-texto = "Muito bem, pequeno pato! Você está ficando esperto com os números."
+texto = "A subtração nos ensina a remover aquilo que nos atrasa: o medo, a dúvida e a insegurança."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_yo2i2"]
 script = ExtResource("1_hj80o")
-texto = "Obrigado, dona Garça! Mas... o que vem agora?"
+texto = "Então deixei para trás parte dos receios que carregava."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [sub_resource type="Resource" id="Resource_8f2ra"]
 script = ExtResource("1_hj80o")
 personagem = "garca"
-texto = "Agora o verão chegou! Prepare-se, o calor vai testar seu fôlego."
+texto = "E agora está mais leve para seguir rumo ao outono."
 metadata/_custom_type_script = "uid://c5glm0xyacp85"
 
 [resource]
